@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <title>Tangent angle calculator</title>
+    <img src="tangent_calculations.svg.png" width="500px" alt="schematic image"/>
+    <form>
+          r:
+          <input type="text" id="r" value="15">
+          <br>
+          x<sub>o</sub>:
+          <input type="text" id="xo" value="0">
+          <br>
+          y<sub>o</sub>:
+          <input type="text" id="yo" value="0">
+          <br>
+          x<sub>p</sub>:
+          <input type="text" id="xp" value="50">
+          <br>
+          y<sub>p</sub>:
+          <input type="text" id="yp" value="50">
+          <br>
+          <br>
+          <input type="button" onclick="solve()" value="Calculate">
+    </form>
+    <p id="inputs">Inputs: </p>
+    <p id="result">Angles: </p>
+    <p id="position">Tangent Locations: </p>
+    
+    <a href="tangent_calculation.pdf">Details about the calculation</a>
+    
+    <p>Calculations and program by <strong>Sourabh Bhat</strong>.<br>
+    In case of any bug found, please report to "<strong>bhat.sourabh@iitb.ac.in</strong>" or "<strong>heySourabh@gmail.com</strong>" with inputs for which it failed.</p>
+    
+    <script>
+        var r = 0;
+        var xo = 0;
+        var yo = 0;
+        var xp = 0;
+        var yp = 0;
+        
+        function func(theta) {
+            var rcos = r * Math.cos(theta);
+            var rsin = r * Math.sin(theta);
+            return (xp - xo - rcos) * rcos + (yp - yo - rsin) * rsin;
+        }
+        
+        function df(theta) {
+            var dt = 1e-3;
+            return (func(theta + dt) - func(theta - dt)) / (2.0 * dt);
+        }
+        
+        function newtonRaphson(init) {
+            var theta = init;
+            var maxIter = 10000;
+            var iter = 0;
+            var eps = 1e-12;
+            for(; iter < maxIter; iter++) {
+                newTheta = theta - func(theta) / df(theta)
+                if(Math.abs(newTheta - theta) < eps) break;
+                
+                theta = newTheta;
+            }
+            
+            if(iter == maxIter) return "undefined"
+            else return theta
+        }
+        
+        function solve() {
+            r = document.getElementById("r").value;
+            xo = document.getElementById("xo").value;
+            yo = document.getElementById("yo").value;
+            xp = document.getElementById("xp").value;
+            yp = document.getElementById("yp").value;
+            document.getElementById("inputs").innerHTML = "Inputs: " + "r=" + r + ", xo=" + xo + ", yo=" + yo + ", xp=" + xp + ", yp=" + yp;
+            
+            
+            var interAngle = Math.atan2(yp - yo, xp - xo);
+            var soln1 = newtonRaphson(interAngle + 45.0 * Math.PI / 180);
+            var soln2 = newtonRaphson(interAngle - 45.0 * Math.PI / 180);
+            document.getElementById("result").innerHTML = "Angles: " + (soln1 * 180.0 / Math.PI) + ", " + (soln2 * 180.0 / Math.PI);
+            
+            
+            var xt1 = Math.cos(soln1) * r + 1.0 * xo;
+            var yt1 = Math.sin(soln1) * r + 1.0 * yo;
+            var xt2 = Math.cos(soln2) * r + 1.0 * xo;
+            var yt2 = Math.sin(soln2) * r + 1.0 * yo;
+            document.getElementById("position").innerHTML = "Tangent Locations (xT, yT): <br>(" + xt1 + ", " + yt1 + "); <br>(" + xt2 + ", " + yt2 + ")";
+        }
+    </script>
+</html>

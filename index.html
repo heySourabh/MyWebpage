@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <link rel="icon" 
+          type="image/png" 
+          href="./images/favicon.png">
+        <link rel="stylesheet"
+          type="text/css"
+          href="./stylesheets/style.css">
+        <!-- SMOOTH SCROLL -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="./js/smoothscroll.js"></script>
+        <!-- End of SMOOTH SCROLL -->
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-69828084-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+    	<title>Sourabh's Homepage</title>
+	</head>
+	<body>
+	    <div class="fullscreen-bg">
+            <!--<video loop muted autoplay poster="images/banner_bg.jpg" class="fullscreen-bg__video">-->
+            <!--    <source src="images/banner_video.mp4" type="video/mp4">-->
+            <!--</video>-->
+        </div>
+	    <nav>
+	        <a href="#home"><img src="./images/home.png" height=25px></img> Home</a> |
+	        <a href="#research"><img src="./images/research.png" height=25px></img> Research</a> |
+	        <a href="#resources"><img src="./images/resources.png" height=25px></img> Resources</a> |
+	        <a href="#contact"><img src="./images/contact.png" height=25px></img> Contact</a>
+	    </nav>
+	    <a name="home"></a>
+	    <br>
+	    <h1>Sourabh Bhat</h1>
+	    <!--<hr>-->
+	    <h2>About Me</h2>
+	    <div id="about_me_container">
+	        <div class="container" id="about_me">
+	            <p>
+	                I am a researcher at Indian Institute of Technology Bombay, which is one of the premier institutes in India.
+	                My area of research includes development and testing of algorithms for multiphase flows and high-resolution methods in the field
+	                of Computational Fluid Dynamics. I am a programming enthusiast and I program in many languages like Java, C/C++, Python, Maple, 
+	                HTML, javascript etc. In my free time, I upload videos related to programming of computational fluid dynamics software on 
+	                <a href=https://www.youtube.com/channel/UCzf_bkVN863Tr6mH3k_V0Pg target="_blank">my YouTube<sup>&reg</sup> channel</a>.
+                </p>
+            </div>
+            <div id="my_photo">
+                <img src="./images/my_pic.jpg"></img>
+            </div>
+        </div>
+	    <!--<hr>-->
+	    <a name="research"></a>
+	    <h2>Research</h2>
+	    <div id="research_img_container" style="text-align:center;">
+    	        <div id="dam_break" style="width:200px; display:inline-block;">
+    	            <center><img src="./images/research/dam_break.gif" height=150px></img><br>
+    	            Dam Break</center>
+    	        </div>
+    	        <div id="bubble" style="width:200px; display:inline-block;">
+    	            <center><img src="./images/research/bubble.gif" height=150px></img><br>
+    	            Rising Bubble</center>
+    	        </div>
+    	        <div id="isen_vort" style="width:200px; display:inline-block;">
+    	            <center><img src="./images/research/isentropic_vortex.gif" height=150px></img><br>
+    	            Isentropic Vortex</center>
+    	        </div>
+    	        <div id="shock_wave" style="width:260px; display:inline-block;">
+    	            <center><img src="./images/research/shock_wave.gif" height=150px></img><br>
+    	            Shock Wave</center>
+    	        </div>
+    	        <div id="swirl" style="width:200px; display:inline-block;">
+    	            <center><img src="./images/research/swirl.gif" height=150px></img><br>
+    	            Swirl VOF</center>
+    	        </div>
+	    </div>
+	    <div class="container" style="width:1000px">
+    	    <ul>
+    	        <li><a href=http://dx.doi.org/10.1115/GTINDIA2012-9541 target="_blank">Numerical analysis of flow in s-duct diffusers with and without flow control</a></li>
+    	        <li><a href=http://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1838567 target="_blank">An assessment of turbulence models for S-duct diffusers with flow control</a></li>
+    	        <li><a href=http://www.iafastro.net/iac/archive/browse/IAC-12/A3/3A/12885/ target="_blank">Effect of nose cavity on heat transfer rates to the surface of an aeroshell descending through the Martian atmosphere</a></li>
+    	    </ul>
+	    </div>
+	    <!--<hr>-->
+	    <a name="resources"></a>
+	    <h2>Resources</h2>
+	    <div class="container" style="width:600px">
+    	    <ul>
+    	        <li><a href=https://www.youtube.com/channel/UCzf_bkVN863Tr6mH3k_V0Pg target="_blank">Videos on my CFD YouTube channel</a></li>
+    	        <!--<li><a href=https://www.youtube.com/channel/UCEpaes5kWBN8Opp8pKej08Q target="_blank">Videos on my Coding YouTube channel</a></li>-->
+    	        <li><a href=https://github.com/heySourabh/ target="_blank">Resources and code on my GitHub page</a></li>
+    	        <li><a href=http://cfd-stability-tutor.blogspot.in/ target="_blank">CFD Tutor for beginners</a></li>
+    	        <li><a href="tools/tangentcalc/tangent_angle.html">Tangent Calculation Program</a></li>
+    	    </ul>
+	    </div>
+	    <div id="CFD Tutorial">
+    	    <iframe width="400" height="225" src="https://www.youtube.com/embed/videoseries?list=PLhqERbuQO__BLrzBDsH6Rve9Ug6a54mHC" frameborder="0" allowfullscreen></iframe>
+    	    <iframe width="400" height="225" src="https://www.youtube.com/embed/videoseries?list=PLhqERbuQO__BTGUBPPuwlRiWbE7jLH6uM" frameborder="0" allowfullscreen></iframe>
+	    </div>
+	    <div id="Code4Lyfe">
+	    <!--
+	        <iframe width="400" height="225" src="https://www.youtube.com/embed/OtEq39BBUsA" frameborder="0" allowfullscreen></iframe>
+    	    <iframe width="400" height="225" src="https://www.youtube.com/embed/JXuj3MjzxDU" frameborder="0" allowfullscreen></iframe>
+    	    <iframe width="400" height="225" src="https://www.youtube.com/embed/EhUhJG3RUQw" frameborder="0" allowfullscreen></iframe>
+    	    <iframe width="400" height="225" src="https://www.youtube.com/embed/MO2KWdKInDE" frameborder="0" allowfullscreen></iframe>
+    	-->
+	    </div>
+	    <!--<hr>-->
+	    <a name="contact"></a>
+	    <h2>Contact</h2>
+	    <p>
+    	    <font style="font-weight:bold;">bhat.sourabh@iitb.ac.in</font>
+    	</p>
+    	<br><br><br>
+	</body>
+	<div id="copyrights">Copyrights &copy Designed and Programmed by Sourabh Bhat</div>
+</html>

@@ -1,0 +1,21 @@
+.img-radius {
+  border-radius:20px;
+  box-shadow: 0px 0px 10px green;
+  transform: rotate(2deg);
+  margin: 25px;
+  transition: 0.2s ease-out;
+}
+.img-radius:hover {
+  border-radius:0px;
+  width:42%;
+  box-shadow: 0px 20px 100px red;
+  transform: rotate(-2deg);
+  transition: 0.2s ease-in;
+}
+.myStyle {
+  background: yellow;
+  color: red;
+  margin-top: 100px;
+  margin-right: 100px;
+  padding: 50px;
+}

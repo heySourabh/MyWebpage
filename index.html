@@ -18,12 +18,14 @@
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
           rel="stylesheet">
+    
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="vendor/devicons/css/devicons.min.css" rel="stylesheet">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/resume.min.css" rel="stylesheet">
+    <link href="css/form.css" rel="stylesheet">
 
 </head>
 
@@ -522,7 +524,24 @@
             </ul>
         </div>
     </section>
+    
+    <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
+        <div class="my-auto">
+            <h2 class="mb-5">Contact Me</h2>
+            <form id="gform" action="https://script.google.com/macros/s/AKfycbyPT6-y6GgisHFrK4QLukewEXdUjE6swsC9VoAbCZTrz4J9fEk/exec" method="POST">
+                <!--label for="fname">Name</label>-->
+                <input type="text" id="fname" name="firstname" placeholder="Name">
 
+                <!--label for="email">Email</label>-->
+                <input type="text" id="email" name="email" placeholder="Email">
+
+                <!--label for="message">Message</label>-->
+                <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </section>
 </div>
 
 <!-- Bootstrap core JavaScript -->

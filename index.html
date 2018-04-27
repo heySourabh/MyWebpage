@@ -33,7 +33,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
     <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <span class="d-block d-lg-none">Resume</span>
+        <span class="d-block d-lg-none">Sourabh Bhat</span>
         <span class="d-none d-lg-block">
           <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
         </span>
@@ -77,7 +77,8 @@
                 <span class="text-primary">Bhat</span>
             </h1>
             <div class="subheading mb-5">Department of Aerospace Engineering, IIT Bombay·
-                <a href="mailto:bhat.sourabh@iitb.ac.in">bhat.sourabh@iitb.ac.in</a>
+                <a class="js-scroll-trigger" href="#contact">Contact Me</a>
+                <span style="visibility:hidden;"><a href="mailto:bhat.sourabh@iitb.ac.in">bhat.sourabh@iitb.ac.in</a></span>
             </div>
             <p class="mb-0">I am experienced in the development of software tools and application of computational fluid
                 dynamics in the field of Mechanical and Aerospace Engineering.</p>
@@ -528,15 +529,15 @@
     <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="contact">
         <div class="my-auto">
             <h2 class="mb-5">Contact Me</h2>
-            <form id="gform" action="https://script.google.com/macros/s/AKfycbyPT6-y6GgisHFrK4QLukewEXdUjE6swsC9VoAbCZTrz4J9fEk/exec" method="POST">
+            <form action="https://formspree.io/bhat.sourabh@iitb.ac.in" method="POST">
                 <!--label for="fname">Name</label>-->
-                <input type="text" id="fname" name="firstname" placeholder="Name">
+                <input type="text" id="name" name="name" placeholder="Your Name">
 
                 <!--label for="email">Email</label>-->
-                <input type="text" id="email" name="email" placeholder="Email">
+                <input type="text" id="email" name="email" placeholder="Your Email">
 
                 <!--label for="message">Message</label>-->
-                <textarea id="message" name="message" placeholder="Write something..." style="height:200px"></textarea>
+                <textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
 
                 <input type="submit" value="Submit">
             </form>

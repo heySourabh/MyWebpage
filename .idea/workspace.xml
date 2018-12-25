@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0600da69-5e70-41ef-9c2a-376521d1a180" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,10 +14,10 @@
     <session id="636450455">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.22" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -39,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="423" column="111" lean-forward="true" selection-start-line="423" selection-start-column="111" selection-end-line="423" selection-end-column="111" />
+              <caret line="423" column="111" selection-start-line="423" selection-start-column="111" selection-end-line="423" selection-end-column="111" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#li#0;n#ol#0;n#div#0;n#section#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -69,7 +68,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="MyWebpage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyWebpage" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
     </panes>
   </component>
@@ -103,7 +112,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12756985" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -131,7 +139,7 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="423" column="111" lean-forward="true" selection-start-line="423" selection-start-column="111" selection-end-line="423" selection-end-column="111" />
+          <caret line="423" column="111" selection-start-line="423" selection-start-column="111" selection-end-line="423" selection-end-column="111" />
           <folding>
             <element signature="n#style#0;n#a#0;n#li#0;n#ol#0;n#div#0;n#section#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

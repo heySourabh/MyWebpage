@@ -1,7 +1,7 @@
 {
     "title": "Sourabh Bhat",
     "name": "Resume",
-    "version": "4.0.0",
+    "version": "0.0.0",
     "description": "Personal Website",
     "keywords": [
         "Sourabh Bhat",
@@ -10,18 +10,9 @@
     ],
     "homepage": "https://spbhat.in/",
     "dependencies": {
-        "bootstrap": "4.0.0",
+        "bootstrap": "4.2.1",
         "devicons": "^1.8.0",
         "jquery": "3.3.1",
         "simple-line-icons": "^2.4.1"
-    },
-    "devDependencies": {
-        "browser-sync": "2.23.6",
-        "gulp": "^3.9.1",
-        "gulp-clean-css": "3.9.2",
-        "gulp-header": "2.0.1",
-        "gulp-rename": "^1.2.2",
-        "gulp-sass": "^3.1.0",
-        "gulp-uglify": "3.0.0"
     }
 }

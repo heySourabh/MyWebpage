@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Suryanamakar Counts</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="/js/sn.js"></script>
+</head>
+
+<body onload="preload()">
+    <div id=audio-placeholder>
+        <audio id="1" preload>
+            <source src="media/1.mp3" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <audio id="2" preload>
+            <source src="media/2.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="3" preload>
+            <source src="media/3.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="4" preload>
+            <source src="media/4.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="5" preload>
+            <source src="media/5.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="6" preload>
+            <source src="media/6.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="7" preload>
+            <source src="media/7.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="8" preload>
+            <source src="media/8.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="9" preload>
+            <source src="media/9.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="10" preload>
+            <source src="media/10.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="11" preload>
+            <source src="media/11.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="12" preload>
+            <source src="media/12.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="right" preload>
+            <source src="media/right.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="left" preload>
+            <source src="media/left.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="background_music" preload>
+            <source src="media/Renegade_Jubilee_1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <h1>Suryanamaskar</h1>
+    <form action="test" method="post">
+        <label for="Number of Suryanamaskar" style="padding-right:3em;">How many?</label>
+        <input type="number" name="totalSN" id="totalSN" style="width:4em;" min="1" value="12">
+        <br>
+        <label for="Begin Delay">Delay before start: </label>
+        <input type="number" name="delay" id="delay" style="width:4em;" min="0" value="5">
+        <label for="unit">seconds</label>
+        <br>
+        <input type="checkbox" name="bgMusic" id="bg_music_cb" checked onchange="bgMusicPlay()">
+        <label for="Background Music checkbox">Background Music</label>
+        <br>
+        <input type="button" value="Play/Pause" onclick="play_pause()" id="play_pause_btn">
+        <input type="button" value="Stop" onclick="stop()">
+    </form>
+    <div id="current-sn"></div>
+    <div id="current-sn-step"></div>
+    <br>
+    <div>This page is under development. Please provide your <a href="https://spbhat.in/#contact">feedback</a>.</div>
+    <br>
+    <div id="todos">
+        List of things which will be added eventually (depending on feedback and need):
+        <ul>
+            <li>Improve look & feel of the page</li>
+            <li>Controls for adjusting speed range of counts (currently 5 seconds between counts)</li>
+            <li>Smoothly vary speed using sinusoidal function</li>
+            <li>Add voices / select different voices</li>
+            <li>Choose different background music</li>
+            <li>Adjust relative volumes</li>
+            <li>Display estimated total time / time remaining</li>
+            <li>Animation of suryanamaskar poses</li>
+            <li>Saving personal preferences of users</li>
+            <li>Yogastha IITB logo</li>
+            <li>Add comment / discussion section</li>
+        </ul>
+    </div>
+    <div id="copyright">
+        &copy; All rights reserved.
+        <br>
+        Sourabh Bhat, Yogastha IIT Bombay.
+        <br>
+        This application is provided for personal use only in hope that it will be useful.<br>
+        This application or its components must not be used for any commercial purposes, unless permission is specifically granted.
+    </div>
+</body>
+
+</html>

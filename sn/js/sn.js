@@ -3,9 +3,9 @@ var playing = false;
 var voices = [];
 var leftCommand;
 var rightCommand;
-var delayBetweenCounts = 5000;
 var snNum = 0;
 var stepNum = 0;
+var delayBetweenCounts = calculateDelayBetweenCounts();
 var intervalID;
 var background_music;
 
@@ -56,8 +56,9 @@ function play_pause() {
         stopBtn.disabled = true;
         console.log("Waiting...");
 
-        delay = document.getElementById("delay").value;
-        setTimeout("start()", delay * 1000);
+        // If the delay is smaller than delay between counts do not wait
+        delay = Math.max(document.getElementById("delay").value * 1000 - delayBetweenCounts, 0);
+        setTimeout("start()", delay);
     }
     playing = !playing;
 }
@@ -109,4 +110,8 @@ function displayCounts() {
 
     stepCountText = document.getElementById("current-sn-step");
     stepCountText.innerHTML = "" + (stepNum + 1);
+}
+
+function calculateDelayBetweenCounts() {
+    return 5000;
 }

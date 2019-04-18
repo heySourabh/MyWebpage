@@ -46,12 +46,14 @@ function play_pause() {
     bgMusicPlay();
     totalSN = document.getElementById("totalSN").value;
     var playBtn = document.getElementById("play_pause_btn");
+    var stopBtn = document.getElementById("stop_btn");
     if (playing) {
         playBtn.value = "Play";
         clearInterval(intervalID);
     } else {
         playBtn.value = "Get Ready...";
         playBtn.disabled = true;
+        stopBtn.disabled = true;
         console.log("Waiting...");
 
         delay = document.getElementById("delay").value;
@@ -63,8 +65,10 @@ function play_pause() {
 function start() {
     console.log("started.");
     var playBtn = document.getElementById("play_pause_btn");
+    var stopBtn = document.getElementById("stop_btn");
     playBtn.value = "Pause";
     playBtn.disabled = false;
+    stopBtn.disabled = false;
     intervalID = setInterval(sayCountFor, delayBetweenCounts);
 }
 

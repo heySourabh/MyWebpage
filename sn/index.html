@@ -14,13 +14,13 @@
 
 
     <!-- AdSense -->
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({
             google_ad_client: "ca-pub-5232558571567163",
             enable_page_level_ads: true
         });
-    </script>
+    </script> -->
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -81,10 +81,10 @@
     </div>
 
     <div class="container">
-        <h1>Suryanamaskar Counts</h1>
+        <h1 style="text-align: center;">Suryanamaskar</h1>
+        <br>
         <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-4">
+            <div class="col-lg-5 offset-lg-2">
                 <label for="totalSN" style="padding-right:3em;">How many?</label>
                 <input type="number" name="totalSN" id="totalSN" min="1" value="8">
                 <br><br>
@@ -92,24 +92,29 @@
                 <input type="number" name="delay" id="delay" min="0" value="5">
                 <label for="delay">seconds</label>
                 <br><br>
-                <label for="speed_range">slow</label>
-                <input type="range" name="speed" id="speed_range" min="1000" max="10000" value="5000" style="direction: rtl;">
-                <label for="speed_range">fast</label>
-                <br><br>
+                <div>
+                    <label for="speed_range">slow</label>
+                    <input type="range" name="speed" id="speed_range" min="1000" max="10000" value="5000"
+                        style="direction: rtl;">
+                    <label for="speed_range">fast</label>
+                </div>
+                <br>
                 <input type="checkbox" name="bgMusic" id="bg_music_cb" checked onchange="bgMusicPlay()">
                 <label for="bg_music_cb">Background Music</label>
             </div>
             <div class="col-lg-3">
-                <input type="button" class="btn btn-success btn-lg pr-5 pl-5 mt-2 mb-2" value="Start" onclick="play_pause()" id="play_pause_btn">
-                <input type="button" class="btn btn-danger btn-lg pr-5 pl-5 mt-2 mb-2" value="Stop" onclick="stop()" id="stop_btn">
+                <input type="button" class="btn btn-success btn-lg pr-5 pl-5 mt-2 mb-2" value="Start"
+                    onclick="play_pause()" id="play_pause_btn">
+                <input type="button" class="btn btn-danger btn-lg pr-5 pl-5 mt-2 mb-2" value="Stop" onclick="stop()"
+                    id="stop_btn">
             </div>
-            <div class="col-lg-2"></div>
-
         </div>
     </div>
 
-    <div id="current-sn"></div>
-    <div id="current-sn-step"></div>
+    <div id="count-display">
+        <span id="current-sn"></span>
+        <span id="current-sn-step"></span>
+    </div>
     <br>
     <div>Please provide your <a href="https://spbhat.in/#contact">feedback</a>.</div>
     <br><br>
@@ -133,11 +138,11 @@
     </div> -->
 
     <!-- Ad -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163" data-ad-slot="5414144171"
+    <!-- <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163" data-ad-slot="5414144171"
         data-ad-format="auto" data-full-width-responsive="true"></ins>
     <script>
         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    </script> -->
     <br><br>
 
     <div id="copyright">
@@ -145,9 +150,7 @@
         <br>
         Sourabh Bhat, Yogastha IIT Bombay.
         <br>
-        This application is provided for personal use only in hope that it will be useful.<br>
-        This application or its components must not be used for any commercial purposes, unless permission is
-        specifically granted.
+        This application is provided for personal use only.
     </div>
 
 

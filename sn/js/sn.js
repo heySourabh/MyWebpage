@@ -28,7 +28,6 @@ function preload() {
     leftCommand.volume = 0.5;
 
     background_music = document.getElementById("background_music");
-    background_music.volume = 0.1;
     background_music.loop = true;
     background_music.play();
 }
@@ -36,6 +35,7 @@ function preload() {
 function bgMusicPlay() {
     var bgMusic = document.getElementById("bg_music_cb");
     if (bgMusic.checked) {
+        background_music.volume = 0.1;
         background_music.play();
     } else {
         background_music.pause();
@@ -77,8 +77,10 @@ function start() {
 function stop() {
     stepNum = 0;
     snNum = 0;
-    if (playing)
+    if (playing) {
         clearInterval(intervalID);
+        background_music.volume = 0.01;
+    }
     playing = false;
     var playBtn = document.getElementById("play_pause_btn");
     playBtn.value = "Play";

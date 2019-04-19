@@ -1,8 +1,10 @@
+#count-display {
+    text-align: center;
+}
+
 #current-sn {
     color: red;
-    padding-left: 1rem;
     font-size: 10em;
-    text-align: center;
 }
 
 #current-sn-step {

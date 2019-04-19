@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina');
+
 #count-display {
     text-align: center;
 }
 
 #current-sn {
+    font-family: 'Vast Shadow', cursive;
     color: red;
     font-size: 10em;
 }
 
 #current-sn-step {
+    font-family: 'Sarina', cursive;
     color: gray;
     padding-left: 1rem;
     font-size: 2em;

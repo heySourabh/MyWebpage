@@ -84,7 +84,7 @@ function stop() {
     playing = false;
     var playBtn = document.getElementById("play_pause_btn");
     playBtn.value = "Play";
-    displayCounts();
+    clearDisplay();
 }
 
 function sayCountFor() {
@@ -103,7 +103,7 @@ function sayCountFor() {
         stepNum = 0;
         snNum++;
         if (snNum == totalSN)
-            stop()
+            stop();
     }
 }
 
@@ -113,6 +113,14 @@ function displayCounts() {
 
     stepCountText = document.getElementById("current-sn-step");
     stepCountText.innerHTML = "" + (stepNum + 1);
+}
+
+function clearDisplay() {
+    snCountText = document.getElementById("current-sn");
+    snCountText.innerHTML = "";
+
+    stepCountText = document.getElementById("current-sn-step");
+    stepCountText.innerHTML = "";
 }
 
 function calculateDelayBetweenCounts() {

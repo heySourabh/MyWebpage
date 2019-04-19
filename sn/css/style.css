@@ -4,6 +4,10 @@
     text-align: center;
 }
 
+input[type=number] {
+    width: 5em;
+}
+
 #current-sn {
     font-family: 'Vast Shadow', cursive;
     color: red;

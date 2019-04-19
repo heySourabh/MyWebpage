@@ -5,7 +5,7 @@ var leftCommand;
 var rightCommand;
 var snNum = 0;
 var stepNum = 0;
-var delayBetweenCounts = calculateDelayBetweenCounts();
+var delayBetweenCounts;
 var intervalID;
 var background_music;
 
@@ -43,6 +43,7 @@ function bgMusicPlay() {
 }
 
 function play_pause() {
+    delayBetweenCounts = calculateDelayBetweenCounts()
     bgMusicPlay();
     totalSN = document.getElementById("totalSN").value;
     var playBtn = document.getElementById("play_pause_btn");
@@ -113,5 +114,6 @@ function displayCounts() {
 }
 
 function calculateDelayBetweenCounts() {
-    return 5000;
+    speed = document.getElementById("speed_range").value;
+    return speed;
 }

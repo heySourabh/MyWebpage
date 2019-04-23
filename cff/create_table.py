@@ -1,4 +1,4 @@
-questions = 32
+questions = 39
 for q in range(1, questions + 1):
     print('<tr>')
     print('<th>%d</th>' % q)

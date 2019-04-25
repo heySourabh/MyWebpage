@@ -1,6 +1,7 @@
 var totalSN = 0;
 var playing = false;
 var voices = [];
+var sn_images = [];
 var leftCommand;
 var rightCommand;
 var snNum = 0;
@@ -29,7 +30,14 @@ function preload() {
 
     background_music = document.getElementById("background_music");
     background_music.loop = true;
+    background_music.volume = 0.2;
     background_music.play();
+
+    for (var i = 0; i <= 12; i++) {
+        var img = new Image();
+        img.src = "images/" + i + ".png";
+        sn_images.push(img);
+    }
 }
 
 function bgMusicPlay() {
@@ -51,7 +59,9 @@ function play_pause() {
     if (playing) {
         playBtn.value = "Play";
         clearInterval(intervalID);
+        hideImage();
     } else {
+        showImage();
         playBtn.value = "Get Ready...";
         playBtn.disabled = true;
         stopBtn.disabled = true;
@@ -85,9 +95,12 @@ function stop() {
     var playBtn = document.getElementById("play_pause_btn");
     playBtn.value = "Play";
     clearDisplay();
+    displayImage(true);
+    hideImage();
 }
 
 function sayCountFor() {
+    displayImage();
     displayCounts();
     voices[stepNum].play();
     if (stepNum == 3 || stepNum == 8) {
@@ -113,6 +126,27 @@ function displayCounts() {
 
     stepCountText = document.getElementById("current-sn-step");
     stepCountText.innerHTML = "" + (stepNum + 1);
+}
+
+function displayImage(reset) {
+    img = document.getElementById("sn-pos-img");
+    imgNum = stepNum + 1;
+    if (reset) {
+        imgNum = 0;
+    }
+    img.src = sn_images[imgNum].src;
+}
+
+function showImage() {
+    div_sn_pos = document.getElementById("sn-pos-img-div");
+    div_sn_pos.classList.remove("hide-sn-image-div");
+    div_sn_pos.classList.add("show-sn-image-div");
+}
+
+function hideImage() {
+    div_sn_pos = document.getElementById("sn-pos-img-div");
+    div_sn_pos.classList.remove("show-sn-image-div");
+    div_sn_pos.classList.add("hide-sn-image-div");
 }
 
 function clearDisplay() {

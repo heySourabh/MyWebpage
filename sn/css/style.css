@@ -28,3 +28,15 @@ input[type=number] {
 #copyright {
     color: gray;
 }
+
+.show-sn-image-div {
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0.9;
+    transform: scale(1.0);
+    transition: transform 0.5s;
+}
+
+.hide-sn-image-div {
+    transform: scale(0.0);
+    transition: transform 0.5s;
+}

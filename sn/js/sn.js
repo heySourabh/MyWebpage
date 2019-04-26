@@ -30,7 +30,7 @@ function preload() {
 
     background_music = document.getElementById("background_music");
     background_music.loop = true;
-    background_music.volume = 0.2;
+    background_music.volume = 0.01;
     background_music.play();
 
     for (var i = 0; i <= 12; i++) {

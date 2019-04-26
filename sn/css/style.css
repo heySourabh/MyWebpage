@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina');
+@import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa');
+
+body {
+    font-family: 'Comfortaa', cursive;
+    font-size: 1em;
+}
 
 #count-display {
     text-align: center;
@@ -29,14 +34,44 @@ input[type=number] {
     color: gray;
 }
 
+#sn-pos-img-div{
+    position: absolute;
+    height: 100%; 
+    width: 100%;
+    background: rgba(255, 255, 255, 0.6);
+    opacity: 1.0;
+}
+
+#sn-benefits {
+    font-family: 'Comfortaa', cursive;
+    color: rgb(112, 112, 112);
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
 .show-sn-image-div {
-    background: rgba(255, 255, 255, 0.8);
-    opacity: 0.9;
     transform: scale(1.0);
     transition: transform 0.5s;
 }
 
 .hide-sn-image-div {
     transform: scale(0.0);
-    transition: transform 0.5s;
+}
+
+.description-panel {
+    background: rgb(197, 246, 255);
+    color: rgb(94, 0, 0);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+    padding: 1em;
+    font-family: 'Kalam', cursive;
+    font-size: 1.2em;
+}
+
+.description-panel img {
+    float: left;
+    height: 9em;
+    margin-right: 20px; 
+    margin-bottom: 10px;
 }

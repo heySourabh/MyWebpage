@@ -10,9 +10,9 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="115.04524mm"
-   height="99.930954mm"
-   viewBox="0 0 407.64062 354.08606"
+   width="85.045242mm"
+   height="69.930954mm"
+   viewBox="0 0 301.34141 247.78685"
    id="svg2"
    version="1.1"
    inkscape:version="0.92.4 (unknown)"
@@ -58,8 +58,8 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="243.77708"
-     inkscape:cy="113.99732"
+     inkscape:cx="187.08416"
+     inkscape:cy="57.304346"
      inkscape:document-units="px"
      inkscape:current-layer="layer2"
      showgrid="false"
@@ -68,10 +68,10 @@
      inkscape:window-x="0"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
-     fit-margin-top="20"
-     fit-margin-left="20"
-     fit-margin-right="20"
-     fit-margin-bottom="20" />
+     fit-margin-top="5"
+     fit-margin-left="5"
+     fit-margin-right="5"
+     fit-margin-bottom="5" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -89,7 +89,7 @@
      id="layer2"
      inkscape:label="design"
      style="opacity:0.05"
-     transform="translate(-168.75113,-344.21034)">
+     transform="translate(-221.90074,-397.35994)">
     <g
        id="g836">
       <circle

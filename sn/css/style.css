@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa:700');
 
 body {
-    background-image: url("../images/Yogastha_logo.svg");
-    background-repeat: repeat-x repeat-y;
-    background-size: 50%;
-    background-attachment: fixed;
     font-family: 'Comfortaa', cursive;
     font-size: 1em;
 }

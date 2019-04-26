@@ -63,7 +63,8 @@ input[type=number] {
     background: rgb(197, 246, 255);
     color: rgb(94, 0, 0);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    margin-top: 1em;
     padding: 1em;
     font-family: 'Kalam', cursive;
     font-size: 1.2em;

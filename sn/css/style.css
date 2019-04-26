@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa');
 
 body {
+    background-image: url("../images/Yogastha_logo.svg");
+    background-repeat: repeat-x repeat-y;
+    background-size: 50%;
     font-family: 'Comfortaa', cursive;
     font-size: 1em;
 }
@@ -60,7 +63,7 @@ input[type=number] {
 }
 
 .description-panel {
-    background: rgb(197, 246, 255);
+    background: rgb(253, 241, 201);
     color: rgb(94, 0, 0);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     margin-bottom: 1em;

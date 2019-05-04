@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa:700');
 
 body {
+    background: url("../images/Yogastha_logo.svg");
+    background-repeat: repeat-x repeat-y;
+    background-attachment: fixed;
+    background-size: 10em;
     font-family: 'Comfortaa', cursive;
     font-size: 1em;
 }
 
 #app-container {
     color: rgb(94, 0, 0); 
-    background: linear-gradient(to right, rgb(253, 241, 201) 0%, #ffffff 100%);
+    background: linear-gradient(to right, rgba(253, 241, 201, 0.6) 0%,rgba(255, 255, 255, 0.6) 100%);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 

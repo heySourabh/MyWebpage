@@ -87,14 +87,6 @@ input[type=number] {
     margin-bottom: 10px;
 }
 
-#disqus-container {
-    color: rgb(94, 0, 0); 
-    background: linear-gradient(to right, rgba(253, 241, 201, 0.6) 0%,rgba(255, 255, 255, 0.6) 100%);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 3em;
-    padding: 2em 2em 2em 2em;
-}
-
 .ad {
     margin-top: 1em;
     margin-bottom: 1em;

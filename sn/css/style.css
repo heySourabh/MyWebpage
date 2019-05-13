@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa:700');
+@import url('https://fonts.googleapis.com/css?family=Vast+Shadow|Sarina|Kalam|Comfortaa');
 
 body {
     background: url("../images/Yogastha_logo.svg");
@@ -56,8 +56,8 @@ input[type=number] {
     font-family: 'Comfortaa', cursive;
     color: rgb(112, 112, 112);
     font-size: 1.2em;
-    margin-bottom: 1em;
-    text-align: justify;
+    margin-bottom: 2em;
+    text-align: left;
 }
 
 .show-sn-image-div {

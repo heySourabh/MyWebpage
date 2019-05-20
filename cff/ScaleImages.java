@@ -12,13 +12,14 @@ public class ScaleImages {
 
     public static void main(String[] args) throws Exception {
 
-        File inputFolder = new File("chap05/images/");
-        File[] inputFiles = inputFolder.listFiles(file -> file.getName().endsWith(".svg.png"));
+        File inputFolder = new File("chap06/images/");
+        File[] inputFiles = inputFolder
+                .listFiles(file -> file.getName().endsWith(".png") && file.getName().startsWith("q"));
 
         for (File input : inputFiles) {
             BufferedImage img = scale(input);
 
-            File output = new File(input.getParent(), input.getName().substring(0, 3) + ".png");
+            File output = new File(input.getParent(), "ed_" + input.getName());
             ImageIO.write(img, "PNG", output);
         }
 

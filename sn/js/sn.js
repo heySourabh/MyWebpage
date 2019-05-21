@@ -135,7 +135,7 @@ function stopAllAudio() {
     stopAudio(rightAudio);
     bgMusicStop();
     for (var i = 0; i < countsAudio.length; i++) {
-        stopAudio(countsAudio);
+        stopAudio(countsAudio[i]);
     }
 }
 

@@ -64,8 +64,8 @@ function load_images() {
 }
 
 function bgMusicPlay() {
-    var bgMusic = document.getElementById("bg_music_cb");
-    if (bgMusic.checked) {
+    var bgMusicCB = document.getElementById("bg_music_cb");
+    if (bgMusicCB.checked) {
         bgAudio.volume = 0.2;
         bgAudio.play();
     } else {
@@ -74,13 +74,19 @@ function bgMusicPlay() {
 }
 
 function bgMusicStart() {
-    bgAudio.volume = 0.2;
-    bgAudio.play();
+    var bgMusicCB = document.getElementById("bg_music_cb");
+    if (bgMusicCB.checked) {
+        bgAudio.volume = 0.2;
+        bgAudio.play();
+    }
 }
 
 function bgMusicStop() {
-    bgAudio.volume = 0.05;
-    bgAudio.play();
+    var bgMusicCB = document.getElementById("bg_music_cb");
+    if (bgMusicCB.checked) {
+        bgAudio.volume = 0.05;
+        bgAudio.play();
+    }
 }
 
 function start_pause_continue() {

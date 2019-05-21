@@ -48,8 +48,6 @@ function load_bg_audio() {
 
     bgAudio = document.getElementById("background_music");
     bgAudio.loop = true;
-    bgAudio.volume = 0.05;
-    bgAudio.play();
 }
 
 function load_images() {

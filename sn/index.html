@@ -28,6 +28,24 @@
 
 
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        #top-msg {
+            color: black;
+            animation-name: top-msg-anim;
+            animation-duration: 4s;
+        }
+
+        @keyframes top-msg-anim {
+            from {
+                color: red;
+            }
+
+            to {
+                color: black;
+            }
+        }
+    </style>
 </head>
 
 <body onload="initialize()">
@@ -88,7 +106,7 @@
 
     <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         <span id="top-msg">
-                Please wait, loading audio data ...
+            Please wait, loading audio data ...
         </span>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>

@@ -301,6 +301,14 @@ function gapBetweenCounts() {
     return gap;
 }
 
+function speedRange_changed() {
+    displayEstimatedTime();
+}
+
+function totalSN_changed() {
+    displayEstimatedTime();
+}
+
 function displayEstimatedTime() {
     var elem = document.getElementById("total-time-estimate");
     elem.innerHTML = "Approx. total time: " + msToTime(totalTimeEstimateMs());

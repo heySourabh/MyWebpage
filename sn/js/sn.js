@@ -26,6 +26,7 @@ function initialize() {
     load_commands_audio();
     load_bg_audio();
     load_images();
+    displayEstimatedTime();
 }
 
 function load_commands_audio() {

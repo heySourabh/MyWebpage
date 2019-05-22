@@ -15,8 +15,13 @@ var current_state = "INIT";
 var timer_id = [];
 
 function initialize() {
-    document.getElementById("top-msg").innerHTML =
-        "Scroll down for <strong>Instructions and more Information</strong>.";
+    document.getElementById("top-msg").innerHTML = "I am ready!";
+
+    setTimeout(() => {
+        document.getElementById("top-msg").innerHTML =
+            "Scroll down for <strong>Instructions and more Information</strong>.";
+    }, 2000);
+
 
     start_btn = document.getElementById("play_pause_btn");
     stop_btn = document.getElementById("stop_btn");

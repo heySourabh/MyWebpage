@@ -32,16 +32,49 @@
     <style>
         #top-msg {
             color: black;
+            margin: 0em;
             animation-name: top-msg-anim;
-            animation-duration: 4s;
+            animation-duration: 8s;
         }
 
         @keyframes top-msg-anim {
-            from {
+            0% {
                 color: red;
             }
 
-            to {
+            22% {
+                margin-left: 0ex;
+            }
+
+            25% {
+                margin-left: -10ex;
+            }
+
+            28% {
+                margin-left: 10ex;
+            }
+
+            30% {
+                margin-left: -5ex;
+            }
+
+            32% {
+                margin-left: 5ex;
+            }
+
+            34% {
+                margin-left: 0ex;
+            }
+
+            50% {
+                color: blue;
+            }
+
+            90% {
+                color: green;
+            }
+
+            100% {
                 color: black;
             }
         }
@@ -141,9 +174,9 @@
             </div>
             <div class="col-lg-3">
                 <input type="button" class="btn btn-success btn-lg pr-5 pl-5 mt-2 mb-2" value="Start"
-                    onclick="start_pause_continue()" id="play_pause_btn">
+                    onclick="start_pause_continue()" id="play_pause_btn" disabled>
                 <input type="button" class="btn btn-danger btn-lg pr-5 pl-5 mt-2 mb-2" value="Stop" onclick="stop()"
-                    id="stop_btn">
+                    id="stop_btn" disabled>
             </div>
         </div>
         <div id="count-display">

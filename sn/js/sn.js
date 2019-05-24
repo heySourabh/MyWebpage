@@ -26,6 +26,7 @@ function initialize() {
     start_btn = document.getElementById("play_pause_btn");
     stop_btn = document.getElementById("stop_btn");
 
+    start_btn.disabled = false;
     stop_btn.disabled = true;
 
     load_commands_audio();

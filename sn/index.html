@@ -169,8 +169,11 @@
                     <label for="speed_range">fast</label>
                 </div>
                 <br>
-                <input type="checkbox" name="bgMusic" id="bg_music_cb" checked onchange="bgMusicPlay()">
-                <label for="bg_music_cb">Background Music</label>
+                <label class="switch">
+                    <input type="checkbox" name="bgMusic" id="bg_music_cb" checked onchange="bgMusicPlay()">
+                    <span class="slider round"></span>
+                </label>
+                <label for="bg_music_cb">Music</label>
             </div>
             <div class="col-lg-3">
                 <input type="button" class="btn btn-success btn-lg pr-5 pl-5 mt-2 mb-2" value="Start"

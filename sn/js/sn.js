@@ -172,7 +172,12 @@ function initial_instructions_and_start_counting() {
     clearDisplay();
     showImage();
     displayEstimatedTime();
-    instructions_duration = instructionsAudio.duration * 1000;
+    
+    var dur = parseFloat(instructionsAudio.duration);
+    if(isNaN(dur)) {
+        dur = 11;
+    }
+    instructions_duration = dur * 1000;
     bgMusicStart();
     instructionsAudio.play();
 

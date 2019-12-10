@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Blog">
+  <meta name="author" content="Sourabh Bhat">
+
+  <title>Sourabh Bhat - Blog - Order of Accuracy</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69828084-1"></script>
+  <script src="../../js/gtag.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  <!-- My styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Math -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+    </script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Sourabh Bhat</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../img/math.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Order of Accuracy</h1>
+            <h2 class="subheading">Theory and analysis</h2>
+            <span class="meta">Posted by
+              <a href="../../index.html">Sourabh Bhat</a>
+              on Dec 10, 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" style="text-align: justify;">
+          <!-- Contents -->
+          <h2 class="section-heading">Contents</h2>
+          <ul>
+            <li><a href="#sec:introduction">Introduction</a></li>
+            <li><a href="#sec:literature">Review of Literature</a></li>
+            <li><a href="#sec:need">Need of High Order Methods</a></li>
+            <li><a href="#sec:results">Results</a></li>
+          </ul>
+
+          <h2 id="sec:introduction" class="section-heading">Introduction</h2>
+          The truncation error of a numerical method is dependent on the grid spacing. That is, every time we reduce the
+          grid spacing (cell size), the truncation error is expected to reduce. This can be observed theoretically by
+          carrying out a Taylor's series expansion of the numerical scheme and subtracting the result from the exact
+          partial differential equation. The residue left out is the truncation error, which can be written as,
+
+          $$
+          (1)\qquad
+          \epsilon=c_{0}\left(\Delta x\right)^{\mathcal{O}}+c_{1}\left(\Delta x\right)^{\mathcal{O}+1}+c_{2}\left(\Delta
+          x\right)^{\mathcal{O}+2}\dots
+          $$
+
+          where, \(c_{i};\ i=0,1,2\dots\) are coefficients which are independent of cell size. Neglecting the higher
+          order terms (since \(\Delta x\) is small), we get,
+
+          <div id="eq:Order-of-Accuracy">
+            $$
+            (2)\qquad
+            \epsilon\approx c_{0}\left(\Delta x\right)^{\mathcal{O}}\implies\epsilon\propto\left(\Delta
+            x\right)^{\mathcal{O}}
+            $$
+          </div>
+
+          The order of such a scheme is said to be \(\mathcal{O}\). It may not be always possible to carry out a
+          theoretical analysis of a non-linear method, such as in the case of SDWLS, WENO or limiter based methods. In
+          such schemes the formulation is dependent on the solution and thus, a priori Taylor's series expansion is not
+          possible. This calls for a numerical approach for obtaining the order of accuracy of the scheme. To carry out
+          the numerical analysis, of order of accuracy, we can write equation <a href="#eq:Order-of-Accuracy">(2)</a>
+          for two cell sizes, say \(\Delta x_{1}\) and \(\Delta x_{2}\) and the corresponding errors as \(\epsilon_{1}\)
+          and \(\epsilon_{2}\). This results in the following two equations,
+          <div id="eq:order-1">
+            $$
+            (3)\qquad
+            \epsilon_{1}\propto\left(\Delta x_{1}\right)^{\mathcal{O}}
+            $$
+          </div>
+          <div id="eq:order-2">
+            $$
+            (4)\qquad
+            \epsilon_{2}\propto\left(\Delta x_{2}\right)^{\mathcal{O}}
+            $$
+          </div>
+
+          Now, dividing equation <a href="#eq:order-2">(3)</a> by equation <a href="#eq:order-1">(4)</a> results
+          in the following equation,
+
+          $$
+          (5)\qquad
+          \frac{\epsilon_{2}}{\epsilon_{1}}=\left(\frac{\Delta x_{2}}{\Delta
+          x_{1}}\right)^{\mathcal{O}}\implies\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)=\mathcal{O}.\left(\log\left(\Delta
+          x_{2}\right)-\log\left(\Delta x_{1}\right)\right)
+          $$
+
+          Rearranging this equation, we get an expression for the order of accuracy as,
+          $$
+          (6)\qquad
+          \mathcal{O}=\frac{\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)}{\log\left(\Delta
+          x_{2}\right)-\log\left(\Delta x_{1}\right)}
+          $$
+
+          This can be observed as the slope of a curve on a log-log plot of error versus cell size. It may be noted that
+          the \(\Delta x\) is a measure of the cell size, and for a two-dimensional Cartesian mesh it is appropriately
+          defined as,
+
+          $$
+          (7)\qquad
+          h=\sqrt{\Delta x\,\Delta y}
+          $$
+
+          In case of unstructured mesh, the measure of cell size is defined by the average of all the cells in the
+          domain, which can be defined as,
+
+          $$
+          (8)\qquad
+          h=\sqrt{\frac{\text{area of domain}}{\text{total number of cells}}}
+          $$
+
+          and therefore, the order of accuracy of the method for a two-dimensional problem gets redefined as,
+          $$
+          (9)\qquad
+          \mathcal{O}=\frac{\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)}{\log\left(h_{2}\right)-\log\left(h_{1}\right)}
+          $$
+
+          An order of accuracy analysis is a systematic process in which the error is obtained for various cell sizes.
+          The error versus cell size is then plotted on a log-log plot. The actual order is obtained by calculating the
+          slope of the curve on this plot. It has been pointed out by Toro [E. F. Toro, <cite>Springer Berlin
+            Heidelberg</cite>, 2009], that the order of accuracy may
+          not be apparent in case of non-linear schemes. It is therefore essential to carry out the order of accuracy
+          analysis of new schemes before using them. In my work, I have computed numerically the order of accuracy of
+          the following solution reconstruction methods: first order, Beam-Warming scheme using van Albada limiter,
+          linear and quadratic SDWLS, third order and fifth order WENO method. The analysis has been conducted for
+          various problems in one-dimension and two-dimensions on a structured and unstructured mesh.
+
+          <h2 id="sec:literature" class="section-heading">Review of Literature</h2>
+          <p>
+            The Godunov theorem [Godunov1959] states that it is not possible for a linear higher order scheme, (of order
+            two or higher), to ensure a non-oscillatory solution. It is however observed that, if there are no
+            discontinuities in the solution then, the numerical solution obtained by a linear high order scheme is much
+            superior compared to the first order upwind scheme. It has been a quest of many researches to circumvent the
+            limitation imposed by the Godunov theorem to achieve an order of accuracy as high as possible. This effort
+            has
+            led to two classes of methods of adding non-linearity to the scheme. The two classes of methods are: the
+            artificial viscosity methods and the total variation diminishing methods. In case of artificial viscosity
+            methods [Toro1991] additional non-physical, viscous like terms, are added to the scheme such that the
+            oscillations are damped out. The currently available methods in this class, have to define a coefficient
+            which
+            has to be tuned according to the problem. Therefore, these methods are not easily extensible to general
+            problems. The total variation diminishing (TVD) methods include slope-limiters and flux-limiters to locally
+            switch to a lower order, based on the local gradients. This class of methods are more general to extend to
+            any
+            type of problems and therefore are more widely used. Many major contributions have been made to this class
+            of
+            methods over the years [VanLeer1973, Boris1973, Book1975, Boris1976, Harten1983, Harten1984, Sweby1984,
+            Sweby1989]. Various limiters have been defined which perform identically far away from the discontinuity but
+            change their behavior close to the region of high gradients. The limiter versus the gradient-ratio plot
+            commonly known as Sweby plot [Sweby1984] is used in these methods to define a limiter function. Some of the
+            widely used limiter functions are SUPERBEE [Roe1985], VANLEER [VanLeer1973], VANALBADA [VanAlbada1982],
+            MINMOD
+            [Roe1986].</p>
+
+          <p>
+            A hybrid class of schemes closely related to TVD methods are solution dependent methods. In these methods a
+            MUSCL-type [VanLeer1977] solution strategy is used, with a linear combination of all possible solution
+            reconstructions. MUSCL stands for Monotone Upstream-centered Scheme for Conservation Laws. These type of
+            methods include a family of more recent methods like SDWLS [Mandal2008, Mandal2011] and WENO [Shu1997]
+            methods. The combination of weights is so chosen, such that it reduces the oscillations. These methods do
+            not
+            enforce the TVD condition explicitly, and therefore may encounter oscillations within acceptable limits. In
+            the SDWLS method, each of the neighboring cells are expressed as a function of the cell value and
+            derivatives,
+            using Taylor's series expansion, about the cell's centroid. This results in a system of equations with the
+            derivatives as unknowns. Now, this system of equations are solved for the derivatives in a least-square
+            sense,
+            after application of weights. The weights are inversely proportional to the variation from the central cell,
+            thus reducing the oscillations. The WENO method uses an approach where, all the candidate stencils are
+            reconstructed. Appropriate weights are then applied to each of the stencil solutions based on the smoothness
+            in the stencil.</p>
+
+          <p>
+            The current trends in high order methods and their need are very well reviewed by Wang and group in their
+            article [Wang2013]. The order of accuracy analysis of WENO methods for structured grids is performed by
+            Balsara [Balsara2000]. The analysis on unstructured grid for WENO methods is carried out by Hu [Hu1999] and
+            Liu [Liu2013]. Using the ADER approach (Arbitrary high-order DERivative Riemann problem) and discontinuous
+            Galerkin finite element method, the analysis has been performed by Dumbser et al. [Dumbser2005,
+            Montecinos2012].</p>
+
+          <h2 id="sec:need" class="section-heading">Need of High Order Methods</h2>
+          <p>
+            The goal being that we need to achieve some level of accuracy, say \(10^{-3}\) of absolute error, we may ask
+            ourselves the following question. Are high order methods really required? or is it more efficient to solve
+            the
+            problem on a very fine mesh using a first order method? It is well known that a first order method will run
+            much faster than a second order method on a given mesh. But if we keep refining the mesh until the first
+            order
+            method achieves similar solution as second order method, will the first order method still take lesser time?
+            The following simple demonstration tries to answer this question by actually solving a problem on various
+            uniformly refined grids and comparing the computational time and memory requirement. The problem being
+            solved
+            here is a simple advection equation <a href="#eq:1D-scalar-advection">(10)</a>, initialized with a smooth
+            sine
+            function <a href="#eq:Sine-wave(k=1)">(11)</a> having a wave number of unity
+            (see <a href="#fig:Sine-wave(k=1)">Fig. 1</a>). The boundary conditions are periodic and thus the final
+            exact
+            solution after one complete cycle is same as the initial distribution. The domain length chosen is 2 ranging
+            from -1 to +1.</p>
+
+          <div id="eq:1D-scalar-advection">
+            $$
+            (10)\qquad
+            u_{t}+u_{x}=0
+            $$
+          </div>
+          <div id="eq:Sine-wave(k=1)">
+            $$
+            (11)\qquad
+            u_{0}=u\left(x,t=0\right)=\sin\left(2\pi x\right)
+            $$
+          </div>
+
+          <div class="figure-wrap" id="fig:Sine-wave(k=1)">
+            <img class="img-fluid" src="img/sine_wave.png" alt="">
+            <span class="caption text-muted">Fig. 1: Sine distribution with wave number = 1.</span>
+          </div>
+
+          <p>
+            Using a trial and error method, the number of grid cells required by the second order method is estimated.
+            To
+            achieve an \(L_{2}\text{-error}\) of approximately \(10^{-3}\), the second order method requires 320 cells
+            as
+            seen in <a href="#tab:Error-time-Fromm">Table 1</a>. Whereas, the first order method takes a phenomenal
+            amount
+            of cells, about 128 times more, as seen in <a href="#tab:Error-time-FirstOrder">Table 2</a>, and therefore a
+            proportionally large amount of memory. An even more appealing advantage of high-order methods can be
+            observed
+            by comparing the time taken. To achieve a similar \(L_{2}\text{-error}\), approximately \(10^{-3}\), the
+            first
+            order method takes more than 20,000 times more computational time!</p>
+
+          <div class="table-wrap" id="tab:Error-time-Fromm">
+            <span class="caption text-muted">Table 1: Error and computational time for Fromm (second order)
+              method</span>
+            <table class="tg">
+              <tr>
+                <th class="tg-0pky">Grid Size</th>
+                <th class="tg-0pky">\(L_{2}\) Error (Absolute)</th>
+                <th class="tg-0pky">Compute Time<br>\((\times10^{-3}\) seconds)<br></th>
+              </tr>
+              <tr>
+                <td class="tg-0pky">80</td>
+                <td class="tg-0pky">\(1.8518\times10^{-2}\)</td>
+                <td class="tg-0pky">\(\sim20\)</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">160</td>
+                <td class="tg-0pky">\(4.5853\times10^{-3}\)</td>
+                <td class="tg-0pky">\(\sim30\)</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">320</td>
+                <td class="tg-0pky">\(1.1431\times10^{-3}\)</td>
+                <td class="tg-0pky">\(\sim80\)</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">640</td>
+                <td class="tg-0pky">\(2.8555\times10^{-4}\)</td>
+                <td class="tg-0pky">\(\sim200\)</td>
+              </tr>
+            </table>
+          </div>
+          <br>
+          <div class="table-wrap" id="tab:Error-time-FirstOrder">
+            <span class="caption text-muted">Table 2: Error and computational time for first order upwind method</span>
+            <table class="tg">
+              <tr>
+                <th class="tg-0pky">Grid Size</th>
+                <th class="tg-0pky">\(L_{2}\) Error (Absolute)</th>
+                <th class="tg-0pky">Compute Time<br>\((\times10^{-3}\) seconds)<br></th>
+              </tr>
+              <tr>
+                <td class="tg-0pky">10240</td>
+                <td class="tg-0pky">\(5.4313\times10^{-3}\)</td>
+                <td class="tg-0pky">\(\sim20000\)</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">20480</td>
+                <td class="tg-0pky">\(2.7209\times10^{-3}\)</td>
+                <td class="tg-0pky">\(\sim300000\)</td>
+              </tr>
+              <tr>
+                <td class="tg-0pky">40960</td>
+                <td class="tg-0pky">\(1.3617\times10^{-3}\)</td>
+                <td class="tg-0pky">\(\sim1735000\)</td>
+              </tr>
+            </table>
+          </div>
+
+          <p>
+            This overwhelming difference is observed due to two reasons. The first reason is obviously due to the higher
+            number of mesh cells required by the first order method. The second reason is most probably the limited
+            cache on the machine which caused repeated cache flushing. This efficiency gap between an high order method
+            and a lower order method grows as we demand for more and more accurate results. Thus, this small experiment
+            makes it obvious that, we must try to use higher order methods whenever possible. There are however, two
+            major difficulties associated with high-order methods. The first difficulty is due to the oscillations which
+            appear in the solutions. The second difficulty is associated with the stability of the methods. The TVD,
+            SDWLS and WENO methods try to overcome these difficulties by using a non-linear solution dependent approach.
+          </p>
+
+          <p id="sec:results" >
+            For further reading and to look at the <strong>results using various schemes with scalar and Euler
+              equations</strong>, <a href="accuracy.pdf">download this pdf file</a>.</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.youtube.com/SourabhBhatCFD">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.github.com/heySourabh">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/heySourabh">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/sourabh.bhat">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Sourabh Bhat 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

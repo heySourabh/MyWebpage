@@ -1,0 +1,16 @@
+.ad {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.form-label-text {
+    font-size: 1.5em;
+}
+
+.table-wrap {padding: 0 0 1em 0; background: #d3f8ff;}
+.figure-wrap {padding: 1em 1em 0em 1em; background: #d3f8ff;}
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#9ABAD9; margin-left: auto; margin-right: auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#0085a1;}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}

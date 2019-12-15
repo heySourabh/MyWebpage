@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Blog">
+  <meta name="author" content="Sourabh Bhat">
+
+  <title>Volume Calculation - Blog - Sourabh Bhat</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-69828084-1"></script>
+  <script src="../../js/gtag.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+    type='text/css'>
+  <link
+    href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
+
+  <!-- Custom styles for this template -->
+  <link href="../css/clean-blog.min.css" rel="stylesheet">
+
+  <!-- My styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Math -->
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+    </script>
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../../index.html">Sourabh Bhat</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('../img/math.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Volume of Solids</h1>
+            <h2 class="subheading">Theory and code</h2>
+            <span class="meta">Posted by
+              <a href="../../index.html">Sourabh Bhat</a>
+              on Dec 15, 2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto" style="text-align: justify;">
+          <!-- Contents -->
+          <h2 class="section-heading">Contents</h2>
+          <ul>
+            <li><a href="#sec:theory">Theory</a></li>
+            <li><a href="#sec:code">Code</a></li>
+          </ul>
+
+          <a href="volume.pdf"><i class="fa fa-file-pdf" aria-hidden="true"></i>
+            pfd version of this article</a>.
+
+          <h2 id="sec:theory" class="section-heading">Theory</h2>
+          <p>The need for calculation of volume of solids arises in many computations. For primitive solids, like
+            sphere, cylinder, cone, pyramids and prisms, we have well-defined analytical expressions for calculation of
+            their volume. However, for an arbitrarily shaped solid, such a calculation can be daunting and it could be
+            extremely difficult to derive an analytical closed form expression. But, if we are able to break down the
+            surface of the solid into triangles, then the volume can be computed using the Stokes theorem. Given that
+            any surface in three-dimensions can be approximated by a set of triangles, the volume of any solid can be
+            calculated to a required degree of accuracy by using enough number of triangles for approximating the
+            enclosing surface of the solid.</p>
+
+          The volume of a solid is defined as,
+
+          $$
+          \iiint_{\text{vol}}dx\, dy\, dz\ .
+          $$
+
+          We can re-write this as,
+          $$
+          \iiint_{\text{vol}}\frac{\partial x}{\partial x}\, dx\, dy\, dz\ .
+          $$
+
+          Using the Stokes theorem (the divergence theorem) we can write,
+          $$
+          \iint_{\text{Area}}x\, n_{x}\, dA\ ,
+          $$
+          where, \(n_{x}\) is the \(x\)-component of the unit normal. This means that now we can calculate the volume by
+          just carrying out surface integrals over enclosing volume surfaces. We can easily break-down a enclosing
+          surface into to a set of triangles. We must be cautious however that the normal must be pointing outwards and
+          the vertices of the triangle must be in the anti-clockwise direction.
+
+          <br>
+          Let us compute the contribution of a single triangle to the total volume. Since a triangle is a planar
+          surface,
+          \(n_{x}\) is a constant and can be moved out of the integral, which results in,
+          $$
+          n_{x}\iint_{\text{Area}}x\, dA\ .
+          $$
+
+          This is basically a formula for \(x\)-coordinate of the centroid of the triangle, times \(n_{x}\) times Area
+          of the triangle. For a triangle, with vertices \(a\), \(b\) and \(c\), the \(x\)-coordinate of the centroid
+          can be easily calculated as,
+          $$
+          \bar{x}=\frac{xa+xb+xc}{3}\ .
+          $$
+
+          Also, let us assume that the vertices are in an anti-clockwise direction. The two vectors formed by points
+          \(a\)-\(b\) and \(a\)-\(c\) (vector \(\vec{ab}\) and vector \(\vec{ac}\)) can be used for calculation of the
+          area of the triangle as,
+
+          $$
+          \vec{A}=\frac{1}{2}\left(\vec{ab}\times\vec{ac}\right)\ .
+          $$
+
+          This will result in a vector, whose length is equal to the area of the triangle and direction is such that it
+          points outwards from the solid. Scaling the vector to unit length and taking its \(x\)-component will give us
+          \(n_{x}\). Taking the magnitude will give area, \(A\). Adding up the contributions from all the triangles,
+          making up the surface, will give the volume of the solid as,
+          $$
+          \sum_{i=0}^{n-1}n_{xi}\,\left|A_{i}\right|\,\bar{x}_{i}\ ,
+          $$
+
+          which can be simplified to,
+          $$
+          \sum_{i=0}^{n-1}\vec{A}_{ix}\,\,\bar{x}_{i}\ ,
+          $$
+
+          where, \(\vec{A}_{ix}\) is the \(x\)-component of the area vector, \(\vec{A}\). Therefore, the volume of a
+          solid made-up of \(n\) enclosing triangles can be computed as,
+          $$
+          \text{Volume}=\sum_{i=0}^{n-1}\vec{A}_{ix}\,\,\bar{x}_{i}\ .
+          $$
+
+          <h2 id="sec:code" class="section-heading">Code</h2>
+          Below is a program written in Java, to calculate volume of any solid.
+
+          <!-- ---------- Volume code ------------------- -->
+          <div class="code-wrap">
+            <span class="caption text-muted">Code 1: Volume.java</span>
+            <pre class="pre-scrollable">
+<code>/*
+* @author Sourabh Bhat (https://spbhat.in)
+*
+* Calculates the volume of a solid formed by a set of triangles.
+* The triangles must have points either all-clockwise or all-anti-clockwise,
+* looking from outside of the solid.
+*
+* @param triangles array of triangles
+* @return non-negative volume enclosed by the set of triangles
+*/
+public class Volume {
+    public static double volume(Triangle[] triangles) {
+        double volume = 0.0;
+        for (Triangle t : triangles) {
+            volume += volumeUnder(t);
+        }
+        return Math.abs(volume);
+    }
+
+    private static double volumeUnder(Triangle tri) {
+        Point[] p = tri.points();
+        double xbar = (p[0].x + p[1].x + p[2].x) / 3.0;
+        Vector vab = new Vector(p[0], p[1]);
+        Vector vac = new Vector(p[0], p[2]);
+        
+        // x-component of cross product
+        double ax = vab.y * vac.z - vac.y * vab.z;
+
+        return ax * xbar * 0.5;
+    }
+}</code></pre>
+          </div>
+
+          A simple implementation of required classes is provided below. For more elaborate implementation look at the
+          code in my 
+          <a href="https://github.com/heySourabh/CFDSolver/blob/master/src/main/geom/">CFDSolver</a> repository.
+          <!-- ---------- Triangle code ------------------- -->
+          <div class="code-wrap">
+            <span class="caption text-muted">Code 2: Triangle.java</span>
+
+            <pre class="pre-scrollable">
+<code>/**
+* @author Sourabh Bhat (https://spbhat.in)
+*/
+public class Triangle {
+    private final Point[] points;
+
+    public Triangle(Point p0, Point p1, Point p2) {
+        points = new Point[]{p0, p1, p2};
+    }
+
+    Point[] points() {
+        return points;
+    }
+}</code></pre>
+          </div>
+
+          <!-- ---------- Point code ------------------- -->
+          <div class="code-wrap">
+            <span class="caption text-muted">Code 3: Point.java</span>
+            <pre class="pre-scrollable">
+<code>/**
+* @author Sourabh Bhat (https://spbhat.in)
+*/
+public class Point {
+    public final double x, y, z;
+
+    public Point(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+}
+</code></pre>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://www.youtube.com/SourabhBhatCFD">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.github.com/heySourabh">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://twitter.com/heySourabh">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.facebook.com/sourabh.bhat">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Sourabh Bhat 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

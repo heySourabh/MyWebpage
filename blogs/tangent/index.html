@@ -40,6 +40,7 @@
 
   <!-- My styles -->
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../comment-form.css">
 
   <!-- Math -->
   <script type="text/javascript" async
@@ -250,9 +251,10 @@
           </p>
 
           <p>
-            Interestingly, <a href="https://github.com/baswam95" target="_blank" rel="noopener noreferrer"> <strong>"Bintang ASWAM"</strong></a>
+            Interestingly, <a href="https://github.com/baswam95" target="_blank" rel="noopener noreferrer">
+              <strong>"Bintang ASWAM"</strong></a>
             has worked out two different ways of calculating analytical solutions to angles and tangent points.
-            The solutions are available at: 
+            The solutions are available at:
             <a href="analytical.pdf" target="_blank" rel="noopener noreferrer">Solutions</a>.
           </p>
 
@@ -294,6 +296,26 @@
     </div>
   </article>
 
+  <hr>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+      <h2>Comments</h2>
+      <h6>Note: Comments will appear after review, which may take upto 24 hrs.</h6>
+      <form action="https://formspree.io/blog-comment@spbhat.in" method="POST">
+        <!--label for="fname">Name</label>-->
+        <input type="text" id="name" name="name" placeholder="Your Name">
+
+        <!--label for="message">Message</label>-->
+        <textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
+
+        <button type="submit">
+          <i class="fa fa-paper-plane mr-2"></i> Send
+        </button>
+      </form>
+    </div>
+    </div>
+  </div>
   <hr>
 
   <!-- Footer -->

@@ -29,6 +29,8 @@ function initialize() {
     start_btn.disabled = false;
     stop_btn.disabled = true;
 
+    loadPrefs();
+
     load_commands_audio();
     load_bg_audio();
     load_images();
@@ -97,6 +99,9 @@ function bgMusicStop() {
 }
 
 function start_pause_continue() {
+    // Save preferences
+    savePrefs()
+
     if (current_state == "INIT") {
         stop_btn.disabled = false;
         start_btn.value = "Pause";
@@ -172,9 +177,9 @@ function initial_instructions_and_start_counting() {
     clearDisplay();
     showImage();
     displayEstimatedTime();
-    
+
     var dur = parseFloat(instructionsAudio.duration);
-    if(isNaN(dur)) {
+    if (isNaN(dur)) {
         dur = 11;
     }
     instructions_duration = dur * 1000;
@@ -343,4 +348,72 @@ function msToTime(duration) {
     seconds = (seconds < 10) ? "0" + seconds : seconds;
 
     return hours + ":" + minutes + ":" + seconds;
+}
+
+function savePrefs() {
+    var exdays = 10;
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+
+    var totalSN = document.getElementById("totalSN").value;
+    var delayBeforeStart = document.getElementById("delay").value;
+    var speed = document.getElementById("speed_range").value;
+    var bgMusicCB = document.getElementById("bg_music_cb");
+    var bgMusicOn = "false";
+    if (bgMusicCB.checked) {
+        bgMusicOn = "true";
+    }
+
+    setCookie("total", totalSN);
+    setCookie("delay", delayBeforeStart);
+    setCookie("speed", speed);
+    setCookie("music", bgMusicOn);
+
+    // console.log(document.cookie);
+}
+
+function loadPrefs() {
+    var totalSN = getCookie("total");
+    if(totalSN != "") {
+        document.getElementById("totalSN").value = totalSN;
+    }
+
+    var delayBeforeStart = getCookie("delay");
+    if(delayBeforeStart != "") {
+        document.getElementById("delay").value = delayBeforeStart;
+    }
+
+    var speed = getCookie("speed");
+    if(speed != "") {
+        document.getElementById("speed_range").value = speed;
+    }
+
+    var bgMusicOn = getCookie("music");
+    if(bgMusicOn != "") {
+        document.getElementById("bg_music_cb").checked = (bgMusicOn == "false") ? false : true;
+    }
+}
+
+function setCookie(cname, cvalue, exdays = 10) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

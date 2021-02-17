@@ -15,14 +15,14 @@ p {
     <h1 style="color:#00ccff;">Remaining time to meet 😘 </h1>
   </div>
 
-<p id="demo"></p>
+<h2 id="demo"></h2>
   <div  style="width:100%; text-align:center;">
     <img width="100%" src="12.jpg"/>
   </div>
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("Mar 18, 2021 10:00:00").getTime();
+var countDownDate = new Date("Mar 18, 2021 09:00:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -46,7 +46,7 @@ var x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("demo").innerHTML = "Time to Meet!! :)";
   }
 }, 1000);
 </script>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Centroid of Solids</title>
+<meta charset="UTF-8">
+<meta name="description" content="Centroid of Solids">
+<meta name="keywords" content="Calculation of centroid,Numerical analysis,3D,Solids,Code">
+<meta name="author" content="Sourabh Bhat">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+<link rel="stylesheet" type="text/css" href="../../../../../css/clean-blog.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container">
+<a class="navbar-brand" href="/index.html">Sourabh Bhat</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="../../../../../index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../../../about.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/index.html#contact">Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<header class="masthead" style="background-image: url('../../../../../img/math.jpg')">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<div class="post-heading text-shadow-heading">
+<h1>Centroid of Solids</h1>
+<h2 class="subheading">Theory and code</h2>
+<span class="meta">Posted by <a href="/index.html">Sourabh Bhat</a> on Dec 22, 2019</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-md-12 mx-auto" style="text-align: justify;">
+<h2 class="section-heading">In this article</h2>
+<ul style="list-style-type:none;">
+<li>1. <a href="#sec-theory">Theory</a></li>
+<li>2. <a href="#sec-code">Code</a></li>
+</ul>
+<h2 id="sec-theory" class="section-heading">1. Theory</h2> The centroid, \(\bar{r}\) , of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \bar{r}=\frac{1}{Volume}\iiint_{V}r\ dV=\frac{1}{Volume}\iiint_{V}\left(x,y,z\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(1) </div>
+</div> where, \(r\) is a position vector. The centroid has a few very interesting properties such as:<ol><li>For a homogeneous solid the <em>center of mass</em> is located at the centroid</li><li>For any <em>linear function</em>, the average of the function inside the solid can be calculated by simply evaluating the function at the centroid point.</li></ol>The calculation of the centroid of a solid can be done by using the divergence theorem to reduce the volume integral to area integral. <div class="block-latex" id="eq-2"> $$ \bar{r}=\frac{1}{Volume}\iiint_{V}\left(x,y,z\right)\ dV=\frac{1}{Volume}\iiint_{V}\left(x\frac{\partial x}{\partial x},y\frac{\partial y}{\partial y},z\frac{\partial z}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(2) </div>
+</div>
+<div class="block-latex" id="eq-3"> $$ \bar{r}=\frac{1}{Volume}\frac{1}{2}\iiint_{V}\left(\frac{\partial x^{2}}{\partial x},\frac{\partial y^{2}}{\partial y},\frac{\partial z^{2}}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(3) </div>
+</div>
+<div class="block-latex" id="eq-4"> $$ \bar{x}=\frac{1}{Volume}\frac{1}{2}\iint_{A}x^{2}\ n_{x}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(4) </div>
+</div>
+<div class="block-latex" id="eq-5"> $$ \bar{y}=\frac{1}{Volume}\frac{1}{2}\iint_{A}y^{2}\ n_{y}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(5) </div>
+</div>
+<div class="block-latex" id="eq-6"> $$ \bar{z}=\frac{1}{Volume}\frac{1}{2}\iint_{A}z^{2}\ n_{z}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(6) </div>
+</div> where, \(\bar{x}\) , \(\bar{y}\) and \(\bar{z}\) are the components of the centroid in \(x\) , \(y\) and \(z\) directions respectively. The unit normal to the enclosing surface, \(\hat{n}=\left(n_{x},n_{y},n_{z}\right)\) , points outward of the solid. Thus, we can evaluate the centroid by calculation of second moment of area over the enclosing surface of the solid.<br>If we divide the enclosing surface into triangles, then for each of the triangle the normal remains constant and therefore can be moved out of the integral. Let us consider the integration of \(x\text{-coordinate}\) for an individual triangle in space. <div class="block-latex" id="eq-7"> $$ I_{x}=\iint_{A}x^{2}\ n_{x}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(7) </div>
+</div> Since \(n_{x}\) is constant the integration becomes, <div class="block-latex" id="eq-8"> $$ I_{x}=n_{x}\iint_{A}x^{2}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(8) </div>
+</div> The area integration needs to be carried out in the plane of the triangular element. Let us consider an arbitrary triangle with vertex 0, 1, 2. Let us also consider a new 2-dimensional \(u-v\) coordinate system with origin at the vertex 0 of the triangle, the \(u\text{-axis}\) aligned to base of the triangle pointing towards vertex 1. The \(v\text{-axis}\) is perpendicular to the \(u\text{-axis}\) in the plane of the triangle. The integration therefore becomes, <div class="block-latex" id="eq-9"> $$ I_{x}=n_{x}\iint_{A}x^{2}\ du\, dv $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(9) </div>
+</div> The integration can be vastly simplified by using natural coordinate system, \(\xi-\eta\) , such that the \(\xi\text{-axis}\) is aligned to \(u\text{-axis}\) and scaled such that the vertex 0 is at \(\xi=0\) and vertex 1 is at \(\xi=1\) . The \(\eta\text{-axis}\) is aligned to triangle edge 0-2 and scaled such that the vertex 0 is at \(\eta=0\) and vertex 2 is at \(\eta=1\) . The region of integration in the \(\xi-\eta\) coordinate system therefore simplifies to a right-angled triangle, which is easy to integrate. The integrand, \(x^{2}\ du\, dv\) , needs to be transformed for the \(\xi-\eta\) coordinate system. The linear transformation for \(x\) can be obtained as, <div class="block-latex" id="eq-10"> $$ x=c_{0}+c_{1}\xi+c_{2}\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(10) </div>
+</div> Now, substituting the constraints on the coordinate system, at \(\xi=0,\eta=0\) ; \(x=x_{0}\) , we get, <div class="block-latex" id="eq-11"> $$ x_{0}=c_{0}+c_{1}\times0+c_{2}\times0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(11) </div>
+</div>
+<div class="block-latex" id="eq-12"> $$ c_{0}=x_{0} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(12) </div>
+</div> Substituting, at \(\xi=1,\eta=0\) ; \(x=x_{1}\) , we get, <div class="block-latex" id="eq-13"> $$ x_{1}=x_{0}+c_{1}\times1+c_{2}\times0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(13) </div>
+</div>
+<div class="block-latex" id="eq-14"> $$ c_{1}=x_{1}-x_{0} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(14) </div>
+</div> Substituting, at \(\xi=0,\eta=1\) ; \(x=x_{2}\) , we get, <div class="block-latex" id="eq-15"> $$ x_{2}=x_{0}+c_{1}\times0+c_{2}\times1 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(15) </div>
+</div>
+<div class="block-latex" id="eq-16"> $$ c_{2}=x_{2}-x_{0} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(16) </div>
+</div> Therefore in the new coordinate system, <div class="block-latex" id="eq-17"> $$ x=x_{0}+\left(x_{1}-x_{0}\right)\xi+\left(x_{2}-x_{0}\right)\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(17) </div>
+</div> similarly, <div class="block-latex" id="eq-18"> $$ y=y_{0}+\left(y_{1}-y_{0}\right)\xi+\left(y_{2}-y_{0}\right)\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(18) </div>
+</div> and, <div class="block-latex" id="eq-19"> $$ z=z_{0}+\left(z_{1}-z_{0}\right)\xi+\left(z_{2}-z_{0}\right)\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(19) </div>
+</div> The integration now becomes, <div class="block-latex" id="eq-20"> $$ I_{x}=n_{x}\iint_{A}\left[x_{0}+\left(x_{1}-x_{0}\right)\xi+\left(x_{2}-x_{0}\right)\eta\right]^{2}\ du\, dv $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(20) </div>
+</div> Also elemental area, <div class="block-latex" id="eq-21"> $$ du\, dv=\frac{1}{\left|\partial\left(\xi,\eta\right)/\partial\left(u,v\right)\right|}d\xi\, d\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(21) </div>
+</div> where, \(\left|\partial\left(\xi,\eta\right)/\partial\left(u,v\right)\right|\) is the determinant of the Jacobian. In this linear transformation it is just the ratio of area of the triangle in the \(\xi-\eta\) coordinate system to area of triangle in \(u-v\) coordinate system. Since the area of the triangle in \(\xi-\eta\) coordinate system is 0.5, the scaling factor becomes, <div class="block-latex" id="eq-22"> $$ \left|\vec{A}_{T}\right|=\frac{1}{\left|\partial\left(\xi,\eta\right)/\partial\left(u,v\right)\right|}=\left|\overrightarrow{0-1}\times\overrightarrow{0-2}\right| $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(22) </div>
+</div> where \(\vec{A}_{T}=\overrightarrow{0-1}\times\overrightarrow{0-2}\) is the cross-product of the vectors made from edges 0-1 and 0-2. Therefore \(\left|\vec{A}_{T}\right|\) is twice the area of the triangle. The integration therefore becomes, <div class="block-latex" id="eq-23"> $$ I_{x}=\left|\vec{A}_{T}\right|\, n_{x}\iint_{A}\left[x_{0}+\left(x_{1}-x_{0}\right)\xi+\left(x_{2}-x_{0}\right)\eta\right]^{2}\ d\xi\, d\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(23) </div>
+</div> with limits of the integration, <div class="block-latex" id="eq-24"> $$ I_{x}=\left|\vec{A}_{T}\right|\, n_{x}\intop_{\eta=0}^{\eta=1}\ \intop_{\xi=0}^{\xi=1-\eta}\left[x_{0}+\left(x_{1}-x_{0}\right)\xi+\left(x_{2}-x_{0}\right)\eta\right]^{2}\ d\xi\ d\eta $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(24) </div>
+</div> Using Maxima symbolic manipulator we can simplify this as, <div class="block-latex" id="eq-25"> $$ I_{x}=\left|\vec{A}_{T}\right|\, n_{x}\left(\frac{x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}}{12}\right) $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(25) </div>
+</div> Therefore the formula for centroid of a solid with \(N\) enclosing triangles becomes, <div class="block-latex" id="eq-26"> $$ \bar{x}=\frac{1}{Volume}\frac{1}{2}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(\frac{x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}}{12}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(26) </div>
+</div>
+<div class="block-latex" id="eq-x-bar"> $$ \bar{x}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(27) </div>
+</div> Similarly, <div class="block-latex" id="eq-y-bar"> $$ \bar{y}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{yi}\left(y_{0}^{2}+y_{1}^{2}+y_{2}^{2}+y_{0}y_{1}+y_{0}y_{2}+y_{1}y_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(28) </div>
+</div> and <div class="block-latex" id="eq-z-bar"> $$ \bar{z}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{zi}\left(z_{0}^{2}+z_{1}^{2}+z_{2}^{2}+z_{0}z_{1}+z_{0}z_{2}+z_{1}z_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(29) </div>
+</div> The above expressions for centroid <a href="#eq-x-bar">eq.&#8239;(27)</a>, <a href="#eq-y-bar">eq.&#8239;(28)</a> and <a href="#eq-z-bar">eq.&#8239;(29)</a> can be further simplified by realizing that \(\left|\vec{A}_{T}\right|\,\left(n_{x},n_{y},n_{z}\right)=\overrightarrow{0-1}\times\overrightarrow{0-2}\) , which can be calculated only once and the \(x\text{-}\) \(y\text{-}\) and \(z\text{-components}\) can be used in respective equations. It is advisable to translate the solid close to the origin for the numerical calculations so that the numerical errors due to squaring of large numbers is reduced. The actual centroid can be obtained by translating back by the same amount. <h2 id="sec-code" class="section-heading">2. Code</h2> A sample program written to implement the algorithm is shown in <a href="#code-centroid-java">&lt;Code&#8239;1&gt;</a><div id="code-centroid-java" class="code-wrap">
+<span class="caption text-muted"><strong>Code 1:</strong> Code for computing centroid of any 3D object</span><hr>
+<pre class="pre-scrollable" style="max-height: 32em;"><code>&nbsp;&nbsp;<comment>/**<br>&nbsp;&nbsp;&nbsp;*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>&nbsp;&nbsp;&nbsp;*&nbsp;Calculates&nbsp;the&nbsp;centroid&nbsp;point&nbsp;of&nbsp;a&nbsp;solid&nbsp;formed&nbsp;by&nbsp;a&nbsp;set&nbsp;of&nbsp;triangles.<br>&nbsp;&nbsp;&nbsp;*&nbsp;The&nbsp;triangles&nbsp;must&nbsp;have&nbsp;points&nbsp;either&nbsp;all-clockwise&nbsp;or<br>&nbsp;&nbsp;&nbsp;*&nbsp;all-anti-clockwise,&nbsp;looking&nbsp;from&nbsp;outside&nbsp;of&nbsp;the&nbsp;solid.<br>&nbsp;&nbsp;&nbsp;*<br>&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;triangles&nbsp;array&nbsp;of&nbsp;triangles<br>&nbsp;&nbsp;&nbsp;*&nbsp;@return&nbsp;centroid&nbsp;point&nbsp;of&nbsp;solid&nbsp;region&nbsp;enclosed&nbsp;by&nbsp;the&nbsp;set&nbsp;of&nbsp;triangles<br>&nbsp;&nbsp;&nbsp;*/</comment><br>&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>class</keyword>&nbsp;<user-keyword>Centroid</user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>static</keyword>&nbsp;<user-keyword>Point</user-keyword>&nbsp;centroid(<user-keyword>TriGeom</user-keyword>[]&nbsp;triangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>&nbsp;translateBy&nbsp;=&nbsp;boundingBox(triangles).midPoint();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>TriGeom</user-keyword>[]&nbsp;newTriangles&nbsp;=&nbsp;translateTriangles(triangles,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-translateBy.x,&nbsp;-translateBy.y,&nbsp;-translateBy.z);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;vol&nbsp;=&nbsp;signedVolume(newTriangles);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;centroidPos&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(0,&nbsp;0,&nbsp;0);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>for</keyword>&nbsp;(<user-keyword>TriGeom</user-keyword>&nbsp;t&nbsp;:&nbsp;newTriangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centroidPos&nbsp;=&nbsp;centroidPos.add(scaledCentroidUnder(t));<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centroidPos&nbsp;=&nbsp;centroidPos.mult(1.0&nbsp;/&nbsp;vol&nbsp;/&nbsp;24.0);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;centroidPos&nbsp;=&nbsp;centroidPos.add(<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;translateBy.x,&nbsp;translateBy.y,&nbsp;translateBy.z));<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>return</keyword>&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Point</user-keyword>(centroidPos.x,&nbsp;centroidPos.y,&nbsp;centroidPos.z);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>private</keyword>&nbsp;<keyword>static</keyword>&nbsp;<user-keyword>Vector</user-keyword>&nbsp;scaledCentroidUnder(<user-keyword>TriGeom</user-keyword>&nbsp;tri)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>[]&nbsp;p&nbsp;=&nbsp;tri.points();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>&nbsp;p0&nbsp;=&nbsp;p[0];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>&nbsp;p1&nbsp;=&nbsp;p[1];<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>&nbsp;p2&nbsp;=&nbsp;p[2];<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;v1&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(p0,&nbsp;p1);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;v2&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(p0,&nbsp;p2);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;areaVector&nbsp;=&nbsp;v1.cross(v2);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;xc&nbsp;=&nbsp;areaVector.x&nbsp;*&nbsp;(p0.x&nbsp;*&nbsp;p0.x&nbsp;+&nbsp;p1.x&nbsp;*&nbsp;p1.x&nbsp;+&nbsp;p2.x&nbsp;*&nbsp;p2.x<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;p0.x&nbsp;*&nbsp;p1.x&nbsp;+&nbsp;p0.x&nbsp;*&nbsp;p2.x&nbsp;+&nbsp;p1.x&nbsp;*&nbsp;p2.x);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;yc&nbsp;=&nbsp;areaVector.y&nbsp;*&nbsp;(p0.y&nbsp;*&nbsp;p0.y&nbsp;+&nbsp;p1.y&nbsp;*&nbsp;p1.y&nbsp;+&nbsp;p2.y&nbsp;*&nbsp;p2.y<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;p0.y&nbsp;*&nbsp;p1.y&nbsp;+&nbsp;p0.y&nbsp;*&nbsp;p2.y&nbsp;+&nbsp;p1.y&nbsp;*&nbsp;p2.y);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;zc&nbsp;=&nbsp;areaVector.z&nbsp;*&nbsp;(p0.z&nbsp;*&nbsp;p0.z&nbsp;+&nbsp;p1.z&nbsp;*&nbsp;p1.z&nbsp;+&nbsp;p2.z&nbsp;*&nbsp;p2.z<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;p0.z&nbsp;*&nbsp;p1.z&nbsp;+&nbsp;p0.z&nbsp;*&nbsp;p2.z&nbsp;+&nbsp;p1.z&nbsp;*&nbsp;p2.z);<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>return</keyword>&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(xc,&nbsp;yc,&nbsp;zc);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br></code>
+</pre>
+</div>
+<p> The Vector and Point classes can be implemented with basic required functionality. The <code>boundingBox()</code> and <code>translateTriangles()</code> methods can be implemented to reduce error, or they can be omitted and the corresponding lines in the code can be removed. The <code>signedVolume()</code> method can be implemented as given in my blog on <a href="../../15/volume/index.html">Volume</a> calculation. For more elaborate implementations have a look at the <a href="https://github.com/heySourabh/CFDSolver/blob/master/src/main/geom/GeometryHelper.java">GeometryHelper</a> class in my <a href="https://github.com/heySourabh/CFDSolver">CFDSolver</a> repository. </p>
+<p> The pdf version of the article can be <a href="assets/centroid.pdf">downloaded using this link.<i class="fa fa-file-pdf" aria-hidden="true"></i></a>
+</p>
+</div>
+</div>
+</div>
+</article>
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<span style="color: red;"> Beta testing note: This page is automatically generated using a tool developed by me (inspired by \( \LaTeX \)'s cross-referencing). Please report any formatting errors (or cross-referencing errors) so that it can be corrected in all posts. Thank You! </span>
+<h2>Comments / Feedback</h2>
+<h6>Note: Comments will appear after review, which may take upto 24 hrs.</h6>
+<form action="https://formspree.io/blog-comment@spbhat.in" method="POST">
+<!--label for="fname">Name</label>-->
+<input type="text" id="name" name="name" placeholder="Your Name (and email if you are expecting a personal reply)">
+<!--label for="message">Message</label>-->
+<textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
+<button type="submit">
+<i class="fa fa-paper-plane mr-2"></i> Send </button>
+</form>
+</div>
+</div>
+</div>
+<hr>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-inline text-center">
+<li class="list-inline-item">
+<a href="https://www.youtube.com/SourabhBhatCFD">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.github.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://twitter.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.facebook.com/sourabh.bhat">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">Last update: 05-Nov-2021 08:28 UTC</p>
+<p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="../../../../../vendor/jquery/jquery.min.js"></script>
+<script src="../../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../../js/clean-blog.min.js"></script>
+<script src="../../../../../js/smooth-scroll-highlight.js"></script>
+</body>
+</html>

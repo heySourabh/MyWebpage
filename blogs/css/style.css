@@ -1,0 +1,79 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.text-shadow-heading{
+  text-shadow: 0px 0px 10px #000000;
+}
+
+a {color: #005464;}
+
+article a {
+    text-decoration: underline;
+}
+
+.block-latex {
+  padding-top: 0.1em;
+}
+
+.figure-wrap {padding: 1em 1em 0em 1em; background: #d3f8ff; text-align: center;}
+
+.video-wrap {padding: 1em 1em 0em 1em; background: #d3f8ff; text-align: center;}
+
+.code-wrap {background: #d3f8ff;}
+
+.table-wrap {padding: 0em 1em 0em 1em; background: #d3f8ff;}
+
+pre {font-size: medium;}
+pre code keyword {color: blue; font-weight: bold;}
+pre code user-keyword {color: black; font-weight: bold;}
+pre code comment {color: gray; font-style: italic;}
+
+.cited-items {
+  font-size: medium;
+  padding-bottom: 1em;
+  font-family:monospace;
+}
+
+/* Tooltip style start */
+.infotip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.infotip .tooltiptext {
+  font-size: medium;
+  visibility: hidden;
+  width: 300px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 2px 2px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -150px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.infotip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.infotip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+/* Tooltip style end */
+

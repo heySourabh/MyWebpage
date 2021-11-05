@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Volume of Solids</title>
+<meta charset="UTF-8">
+<meta name="description" content="Volume of Solids">
+<meta name="keywords" content="Calculation of volume,Numerical analysis,3D,Solids,Code">
+<meta name="author" content="Sourabh Bhat">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+<link rel="stylesheet" type="text/css" href="../../../../../css/clean-blog.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container">
+<a class="navbar-brand" href="/index.html">Sourabh Bhat</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="../../../../../index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../../../about.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/index.html#contact">Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<header class="masthead" style="background-image: url('../../../../../img/math.jpg')">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<div class="post-heading text-shadow-heading">
+<h1>Volume of Solids</h1>
+<h2 class="subheading">Theory and code</h2>
+<span class="meta">Posted by <a href="/index.html">Sourabh Bhat</a> on Dec 15, 2019</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-md-12 mx-auto" style="text-align: justify;">
+<h2 class="section-heading">In this article</h2>
+<ul style="list-style-type:none;">
+<li>1. <a href="#sec-theory">Theory</a></li>
+<li>2. <a href="#sec-code">Code</a></li>
+</ul>
+<h2 id="sec-theory" class="section-heading">1. Theory</h2> The need for calculation of volume of solids arises in many computations. For primitive solids, like sphere, cylinder, cone, pyramids and prisms, we have well-defined analytical expressions for calculation of their volume. However, for an arbitrarily shaped solid, such a calculation can be daunting and it could be extremely difficult to derive an analytical closed form expression. But, if we are able to break down the surface of the solid into triangles, then the volume can be computed using the Stokes theorem. Given that any surface in three-dimensions can be approximated by a set of triangles, the volume of any solid can be calculated to a required degree of accuracy by using enough number of triangles for approximating the enclosing surface of the solid.<br>The volume of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \iiint_{\text{vol}}dx\, dy\, dz\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(1) </div>
+</div> We can re-write this as, <div class="block-latex" id="eq-2"> $$ \iiint_{\text{vol}}\frac{\partial x}{\partial x}\, dx\, dy\, dz\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(2) </div>
+</div> Using the Stokes theorem (the divergence theorem) we can write, <div class="block-latex" id="eq-3"> $$ \iint_{\text{Area}}x\, n_{x}\, dA\ , $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(3) </div>
+</div> where, \(n_{x}\) is the \(x\text{-component}\) of the unit normal. This means that now we can calculate the volume by just carrying out surface integrals over enclosing volume surfaces. We can easily break-down a enclosing surface into to a set of triangles. We must be cautious however that the normal must be pointing outwards and the vertices of the triangle must be in the anti-clockwise direction.<br>Let us compute the contribution of a single triangle to the total volume. Since a triangle is a planar surface, \(n_{x}\) is a constant and can be moved out of the integral, which results in, <div class="block-latex" id="eq-4"> $$ n_{x}\iint_{\text{Area}}x\, dA\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(4) </div>
+</div> This is basically a formula for \(x\text{-coordinate}\) of the centroid of the triangle, times \(n_{x}\) times Area of the triangle. For a triangle, with vertices \(a\) , \(b\) and \(c\) , the \(x\text{-coordinate}\) of the centroid can be easily calculated as, <div class="block-latex" id="eq-5"> $$ \bar{x}=\frac{xa+xb+xc}{3}\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(5) </div>
+</div> Also, let us assume that the vertices are in an anti-clockwise direction. The two vectors formed by points \(a-b\) and \(a-c\) (vector \(\vec{ab}\) and vector \(\vec{ac}\) ) can be used for calculation of the area of the triangle as, <div class="block-latex" id="eq-6"> $$ \vec{A}=\frac{1}{2}\left(\vec{ab}\times\vec{ac}\right)\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(6) </div>
+</div> This will result in a vector, whose length is equal to the area of the triangle and direction is such that it points outwards from the solid. Scaling the vector to unit length and taking its \(x\text{-component}\) will give us \(n_{x}\) . Taking the magnitude will give area, \(A\) . Adding up the contributions from all the triangles, making up the surface, will give the volume of the solid as, <div class="block-latex" id="eq-7"> $$ \sum_{i=0}^{n-1}n_{xi}\,\left|A_{i}\right|\,\bar{x}_{i}\ , $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(7) </div>
+</div> which can be simplified to, <div class="block-latex" id="eq-8"> $$ \sum_{i=0}^{n-1}\vec{A}_{ix}\,\,\bar{x}_{i}\ , $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(8) </div>
+</div> where, \(\vec{A}_{ix}\) is the \(x\text{-component}\) of the area vector, \(\vec{A}\) . Therefore, the volume of a solid made-up of \(n\) enclosing triangles can be computed as, <div class="block-latex" id="eq-9"> $$ \text{Volume}=\sum_{i=0}^{n-1}\vec{A}_{ix}\,\,\bar{x}_{i}\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(9) </div>
+</div>
+<h2 id="sec-code" class="section-heading">2. Code</h2> Below is a sample program to calculate volume of any solid.<div id="code-1" class="code-wrap">
+<span class="caption text-muted"><strong>Code 1:</strong> Code for computing volume of any 3D object</span><hr>
+<pre class="pre-scrollable" ><code>&nbsp;&nbsp;<comment>/*<br>&nbsp;&nbsp;*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>&nbsp;&nbsp;*<br>&nbsp;&nbsp;*&nbsp;Calculates&nbsp;the&nbsp;volume&nbsp;of&nbsp;a&nbsp;solid&nbsp;formed&nbsp;by&nbsp;a&nbsp;set&nbsp;of&nbsp;triangles.<br>&nbsp;&nbsp;*&nbsp;The&nbsp;triangles&nbsp;must&nbsp;have&nbsp;points&nbsp;either&nbsp;all-clockwise&nbsp;or&nbsp;all-anti-clockwise,<br>&nbsp;&nbsp;*&nbsp;looking&nbsp;from&nbsp;outside&nbsp;of&nbsp;the&nbsp;solid.<br>&nbsp;&nbsp;*<br>&nbsp;&nbsp;*&nbsp;@param&nbsp;triangles&nbsp;array&nbsp;of&nbsp;triangles<br>&nbsp;&nbsp;*&nbsp;@return&nbsp;non-negative&nbsp;volume&nbsp;enclosed&nbsp;by&nbsp;the&nbsp;set&nbsp;of&nbsp;triangles<br>&nbsp;&nbsp;*/</comment><br>&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>class</keyword>&nbsp;<user-keyword>Volume</user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>static</keyword>&nbsp;<keyword>double</keyword>&nbsp;volume(<user-keyword>Triangle</user-keyword>[]&nbsp;triangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;volume&nbsp;=&nbsp;0.0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>for</keyword>&nbsp;(<user-keyword>Triangle</user-keyword>&nbsp;t&nbsp;:&nbsp;triangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volume&nbsp;+=&nbsp;volumeUnder(t);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>return</keyword>&nbsp;Math.abs(volume);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>private</keyword>&nbsp;<keyword>static</keyword>&nbsp;<keyword>double</keyword>&nbsp;volumeUnder(<user-keyword>Triangle</user-keyword>&nbsp;tri)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>[]&nbsp;p&nbsp;=&nbsp;tri.points();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;xbar&nbsp;=&nbsp;(p[0].x&nbsp;+&nbsp;p[1].x&nbsp;+&nbsp;p[2].x)&nbsp;/&nbsp;3.0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;vab&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(p[0],&nbsp;p[1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Vector</user-keyword>&nbsp;vac&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Vector</user-keyword>(p[0],&nbsp;p[2]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;x-component&nbsp;of&nbsp;cross&nbsp;product</comment><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>double</keyword>&nbsp;ax&nbsp;=&nbsp;vab.y&nbsp;*&nbsp;vac.z&nbsp;-&nbsp;vac.y&nbsp;*&nbsp;vab.z;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>return</keyword>&nbsp;ax&nbsp;*&nbsp;xbar&nbsp;*&nbsp;0.5;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br></code>
+</pre>
+</div>A simple implementation of required classes is provided below. For more elaborate implementation look at the code in my <a href="https://github.com/heySourabh/CFDSolver/blob/master/src/main/geom/">CFDSolver</a> repository.<div id="code-2" class="code-wrap">
+<span class="caption text-muted"><strong>Code 2:</strong> Triangle class</span><hr>
+<pre class="pre-scrollable" ><code>&nbsp;&nbsp;<comment>/**<br>&nbsp;&nbsp;*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>&nbsp;&nbsp;*/</comment><br>&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>class</keyword>&nbsp;<user-keyword>Triangle</user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>private</keyword>&nbsp;<keyword>final</keyword>&nbsp;<user-keyword>Point</user-keyword>[]&nbsp;points;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<user-keyword>Triangle</user-keyword>(<user-keyword>Point</user-keyword>&nbsp;p0,&nbsp;<user-keyword>Point</user-keyword>&nbsp;p1,&nbsp;<user-keyword>Point</user-keyword>&nbsp;p2)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;points&nbsp;=&nbsp;<keyword>new</keyword>&nbsp;<user-keyword>Point</user-keyword>[]{p0,&nbsp;p1,&nbsp;p2};<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<user-keyword>Point</user-keyword>[]&nbsp;points()&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>return</keyword>&nbsp;points;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br></code>
+</pre>
+</div><div id="code-3" class="code-wrap">
+<span class="caption text-muted"><strong>Code 3:</strong> Point class</span><hr>
+<pre class="pre-scrollable" ><code>&nbsp;&nbsp;<comment>/**<br>&nbsp;&nbsp;*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>&nbsp;&nbsp;*/</comment><br>&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>class</keyword>&nbsp;<user-keyword>Point</user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<keyword>final</keyword>&nbsp;<keyword>double</keyword>&nbsp;x,&nbsp;y,&nbsp;z;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>public</keyword>&nbsp;<user-keyword>Point</user-keyword>(<keyword>double</keyword>&nbsp;x,&nbsp;<keyword>double</keyword>&nbsp;y,&nbsp;<keyword>double</keyword>&nbsp;z)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>this</keyword>.x&nbsp;=&nbsp;x;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>this</keyword>.y&nbsp;=&nbsp;y;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<keyword>this</keyword>.z&nbsp;=&nbsp;z;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;}<br></code>
+</pre>
+</div>
+<p> The pdf version of the article can be <a href="assets/volume.pdf">downloaded using this link.<i class="fa fa-file-pdf" aria-hidden="true"></i></a>
+</p>
+</div>
+</div>
+</div>
+</article>
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<span style="color: red;"> Beta testing note: This page is automatically generated using a tool developed by me (inspired by \( \LaTeX \)'s cross-referencing). Please report any formatting errors (or cross-referencing errors) so that it can be corrected in all posts. Thank You! </span>
+<h2>Comments / Feedback</h2>
+<h6>Note: Comments will appear after review, which may take upto 24 hrs.</h6>
+<form action="https://formspree.io/blog-comment@spbhat.in" method="POST">
+<!--label for="fname">Name</label>-->
+<input type="text" id="name" name="name" placeholder="Your Name (and email if you are expecting a personal reply)">
+<!--label for="message">Message</label>-->
+<textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
+<button type="submit">
+<i class="fa fa-paper-plane mr-2"></i> Send </button>
+</form>
+</div>
+</div>
+</div>
+<hr>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-inline text-center">
+<li class="list-inline-item">
+<a href="https://www.youtube.com/SourabhBhatCFD">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.github.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://twitter.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.facebook.com/sourabh.bhat">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">Last update: 05-Nov-2021 08:28 UTC</p>
+<p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="../../../../../vendor/jquery/jquery.min.js"></script>
+<script src="../../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../../js/clean-blog.min.js"></script>
+<script src="../../../../../js/smooth-scroll-highlight.js"></script>
+</body>
+</html>

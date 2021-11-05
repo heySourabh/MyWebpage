@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Order of Accuracy</title>
+<meta charset="UTF-8">
+<meta name="description" content="Order of Accuracy">
+<meta name="keywords" content="Order of accuracy analysis,Taylor series,Advection schemes,High order methods,Error analysis">
+<meta name="author" content="Sourabh Bhat">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+<link rel="stylesheet" type="text/css" href="../../../../../css/clean-blog.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container">
+<a class="navbar-brand" href="/index.html">Sourabh Bhat</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="../../../../../index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../../../about.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/index.html#contact">Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<header class="masthead" style="background-image: url('../../../../../img/math.jpg')">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<div class="post-heading text-shadow-heading">
+<h1>Order of Accuracy</h1>
+<h2 class="subheading">Theory and analysis</h2>
+<span class="meta">Posted by <a href="/index.html">Sourabh Bhat</a> on Dec 10, 2019</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-md-12 mx-auto" style="text-align: justify;">
+<h2 class="section-heading">In this article</h2>
+<ul style="list-style-type:none;">
+<li>1. <a href="#sec-introduction">Introduction</a></li>
+<li>2. <a href="#sec-literature">Review of Literature</a></li>
+<li>3. <a href="#sec-need">Need of High Order Methods</a></li>
+<li>4. <a href="#sec-results">Results</a></li>
+<li>5. <a href="#sec-references">References</a></li>
+</ul>
+<h2 id="sec-introduction" class="section-heading">1. Introduction</h2> The truncation error of a numerical method is dependent on the grid spacing. That is, every time we reduce the grid spacing (cell size), the truncation error is expected to reduce. This can be observed theoretically by carrying out a Taylor's series expansion of the numerical scheme and subtracting the result from the exact partial differential equation. The residue left out is the truncation error, which can be written as, <div class="block-latex" id="eq-1"> $$ \epsilon=c_{0}\left(\Delta x\right)^{\mathcal{O}}+c_{1}\left(\Delta x\right)^{\mathcal{O}+1}+c_{2}\left(\Delta x\right)^{\mathcal{O}+2}\dots $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(1) </div>
+</div> where, \(c_{i};\ i=0,1,2\dots\) are coefficients which are independent of cell size. Neglecting the higher order terms (since \(\Delta x\) is small), we get, <div class="block-latex" id="eq-Order-of-Accuracy"> $$ \epsilon\approx c_{0}\left(\Delta x\right)^{\mathcal{O}}\implies\epsilon\propto\left(\Delta x\right)^{\mathcal{O}} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(2) </div>
+</div> The order of such a scheme is said to be \(\mathcal{O}\) . It may not be always possible to carry out a theoretical analysis of a non-linear method, such as in the case of SDWLS, WENO or limiter based methods. In such schemes the formulation is dependent on the solution and thus, a priori Taylor's series expansion is not possible. This calls for a numerical approach for obtaining the order of accuracy of the scheme. To carry out the numerical analysis, of order of accuracy, we can write equation <a href="#eq-Order-of-Accuracy">eq.&#8239;(2)</a> for two cell sizes, say \(\Delta x_{1}\) and \(\Delta x_{2}\) and the corresponding errors as \(\epsilon_{1}\) and \(\epsilon_{2}\) . This results in the following two equations, <div class="block-latex" id="eq-order-1"> $$ \epsilon_{1}\propto\left(\Delta x_{1}\right)^{\mathcal{O}} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(3) </div>
+</div>
+<div class="block-latex" id="eq-order-2"> $$ \epsilon_{2}\propto\left(\Delta x_{2}\right)^{\mathcal{O}} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(4) </div>
+</div> Now, dividing equation <a href="#eq-order-2">eq.&#8239;(4)</a> by equation <a href="#eq-order-1">eq.&#8239;(3)</a> results in the following equation, <div class="block-latex" id="eq-5"> $$ \begin{align}&\frac{\epsilon_{2}}{\epsilon_{1}}=\left(\frac{\Delta x_{2}}{\Delta x_{1}}\right)^{\mathcal{O}} \\\implies&\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)=\mathcal{O}.\left(\log\left(\Delta x_{2}\right)-\log\left(\Delta x_{1}\right)\right)\end{align} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(5) </div>
+</div> Rearranging this equation, we get an expression for the order of accuracy as, <div class="block-latex" id="eq-6"> $$ \mathcal{O}=\frac{\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)}{\log\left(\Delta x_{2}\right)-\log\left(\Delta x_{1}\right)} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(6) </div>
+</div> This can be observed as the slope of a curve on a log-log plot of error versus cell size. It may be noted that the \(\Delta x\) is a measure of the cell size, and for a two-dimensional Cartesian mesh it is appropriately defined as, <div class="block-latex" id="eq-7"> $$ h=\sqrt{\Delta x\,\Delta y} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(7) </div>
+</div> In case of unstructured mesh, the measure of cell size is defined by the average of all the cells in the domain, which can be defined as, <div class="block-latex" id="eq-8"> $$ h=\sqrt{\frac{\text{area of domain}}{\text{total number of cells}}} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(8) </div>
+</div> and therefore, the order of accuracy of the method for a two-dimensional problem gets redefined as, <div class="block-latex" id="eq-9"> $$ \mathcal{O}=\frac{\log\left(\epsilon_{2}\right)-\log\left(\epsilon_{1}\right)}{\log\left(h_{2}\right)-\log\left(h_{1}\right)} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(9) </div>
+</div> An order of accuracy analysis is a systematic process in which the error is obtained for various cell sizes. The error versus cell size is then plotted on a log-log plot. The actual order is obtained by calculating the slope of the curve on this plot. It has been pointed out by Toro&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-toro2009">1</a>
+<span class="tooltiptext">Toro E.F.(2009), 3rd&nbsp;ed., Springer</span>
+</span></span>], that the order of accuracy may not be apparent in case of non-linear schemes. It is therefore essential to carry out the order of accuracy analysis of new schemes before using them. In my work, I have computed numerically the order of accuracy of the following solution reconstruction methods: first order, Beam-Warming scheme using van Albada limiter, linear and quadratic SDWLS, third order and fifth order WENO method. The analysis has been conducted for various problems in one-dimension and two-dimensions on a structured and unstructured mesh. <h2 id="sec-literature" class="section-heading">2. Review of Literature</h2> The Godunov theorem&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-godunov1959">2</a>
+<span class="tooltiptext">Godunov S.K., <em>Mat. Sbornik</em>(<strong>1959</strong>)</span>
+</span></span>] states that it is not possible for a linear higher order scheme, (of order two or higher), to ensure a non-oscillatory solution. It is however observed that, if there are no discontinuities in the solution then, the numerical solution obtained by a linear high order scheme is much superior compared to the first order upwind scheme. It has been a quest of many researches to circumvent the limitation imposed by the Godunov theorem to achieve an order of accuracy as high as possible. This effort has led to two classes of methods of adding non-linearity to the scheme. The two classes of methods are: the artificial viscosity methods and the total variation diminishing methods. In case of artificial viscosity methods additional non-physical, viscous like terms, are added to the scheme such that the oscillations are damped out&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-toro1991">3</a>
+<span class="tooltiptext">Toro E.F.(1991), Springer</span>
+</span></span>]. The currently available methods in this class, have to define a coefficient which has to be tuned according to the problem. Therefore, these methods are not easily extensible to general problems. The total variation diminishing (TVD) methods include slope-limiters and flux-limiters to locally switch to a lower order, based on the local gradients. This class of methods are more general to extend to any type of problems and therefore are more widely used. Many major contributions have been made to this class of methods over the years&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-vanLeer1973">4</a>
+<span class="tooltiptext">van Leer B.(1973), Springer Berlin Heidelberg</span>
+</span>,<span class="infotip"><a href="#cite-boris1973">5</a>
+<span class="tooltiptext">Boris J.P. and Book D.L., <em>J.Comp.Phys</em>(<strong>1973</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-book1975">6</a>
+<span class="tooltiptext">Book D.L., et al., <em>J.Comp.Phys</em>(<strong>1975</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-boris1976">7</a>
+<span class="tooltiptext">Boris J.P. and Book D.L., <em>J.Comp.Phys</em>(<strong>1976</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-harten1983">8</a>
+<span class="tooltiptext">Harten A., <em>J.Comp.Phys</em>(<strong>1983</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-harten1984">9</a>
+<span class="tooltiptext">Harten A., <em>SINUM</em>(<strong>1984</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-sweby1984">10</a>
+<span class="tooltiptext">Sweby P.K., <em>SINUM</em>(<strong>1984</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-sweby1989">11</a>
+<span class="tooltiptext">Sweby P.K.(1989), Vieweg+Teubner Verlag</span>
+</span></span>]. Various limiters have been defined which perform identically far away from the discontinuity but change their behavior close to the region of high gradients. The limiter versus the gradient-ratio plot commonly known as Sweby plot&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-sweby1984">10</a>
+<span class="tooltiptext">Sweby P.K., <em>SINUM</em>(<strong>1984</strong>)</span>
+</span></span>] is used in these methods to define a limiter function. Some of the widely used limiter functions are SUPERBEE&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-roe1985">12</a>
+<span class="tooltiptext">Roe P.L.(1985), American Mathematical Society</span>
+</span></span>], VANLEER&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-vanLeer1973">4</a>
+<span class="tooltiptext">van Leer B.(1973), Springer Berlin Heidelberg</span>
+</span></span>], VANALBADA&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-vanAlbada1982">13</a>
+<span class="tooltiptext">van Albada G.D., et al., <em>Astronomy and Astrophysics</em>(<strong>1982</strong>)</span>
+</span></span>], MINMOD&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-roe1986">14</a>
+<span class="tooltiptext">Roe P.L., <em>Annu. Rev. Fluid Mech.</em>(<strong>1986</strong>)</span>
+</span></span>]. <p> A hybrid class of schemes closely related to TVD methods are solution dependent methods. In these methods a MUSCL-type&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-vanLeer1977">15</a>
+<span class="tooltiptext">van Leer B., <em>J.Comp.Phys</em>(<strong>1977</strong>)</span>
+</span></span>] solution strategy is used, with a linear combination of all possible solution reconstructions. MUSCL stands for Monotone Upstream-centered Scheme for Conservation Laws. These type of methods include a family of more recent methods like SDWLS&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-mandal2008">16</a>
+<span class="tooltiptext">Mandal J.C. and J S., <em>Applied Numerical Mathematics</em>(<strong>2008</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-mandal2011">17</a>
+<span class="tooltiptext">Mandal J.C. and Rao ,.P., <em>Computers & Fluids</em>(<strong>2011</strong>)</span>
+</span></span>] and WENO&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-shu1997">18</a>
+<span class="tooltiptext">Shu C.(1997), Springer</span>
+</span></span>] methods. The combination of weights is so chosen, such that it reduces the oscillations. These methods do not enforce the TVD condition explicitly, and therefore may encounter oscillations within acceptable limits. In the SDWLS method, each of the neighboring cells are expressed as a function of the cell value and derivatives, using Taylor's series expansion, about the cell's centroid. This results in a system of equations with the derivatives as unknowns. Now, this system of equations are solved for the derivatives in a least-square sense, after application of weights. The weights are inversely proportional to the variation from the central cell, thus reducing the oscillations. The WENO method uses an approach where, all the candidate stencils are reconstructed. Appropriate weights are then applied to each of the stencil solutions based on the smoothness in the stencil. </p>
+<p> The current trends in high order methods and their need are very well reviewed by Wang and group in their article&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-wang2013">19</a>
+<span class="tooltiptext">Wang Z.J., et al., <em>Int. J. Numer. Methods Fluids</em>(<strong>2013</strong>)</span>
+</span></span>]. The order of accuracy analysis of WENO methods for structured grids is performed by Balsara&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-balsara2000">20</a>
+<span class="tooltiptext">Balsara D.S. and Shu C., <em>J.Comp.Phys</em>(<strong>2000</strong>)</span>
+</span></span>]. The analysis on unstructured grid for WENO methods is carried out by Hu&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-hu1999">21</a>
+<span class="tooltiptext">Hu C. and Shu C., <em>J.Comp.Phys</em>(<strong>1999</strong>)</span>
+</span></span>] and Liu&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-liu2013">22</a>
+<span class="tooltiptext">Liu Y. and Zhang Y.T., <em>J. Sci. Comput.</em>(<strong>2013</strong>)</span>
+</span></span>]. Using the ADER approach (Arbitrary high-order DERivative Riemann problem) and discontinuous Galerkin finite element method, the analysis has been performed by Dumbser et al.&#8239;[<span style="font-family:monospace;"><span class="infotip"><a href="#cite-dumbser2005">23</a>
+<span class="tooltiptext">Dumbser M. and Munz C., <em>Comptes Rendus Mécanique</em>(<strong>2005</strong>)</span>
+</span>,<span class="infotip"><a href="#cite-montecinos2012">24</a>
+<span class="tooltiptext">Montecinos G., et al., <em>J.Comp.Phys</em>(<strong>2012</strong>)</span>
+</span></span>] </p>
+<h2 id="sec-need" class="section-heading">3. Need of High Order Methods</h2> The goal being that we need to achieve some level of accuracy, say \(10^{-3}\) of absolute error, we may ask ourselves the following question. Are high order methods really required? or is it more efficient to solve the problem on a very fine mesh using a first order method? It is well known that a first order method will run much faster than a second order method on a given mesh. But if we keep refining the mesh until the first order method achieves similar solution as second order method, will the first order method still take lesser time? The following simple demonstration tries to answer this question by actually solving a problem on various uniformly refined grids and comparing the computational time and memory requirement. The problem being solved here is a simple advection equation <a href="#eq-1D-scalar-advection">eq.&#8239;(10)</a>, initialized with a smooth sine function <a href="#eq-Sine-wavek_1">eq.&#8239;(11)</a> having a wave number of unity (see <a href="#fig-Sine-wavek_1">Fig.&#8239;1</a>). The boundary conditions are periodic and thus the final exact solution after one complete cycle is same as the initial distribution. The domain length chosen is 2 ranging from -1 to +1. <div class="block-latex" id="eq-1D-scalar-advection"> $$ u_{t}+u_{x}=0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(10) </div>
+</div>
+<div class="block-latex" id="eq-Sine-wavek_1"> $$ u_{0}=u\left(x,t=0\right)=\sin\left(2\pi x\right) $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(11) </div>
+</div>
+<br><div class="figure-wrap" id="fig-Sine-wavek_1">
+<img class="img-fluid col-lg-10" src="assets/sine_wave.png" alt="">
+<hr><span class="caption text-muted"><strong>Fig. 1:</strong> Sine distribution with wave number = 1</span>
+</div>
+<p> Using a trial and error method, the number of grid cells required by the second order method is estimated. To achieve an \(L_{2}\text{-error}\) of approximately \(10^{-3}\) , the second order method requires 320 cells as seen in <a href="#tab-Error-time-Fromm">Table&#8239;1</a>. Whereas, the first order method takes a phenomenal amount of cells, about 128 times more, as seen in <a href="#tab-Error-time-FirstOrder">Table&#8239;2</a>, and therefore a proportionally large amount of memory. An even more appealing advantage of high-order methods can be observed by comparing the time taken. To achieve a similar \(L_{2}\text{-error}\) , approximately \(10^{-3}\) , the first order method takes more than 20,000 times more computational time! </p>
+<div class="table-wrap" id="tab-Error-time-Fromm">
+<span class="caption text-muted"><strong>Table 1:</strong> Error and computational time for Fromm (second order) method</span>
+<table class="table">
+<thead>
+<tr>
+<th>Grid Size</th>
+<th> \(L_{2}\) Error (Absolute)</th>
+<th>Compute Time<br>( \(\times 10^{-3}\) seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80</td>
+<td> \(1.8518\times10^{-2}\) </td>
+<td> \(\sim20\) </td>
+</tr>
+<tr>
+<td>160</td>
+<td> \(4.5853\times10^{-3}\) </td>
+<td> \(\sim30\) </td>
+</tr>
+<tr>
+<td>320</td>
+<td> \(1.1431\times10^{-3}\) </td>
+<td> \(\sim80\) </td>
+</tr>
+<tr>
+<td>640</td>
+<td> \(2.8555\times10^{-4}\) </td>
+<td> \(\sim200\) </td>
+</tr>
+</tbody>
+</table>
+</div><div class="table-wrap" id="tab-Error-time-FirstOrder">
+<span class="caption text-muted"><strong>Table 2:</strong> Error and computational time for first order upwind method</span>
+<table class="table">
+<thead>
+<tr>
+<th>Grid Size</th>
+<th> \(L_{2}\) Error (Absolute)</th>
+<th>Compute Time<br>( \(\times 10^{-3}\) seconds)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10240</td>
+<td> \(5.4313\times10^{-3}\) </td>
+<td> \(\sim20000\) </td>
+</tr>
+<tr>
+<td>20480</td>
+<td> \(2.7209\times10^{-3}\) </td>
+<td> \(\sim300000\) </td>
+</tr>
+<tr>
+<td>40960</td>
+<td> \(1.3617\times10^{-3}\) </td>
+<td> \(\sim1735000\) </td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> This overwhelming difference is observed due to two reasons. The first reason is obviously due to the higher number of mesh cells required by the first order method. The second reason is most probably the limited cache on the machine which caused repeated cache flushing. This efficiency gap between an high order method and a lower order method grows as we demand for more and more accurate results. Thus, this small experiment makes it obvious that, we must try to use higher order methods whenever possible. There are however, two major difficulties associated with high-order methods. The first difficulty is due to the oscillations which appear in the solutions. The second difficulty is associated with the stability of the methods. The TVD, SDWLS and WENO methods try to overcome these difficulties by using a non-linear solution dependent approach. </p>
+<h2 id="sec-results" class="section-heading">4. Results</h2> For further reading and to look at the <strong>results using various schemes with scalar and Euler equations</strong>, <a href="assets/accuracy.pdf"> download this file <i class="fa fa-file-pdf" aria-hidden="true"></i></a>
+<h2 id="sec-references" class="section-heading">5. References</h2>
+<div>
+<div id="cite-toro2009" class="cited-items">[1] Toro E.F.(2009), <em>Riemann Solvers and Numerical Methods for Fluid Dynamics: A Practical Introduction</em>, 3rd&nbsp;ed., Berlin, Heidelberg, Springer, <a href="https://doi.org/10.1007/b79761">https://doi.org/10.1007/b79761</a></div>
+<div id="cite-godunov1959" class="cited-items">[2] Godunov S.K., "A Difference Method for Numerical Calculation of Discontinuous Solutions of the Equations of Hydrodynamics", <em>Matematicheskii Sbornik</em>(<strong>1959</strong>), 47, pp.&nbsp;271-306, <a href="https://zbmath.org/?q=an%3A0171.46204">https://zbmath.org/?q=an%3A0171.46204</a></div>
+<div id="cite-toro1991" class="cited-items">[3] Toro E.F.(1991), "Viscous Flux Limiters", <em>Proceedings of the Ninth GAMM-Conference on Numerical Methods in Fluid Mechanics</em>, pp.592-600, Springer, <a href="https://doi.org/10.1007/978-3-663-13974-4_56">https://doi.org/10.1007/978-3-663-13974-4_56</a></div>
+<div id="cite-vanLeer1973" class="cited-items">[4] van Leer B.(1973), "Towards the ultimate conservative difference scheme I. The quest of monotonicity", <em>Proceedings of the Third International Conference on Numerical Methods in Fluid Mechanics</em>, pp.163-168, Springer Berlin Heidelberg, <a href="http://dx.doi.org/10.1007/BFb0118673">http://dx.doi.org/10.1007/BFb0118673</a></div>
+<div id="cite-boris1973" class="cited-items">[5] Boris J.P. and Book D.L., "Flux-corrected transport. I. SHASTA, a fluid transport algorithm that works", <em>Journal of Computational Physics</em>(<strong>1973</strong>), 11, pp.&nbsp;38-69, <a href="https://doi.org/10.1016/0021-9991(73)90147-2">https://doi.org/10.1016/0021-9991(73)90147-2</a></div>
+<div id="cite-book1975" class="cited-items">[6] Book D.L., Boris J.P., Hain K., "Flux-corrected transport II: Generalizations of the method", <em>Journal of Computational Physics</em>(<strong>1975</strong>), 18, pp.&nbsp;248-283, <a href="https://doi.org/10.1016/0021-9991(75)90002-9">https://doi.org/10.1016/0021-9991(75)90002-9</a></div>
+<div id="cite-boris1976" class="cited-items">[7] Boris J.P. and Book D.L., "Flux-corrected transport. III. Minimal-error FCT algorithms", <em>Journal of Computational Physics</em>(<strong>1976</strong>), 20, pp.&nbsp;397-431, <a href="https://doi.org/10.1016/0021-9991(76)90091-7">https://doi.org/10.1016/0021-9991(76)90091-7</a></div>
+<div id="cite-harten1983" class="cited-items">[8] Harten A., "High resolution schemes for hyperbolic conservation laws", <em>Journal of Computational Physics</em>(<strong>1983</strong>), 49, pp.&nbsp;357-393, <a href="https://doi.org/10.1016/0021-9991(83)90136-5">https://doi.org/10.1016/0021-9991(83)90136-5</a></div>
+<div id="cite-harten1984" class="cited-items">[9] Harten A., "On a Class of High Resolution Total-Variation-Stable Finite-Difference Schemes", <em>SIAM Journal on Numerical Analysis</em>(<strong>1984</strong>), 21, pp.&nbsp;1-23, <a href="https://doi.org/10.1137/0721001">https://doi.org/10.1137/0721001</a></div>
+<div id="cite-sweby1984" class="cited-items">[10] Sweby P.K., "High Resolution Schemes Using Flux Limiters for Hyperbolic Conservation Laws", <em>SIAM Journal on Numerical Analysis</em>(<strong>1984</strong>), 21, pp.&nbsp;995-1011, <a href="http://dx.doi.org/10.1137/0721062">http://dx.doi.org/10.1137/0721062</a></div>
+<div id="cite-sweby1989" class="cited-items">[11] Sweby P.K.(1989), ""TVD" Schemes for Inhomogeneous Conservation Laws", <em>Nonlinear Hyperbolic Equations — Theory, Computation Methods, and Applications</em>, pp.599-607, Vieweg+Teubner Verlag, <a href="http://dx.doi.org/10.1007/978-3-322-87869-4_58">http://dx.doi.org/10.1007/978-3-322-87869-4_58</a></div>
+<div id="cite-roe1985" class="cited-items">[12] Roe P.L.(1985), "Some contributions to the modelling of discontinuous flows", <em>Large-Scale Computations in Fluid Mechanics</em>, pp.163-193, American Mathematical Society, <a href="https://ui.adsabs.harvard.edu/abs/1985ams..conf..163R/abstract">https://ui.adsabs.harvard.edu/abs/1985ams..conf..163R/abstract</a></div>
+<div id="cite-vanAlbada1982" class="cited-items">[13] van Albada G.D., van Leer B., Roberts W.W., "A comparative study of computational methods in cosmic gas dynamics", <em>Astronomy and Astrophysics</em>(<strong>1982</strong>), 108, pp.&nbsp;76-84, <a href="http://articles.adsabs.harvard.edu/pdf/1982A%26A...108...76V">http://articles.adsabs.harvard.edu/pdf/1982A%26A...108...76V</a></div>
+<div id="cite-roe1986" class="cited-items">[14] Roe P.L., "Characteristic-Based Schemes for the Euler Equations", <em>Annual Review of Fluid Mechanics</em>(<strong>1986</strong>), 18, pp.&nbsp;337-365, <a href="https://doi.org/10.1146/annurev.fl.18.010186.002005">https://doi.org/10.1146/annurev.fl.18.010186.002005</a></div>
+<div id="cite-vanLeer1977" class="cited-items">[15] van Leer B., "Towards the ultimate conservative difference scheme III. Upstream-centered finite-difference schemes for ideal compressible flow", <em>Journal of Computational Physics</em>(<strong>1977</strong>), 23, pp.&nbsp;263-275, <a href="https://doi.org/10.1016/0021-9991(77)90094-8">https://doi.org/10.1016/0021-9991(77)90094-8</a></div>
+<div id="cite-mandal2008" class="cited-items">[16] Mandal J.C. and J S., "On the link between weighted least-squares and limiters used in higher-order reconstructions for finite volume computations of hyperbolic equations", <em>Applied Numerical Mathematics</em>(<strong>2008</strong>), 58, pp.&nbsp;705-725, <a href="https://doi.org/10.1016/j.apnum.2007.02.003">https://doi.org/10.1016/j.apnum.2007.02.003</a></div>
+<div id="cite-mandal2011" class="cited-items">[17] Mandal J.C. and Rao ,.P., "High resolution finite volume computations on unstructured grids using solution dependent weighted least squares gradients", <em>Computers & Fluids</em>(<strong>2011</strong>), 44, pp.&nbsp;23-31, <a href="https://doi.org/10.1016/j.compfluid.2010.11.021">https://doi.org/10.1016/j.compfluid.2010.11.021</a></div>
+<div id="cite-shu1997" class="cited-items">[18] Shu C.(1997), "Essentially non-oscillatory and weighted essentially non-oscillatory schemes for hyperbolic conservation laws", <em>Advanced Numerical Approximation of Nonlinear Hyperbolic Equations</em>, pp.325-432, Berlin Heidelberg, Springer, <a href="https://doi.org/10.1007/BFb0096355">https://doi.org/10.1007/BFb0096355</a></div>
+<div id="cite-wang2013" class="cited-items">[19] Wang Z.J., et al., "High-order CFD methods: Current status and perspective", <em>International Journal for Numerical Methods in Fluids</em>(<strong>2013</strong>), 72, pp.&nbsp;811-845, <a href="http://doi.wiley.com/10.1002/fld.3767">http://doi.wiley.com/10.1002/fld.3767</a></div>
+<div id="cite-balsara2000" class="cited-items">[20] Balsara D.S. and Shu C., "Monotonicity Preserving Weighted Essentially Non-oscillatory Schemes with Increasingly High Order of Accuracy", <em>Journal of Computational Physics</em>(<strong>2000</strong>), 160, pp.&nbsp;405-452, <a href="https://doi.org/10.1006/jcph.2000.6443">https://doi.org/10.1006/jcph.2000.6443</a></div>
+<div id="cite-hu1999" class="cited-items">[21] Hu C. and Shu C., "Weighted Essentially Non-Oscillatory Schemes on Triangular Meshes", <em>Journal of Computational Physics</em>(<strong>1999</strong>), 150, pp.&nbsp;97-127, <a href="https://doi.org/10.1006/jcph.1998.6165">https://doi.org/10.1006/jcph.1998.6165</a></div>
+<div id="cite-liu2013" class="cited-items">[22] Liu Y. and Zhang Y.T., "A Robust Reconstruction for Unstructured WENO Schemes", <em>Journal of Scientific Computing</em>(<strong>2013</strong>), 54, pp.&nbsp;603-621, <a href="https://doi.org/10.1007/s10915-012-9598-3">https://doi.org/10.1007/s10915-012-9598-3</a></div>
+<div id="cite-dumbser2005" class="cited-items">[23] Dumbser M. and Munz C., "ADER discontinuous Galerkin schemes for aeroacoustics", <em>Comptes Rendus Mécanique</em>(<strong>2005</strong>), 333, pp.&nbsp;683-687, <a href="https://doi.org/10.1016/j.crme.2005.07.008">https://doi.org/10.1016/j.crme.2005.07.008</a></div>
+<div id="cite-montecinos2012" class="cited-items">[24] Montecinos G., et al., "Comparison of solvers for the generalized Riemann problem for hyperbolic systems with source terms", <em>Journal of Computational Physics</em>(<strong>2012</strong>), 231, pp.&nbsp;6472-6494, <a href="https://doi.org/10.1016/j.jcp.2012.06.011">https://doi.org/10.1016/j.jcp.2012.06.011</a></div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<span style="color: red;"> Beta testing note: This page is automatically generated using a tool developed by me (inspired by \( \LaTeX \)'s cross-referencing). Please report any formatting errors (or cross-referencing errors) so that it can be corrected in all posts. Thank You! </span>
+<h2>Comments / Feedback</h2>
+<h6>Note: Comments will appear after review, which may take upto 24 hrs.</h6>
+<form action="https://formspree.io/blog-comment@spbhat.in" method="POST">
+<!--label for="fname">Name</label>-->
+<input type="text" id="name" name="name" placeholder="Your Name (and email if you are expecting a personal reply)">
+<!--label for="message">Message</label>-->
+<textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
+<button type="submit">
+<i class="fa fa-paper-plane mr-2"></i> Send </button>
+</form>
+</div>
+</div>
+</div>
+<hr>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-inline text-center">
+<li class="list-inline-item">
+<a href="https://www.youtube.com/SourabhBhatCFD">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.github.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://twitter.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.facebook.com/sourabh.bhat">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">Last update: 05-Nov-2021 08:28 UTC</p>
+<p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="../../../../../vendor/jquery/jquery.min.js"></script>
+<script src="../../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../../js/clean-blog.min.js"></script>
+<script src="../../../../../js/smooth-scroll-highlight.js"></script>
+</body>
+</html>

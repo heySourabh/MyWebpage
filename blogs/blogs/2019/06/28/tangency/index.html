@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Tangent to a Circle From a Distant Point</title>
+<meta charset="UTF-8">
+<meta name="description" content="Tangent to a Circle From a Distant Point">
+<meta name="keywords" content="Tangency calculation tool,Mesh generation,CFD">
+<meta name="author" content="Sourabh Bhat">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+<link rel="stylesheet" type="text/css" href="../../../../../css/clean-blog.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/style.css">
+<link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<div class="container">
+<a class="navbar-brand" href="/index.html">Sourabh Bhat</a>
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menu <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ml-auto">
+<li class="nav-item">
+<a class="nav-link" href="../../../../../index.html">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="../../../../../about.html">About</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="/index.html#contact">Contact</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+<header class="masthead" style="background-image: url('../../../../../img/math.jpg')">
+<div class="overlay"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<div class="post-heading text-shadow-heading">
+<h1>Tangent to a Circle From a Distant Point</h1>
+<h2 class="subheading">Helper tool in geometry creation</h2>
+<span class="meta">Posted by <a href="/index.html">Sourabh Bhat</a> on Jun 28, 2019</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class="container">
+<div class="row">
+<div class="col-lg-10 col-md-12 mx-auto" style="text-align: justify;">
+<h2 class="section-heading">In this article</h2>
+<ul style="list-style-type:none;">
+<li>1. <a href="#sec-tool">The tool</a></li>
+<li>2. <a href="#sec-intro">Introduction</a></li>
+<li>3. <a href="#sec-how">How does it work?</a></li>
+<li>4. <a href="#sec-closing">Closing remarks & video</a></li>
+</ul>
+<h2 id="sec-tool" class="section-heading">1. The tool</h2>
+<div style="border:dotted; padding:1em;"><div class="figure-wrap" id="fig-schematic">
+<img class="img-fluid col-lg-7" src="assets/tangent_calculations.svg.png" alt="">
+<hr><span class="caption text-muted"><strong>Fig. 1:</strong> Schematic diagram of the problem</span>
+</div><hr>
+<form>
+<label for="r">\(r\) : &nbsp;&nbsp;</label>
+<input type="number" id="r" value="15" style="width:10em;">
+<br>
+<label for="xo">\(x_O\) : </label>
+<input type="number" id="xo" value="0" style="width:10em;"> &nbsp;&nbsp;&nbsp;&nbsp; <label for="yo">\(y_O\) : </label>
+<input type="number" id="yo" value="0" style="width:10em;">
+<br>
+<label for="xp">\(x_P\) : </label>
+<input type="number" id="xp" value="50" style="width:10em;"> &nbsp;&nbsp;&nbsp;&nbsp; <label for="yp">\(y_P\) : </label>
+<input type="number" id="yp" value="50" style="width:10em;">
+<br>
+<input class="btn btn-primary mt-3" type="button" onclick="solve()" value="Calculate">
+</form>
+<br>
+<div>Inputs:</div>
+<span class="text-primary ml-3">\(r=\)</span>
+<span class="text-primary" id="r_val"></span>
+<span class="text-primary ml-3">\(x_O=\)</span>
+<span class="text-primary" id="xo_val"></span>
+<span class="text-primary ml-3">\(y_O=\)</span>
+<span class="text-primary" id="yo_val"></span>
+<span class="text-primary ml-3">\(x_P=\)</span>
+<span class="text-primary" id="xp_val"></span>
+<span class="text-primary ml-3">\(y_P=\)</span>
+<span class="text-primary" id="yp_val"></span>
+<div>Angles:</div>
+<span class="text-primary ml-3">\(\theta_1=\)</span>
+<span class="text-primary" id="theta1_val"></span>
+<span class="text-primary ml-3">\(\theta_2=\)</span>
+<span class="text-primary" id="theta2_val"></span>
+<div>Tangent locations:</div>
+<span class="text-primary ml-3">\(T_1=\)</span>
+<span class="text-primary" id="T1_val"></span><br>
+<span class="text-primary ml-3">\(T_2=\)</span>
+<span class="text-primary" id="T2_val"></span>
+<div>
+<script> var r = 0; var xo = 0; var yo = 0; var xp = 0; var yp = 0; function func(theta) { var rcos = r * Math.cos(theta); var rsin = r * Math.sin(theta); return (xp - xo - rcos) * rcos + (yp - yo - rsin) * rsin; } function df(theta) { var dt = 1e-3; return (func(theta + dt) - func(theta - dt)) / (2.0 * dt); } function newtonRaphson(init) { var theta = init; var maxIter = 10000; var iter = 0; var eps = 1e-12; for (; iter < maxIter; iter++) { newTheta = theta - func(theta) / df(theta); if (Math.abs(newTheta - theta) < eps) break; theta = newTheta; } if (iter == maxIter) return "undefined"; else return theta; } function solve() { r = document.getElementById("r").value; xo = document.getElementById("xo").value; yo = document.getElementById("yo").value; xp = document.getElementById("xp").value; yp = document.getElementById("yp").value; document.getElementById("r_val").innerHTML = r; document.getElementById("xo_val").innerHTML = xo; document.getElementById("yo_val").innerHTML = yo; document.getElementById("xp_val").innerHTML = xp; document.getElementById("yp_val").innerHTML = yp; var interAngle = Math.atan2(yp - yo, xp - xo); var soln1 = newtonRaphson(interAngle + 45.0 * Math.PI / 180); var soln2 = newtonRaphson(interAngle - 45.0 * Math.PI / 180); document.getElementById("theta1_val").innerHTML = (soln1 * 180.0 / Math.PI).toFixed(4) + "&deg;"; document.getElementById("theta2_val").innerHTML = (soln2 * 180.0 / Math.PI).toFixed(4) + "&deg;"; var xt1 = (Math.cos(soln1) * r + 1.0 * xo).toFixed(4); var yt1 = (Math.sin(soln1) * r + 1.0 * yo).toFixed(4); var xt2 = (Math.cos(soln2) * r + 1.0 * xo).toFixed(4); var yt2 = (Math.sin(soln2) * r + 1.0 * yo).toFixed(4); document.getElementById("T1_val").innerHTML = "(" + xt1 + ", " + yt1 + ")"; document.getElementById("T2_val").innerHTML = "(" + xt2 + ", " + yt2 + ")"; } </script>
+</div></div>Click the <strong>CALCULATE</strong> button above to compute the solution for the entered values. The <a href="#fig-schematic">Fig.&#8239;1</a> shows the symbols used in the results. <h2 id="sec-intro" class="section-heading">2. Introduction</h2>
+<p> Recently, I was working with a friend on a problem requiring CFD simulation. To do the simulation, we needed to recreate a geometry from a research paper. It was a simple axi-symmetric geometry, a part of which is shown in <a href="#fig-geometry">Fig.&#8239;2</a>. </p>
+<div class="figure-wrap" id="fig-geometry">
+<img class="img-fluid col-lg-7" src="assets/partial_geometry.svg.png" alt="">
+<hr><span class="caption text-muted"><strong>Fig. 2:</strong> Partial geometry from the research paper</span>
+</div>
+<p> This is a fully defined geometry and we could have easily created it using a geometric software such as Solidworks or Catia, by applying necessary constraints of tangency. But we were working with Ansys ICEM meshing software. We knew the position of the center of the circle, its radius and the point at which the ramp begun. Here, I have indicated them as point \(O\) and point \(P\) respectively (see <a href="#fig-schematic">Fig.&#8239;1</a> and <a href="#fig-geometry">Fig.&#8239;2</a>). If only we knew where the tangent touches the circle (Point \(T\) in <a href="#fig-schematic">Fig.&#8239;1</a>), or the angle at which the radial line touches the tangent (angle \(\theta\) in <a href="#fig-schematic">Fig.&#8239;1</a>), we could draw the line from point \(P\) to point \(T\). </p>
+<p> This problem seems straightforward at first glance, and we thought so as well. But, it is difficult to solve it without an iterative approach. So, I developed a tool written in JavaScript and HTML (see <a href="#sec-tool">Sec.&#8239;1</a>) to do exactly that and provide the solution. I am putting it here, in hope that it would be useful to someone. For technical details on how the tool works continue to read <a href="#sec-how">Sec.&#8239;3</a> below. </p>
+<h2 id="sec-how" class="section-heading">3. How does it work?</h2>
+<p> A tangent line to a circle has a property that it is perpendicular to the radial line at the point of intersection. That is, line \(OT\) is perpendicular to line \(TP\). Which means that if we represent these lines as vectors, then the dot product of the two vector has to be zero (property of the dot product that is very very important and used way too often). The two vectors are created by joining \(T\)-\(P\) and \(O\)-\(T\). Mathematically, they are obtained by subtracting the coordinates of point \(P\) from point \(T\) and subtracting coordinates of point \(T\) from point \(O\). So we obtain the following vector equation: </p>
+<div class="block-latex" id="eq-OT"> $$ \overrightarrow{OT}=\left[\begin{array}{c} r\,\cos\left(\theta\right)\\ r\,\sin\left(\theta\right) \end{array}\right] $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(1) </div>
+</div> and, <div class="block-latex" id="eq-2"> $$ \begin{align}\overrightarrow{TP} &= \overrightarrow{P}-\overrightarrow{T} \\\implies \overrightarrow{TP} &= \overrightarrow{P}-\left(\overrightarrow{O}+\overrightarrow{OT}\right)\end{align} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(2) </div>
+</div> The dot product between the two vectors is zero, <div class="block-latex" id="eq-3"> $$ \begin{align}\overrightarrow{OT}&\cdot\overrightarrow{TP} = 0\\\implies \overrightarrow{OT}&\cdot\left(\overrightarrow{P}-\left(\overrightarrow{O}+\overrightarrow{OT}\right)\right) = 0\end{align} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(3) </div>
+</div>
+<p> Writing it more explicitly, we get, </p>
+<div class="block-latex" id="eq-4"> $$ \left[\begin{array}{c}r\,\cos\left(\theta\right)\\r\,\sin\left(\theta\right)\end{array}\right]\cdot\left[\begin{array}{c}x_{P}-x_{O}-r\,\cos\left(\theta\right)\\y_{P}-y_{O}-r\,\sin\left(\theta\right)\end{array}\right]=0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(4) </div>
+</div> which gives us the equation, <div class="block-latex" id="eq-5"> $$ r\,\cos\left(\theta\right)\,\left(x_{P}-x_{O}-r\,\cos\left(\theta\right)\right) +r\,\sin\left(\theta\right)\,\left(y_{P}-y_{O}-r\,\sin\left(\theta\right)\right)=0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(5) </div>
+</div> and can be simplified to, <div class="block-latex" id="eq-final-equation"> $$ \left(x_{O}-x_{P}\right)\,\cos\left({\color{blue}\theta}\right)+\left(y_{O}-y_{P}\right)\,\sin\left({\color{blue}\theta}\right)+r=0 $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<span style="font-size:1.2em;">&#10551;</span>(6) </div>
+</div>
+<p> It is obvious that we can have two solutions to this problem, or no solutions if the point lies inside the circle. The first solution to <a href="#eq-final-equation">eq.&#8239;(6)</a> can be obtained by using the Newton-Raphson method and initializing the iteration such that it converges to one of the sides. The second solution can be similarly obtained. The code decides if there is no solution if it is unable to converge within 100 iterations. </p>
+<h2 id="sec-closing" class="section-heading">4. Closing remarks & video</h2> Interestingly, <a href="https://github.com/baswam95" target="_blank" rel="noopener noreferrer"> "Bintang ASWAM"</a> has contributed two different ways of calculating analytical solutions to angles and tangent points. His <span class="infotip">solutions <span class="tooltiptext">I have not yet verified his solutions</span>
+</span> are available at: <a href="assets/analytical.pdf">Solutions<i class="fa fa-file-pdf" aria-hidden="true"></i></a>
+<p> So now that you know how it works go ahead and use the tool whenever you need it. Feel free to write to me if it is useful or if you find any bugs. </p>
+<p> Thanks for using this tool… :) </p>
+<p> Watch the video below for an animated treat. </p>
+<div class="video-wrap" id="vid-yt-video">
+<div class="col-lg-10 mx-auto">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/yObiKIeIezQ" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+</div>
+<hr><span class="caption text-muted"><strong>Video 1:</strong> Animated description of the problem and tool</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<span style="color: red;"> Beta testing note: This page is automatically generated using a tool developed by me (inspired by \( \LaTeX \)'s cross-referencing). Please report any formatting errors (or cross-referencing errors) so that it can be corrected in all posts. Thank You! </span>
+<h2>Comments / Feedback</h2>
+<h6>Note: Comments will appear after review, which may take upto 24 hrs.</h6>
+<form action="https://formspree.io/blog-comment@spbhat.in" method="POST">
+<!--label for="fname">Name</label>-->
+<input type="text" id="name" name="name" placeholder="Your Name (and email if you are expecting a personal reply)">
+<!--label for="message">Message</label>-->
+<textarea id="message" name="message" placeholder="What's on your mind ..." style="height:200px"></textarea>
+<button type="submit">
+<i class="fa fa-paper-plane mr-2"></i> Send </button>
+</form>
+</div>
+</div>
+</div>
+<hr>
+<footer>
+<div class="container">
+<div class="row">
+<div class="col-lg-8 col-md-10 mx-auto">
+<ul class="list-inline text-center">
+<li class="list-inline-item">
+<a href="https://www.youtube.com/SourabhBhatCFD">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.github.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://twitter.com/heySourabh">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.linkedin.com/in/sourabh-bhat-6603b416">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li class="list-inline-item">
+<a href="https://www.facebook.com/sourabh.bhat">
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">Last update: 05-Nov-2021 08:28 UTC</p>
+<p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
+</div>
+</div>
+</div>
+</footer>
+<script src="../../../../../vendor/jquery/jquery.min.js"></script>
+<script src="../../../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../../../../js/clean-blog.min.js"></script>
+<script src="../../../../../js/smooth-scroll-highlight.js"></script>
+</body>
+</html>

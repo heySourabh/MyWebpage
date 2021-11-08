@@ -7,6 +7,35 @@
 <meta name="keywords" content="Order of accuracy analysis,Taylor series,Advection schemes,High order methods,Error analysis">
 <meta name="author" content="Sourabh Bhat">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+<style>
+  #preload-animation {
+    opacity: 0.95;
+    height:100vh; 
+    width:100vw; 
+    position:fixed; 
+    top: 0px; 
+    left: 0px; 
+    z-index: 9999;
+    background-color:white;
+    transition: opacity 0.5s;
+  }
+  #preload-animation img {
+    height: 10vh; 
+    position: absolute; 
+    top: calc(50vh - 10vh);
+    left: calc(50vw - 10vh);
+  }
+</style>
+
+<script>
+  function hidePreloadAnimation() {
+    var element = document.getElementById("preload-animation");
+    element.style.opacity =  0.0;
+    element.addEventListener("transitionend", () => element.remove()); 
+  }
+</script>
+
 <link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
@@ -16,7 +45,10 @@
 <link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
-<body>
+<body onload="hidePreloadAnimation()">
+<div id="preload-animation">
+  <img src="Preloader_3.gif" alt="loading page">
+</div>
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
 <div class="container">
 <a class="navbar-brand" href="/index.html">Sourabh Bhat</a>

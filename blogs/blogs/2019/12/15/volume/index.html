@@ -7,13 +7,13 @@
 <meta name="keywords" content="Calculation of volume,Numerical analysis,3D,Solids,Code">
 <meta name="author" content="Sourabh Bhat">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<link rel="stylesheet" type="text/css" href="../../../../../vendor/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../vendor/fontawesome-free/css/all.min.css">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
-<link rel="stylesheet" type="text/css" href="../../../../../css/clean-blog.min.css">
-<link rel="stylesheet" type="text/css" href="../../../../../css/style.css">
-<link rel="stylesheet" type="text/css" href="../../../../../css/comment-form.css">
+<link href="../../../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+<link href="../../../../../css/clean-blog.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../../css/style.css" rel="stylesheet" type="text/css">
+<link href="../../../../../css/comment-form.css" rel="stylesheet" type="text/css">
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </head>
 <body>
@@ -60,7 +60,7 @@
 <li>1. <a href="#sec-theory">Theory</a></li>
 <li>2. <a href="#sec-code">Code</a></li>
 </ul>
-<h2 id="sec-theory" class="section-heading">1. Theory</h2> The need for calculation of volume of solids arises in many computations. For primitive solids, like sphere, cylinder, cone, pyramids and prisms, we have well-defined analytical expressions for calculation of their volume. However, for an arbitrarily shaped solid, such a calculation can be daunting and it could be extremely difficult to derive an analytical closed form expression. But, if we are able to break down the surface of the solid into triangles, then the volume can be computed using the Stokes theorem. Given that any surface in three-dimensions can be approximated by a set of triangles, the volume of any solid can be calculated to a required degree of accuracy by using enough number of triangles for approximating the enclosing surface of the solid.<br>The volume of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \iiint_{\text{vol}}dx\, dy\, dz\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<h2 class="section-heading" id="sec-theory">1. Theory</h2> The need for calculation of volume of solids arises in many computations. For primitive solids, like sphere, cylinder, cone, pyramids and prisms, we have well-defined analytical expressions for calculation of their volume. However, for an arbitrarily shaped solid, such a calculation can be daunting and it could be extremely difficult to derive an analytical closed form expression. But, if we are able to break down the surface of the solid into triangles, then the volume can be computed using the Stokes theorem. Given that any surface in three-dimensions can be approximated by a set of triangles, the volume of any solid can be calculated to a required degree of accuracy by using enough number of triangles for approximating the enclosing surface of the solid.<br>The volume of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \iiint_{\text{vol}}dx\, dy\, dz\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(1) </div>
 </div> We can re-write this as, <div class="block-latex" id="eq-2"> $$ \iiint_{\text{vol}}\frac{\partial x}{\partial x}\, dx\, dy\, dz\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(2) </div>
@@ -79,7 +79,7 @@
 </div> where, \(\vec{A}_{ix}\) is the \(x\text{-component}\) of the area vector, \(\vec{A}\) . Therefore, the volume of a solid made-up of \(n\) enclosing triangles can be computed as, <div class="block-latex" id="eq-9"> $$ \text{Volume}=\sum_{i=0}^{n-1}\vec{A}_{ix}\,\,\bar{x}_{i}\ . $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(9) </div>
 </div>
-<h2 id="sec-code" class="section-heading">2. Code</h2> Below is a sample program to calculate volume of any solid.<div id="code-1" class="code-wrap">
+<h2 class="section-heading" id="sec-code">2. Code</h2> Below is a sample program to calculate volume of any solid.<div id="code-1" class="code-wrap">
 <span class="caption text-muted"><strong>Code 1:</strong> Code for computing volume of any 3D object</span><hr>
 <div class="overflow-auto" style="max-height: 20em;"><div class="code-block"><code-comment>/*<br>*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>*<br>*&nbsp;Calculates&nbsp;the&nbsp;volume&nbsp;of&nbsp;a&nbsp;solid&nbsp;formed&nbsp;by&nbsp;a&nbsp;set&nbsp;of&nbsp;triangles.<br>*&nbsp;The&nbsp;triangles&nbsp;must&nbsp;have&nbsp;points&nbsp;either&nbsp;all-clockwise&nbsp;or&nbsp;all-anti-clockwise,<br>*&nbsp;looking&nbsp;from&nbsp;outside&nbsp;of&nbsp;the&nbsp;solid.<br>*<br>*&nbsp;@param&nbsp;triangles&nbsp;array&nbsp;of&nbsp;triangles<br>*&nbsp;@return&nbsp;non-negative&nbsp;volume&nbsp;enclosed&nbsp;by&nbsp;the&nbsp;set&nbsp;of&nbsp;triangles<br>*/</code-comment><br><code-lang-keyword>public</code-lang-keyword>&nbsp;<code-lang-keyword>class</code-lang-keyword>&nbsp;<code-user-keyword>Volume</code-user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>public</code-lang-keyword>&nbsp;<code-lang-keyword>static</code-lang-keyword>&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;volume(<code-user-keyword>Triangle</code-user-keyword>[]&nbsp;triangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;volume&nbsp;=&nbsp;0.0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>for</code-lang-keyword>&nbsp;(<code-user-keyword>Triangle</code-user-keyword>&nbsp;t&nbsp;:&nbsp;triangles)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;volume&nbsp;+=&nbsp;volumeUnder(t);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>return</code-lang-keyword>&nbsp;Math.abs(volume);<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>private</code-lang-keyword>&nbsp;<code-lang-keyword>static</code-lang-keyword>&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;volumeUnder(<code-user-keyword>Triangle</code-user-keyword>&nbsp;tri)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-user-keyword>Point</code-user-keyword>[]&nbsp;p&nbsp;=&nbsp;tri.points();<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;xbar&nbsp;=&nbsp;(p[0].x&nbsp;+&nbsp;p[1].x&nbsp;+&nbsp;p[2].x)&nbsp;/&nbsp;3.0;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-user-keyword>Vector</code-user-keyword>&nbsp;vab&nbsp;=&nbsp;<code-lang-keyword>new</code-lang-keyword>&nbsp;<code-user-keyword>Vector</code-user-keyword>(p[0],&nbsp;p[1]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-user-keyword>Vector</code-user-keyword>&nbsp;vac&nbsp;=&nbsp;<code-lang-keyword>new</code-lang-keyword>&nbsp;<code-user-keyword>Vector</code-user-keyword>(p[0],&nbsp;p[2]);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-comment>//&nbsp;x-component&nbsp;of&nbsp;cross&nbsp;product</code-comment><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;ax&nbsp;=&nbsp;vab.y&nbsp;*&nbsp;vac.z&nbsp;-&nbsp;vac.y&nbsp;*&nbsp;vab.z;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>return</code-lang-keyword>&nbsp;ax&nbsp;*&nbsp;xbar&nbsp;*&nbsp;0.5;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</div>
 </div>
@@ -92,7 +92,7 @@
 <div class="overflow-auto" ><div class="code-block"><code-comment>/**<br>*&nbsp;@author&nbsp;Sourabh&nbsp;Bhat&nbsp;(https://spbhat.in)<br>*/</code-comment><br><code-lang-keyword>public</code-lang-keyword>&nbsp;<code-lang-keyword>class</code-lang-keyword>&nbsp;<code-user-keyword>Point</code-user-keyword>&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>public</code-lang-keyword>&nbsp;<code-lang-keyword>final</code-lang-keyword>&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;x,&nbsp;y,&nbsp;z;<br><br>&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>public</code-lang-keyword>&nbsp;<code-user-keyword>Point</code-user-keyword>(<code-lang-keyword>double</code-lang-keyword>&nbsp;x,&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;y,&nbsp;<code-lang-keyword>double</code-lang-keyword>&nbsp;z)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>this</code-lang-keyword>.x&nbsp;=&nbsp;x;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>this</code-lang-keyword>.y&nbsp;=&nbsp;y;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code-lang-keyword>this</code-lang-keyword>.z&nbsp;=&nbsp;z;<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}</div>
 </div>
 </div>
-<p> The pdf version of the article can be <a href="assets/volume.pdf">downloaded using this link.<i class="fa fa-file-pdf" aria-hidden="true"></i></a>
+<p> The pdf version of the article can be <a href="assets/volume.pdf">downloaded using this link.<i aria-hidden="true" class="fa fa-file-pdf"></i></a>
 </p>
 </div>
 </div>
@@ -165,7 +165,7 @@
 </a>
 </li>
 </ul>
-<p class="copyright text-muted">Last update: 18-Nov-2021 04:57 UTC</p>
+<p class="copyright text-muted">Last update: 18-Nov-2021 08:18 UTC</p>
 <p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
 </div>
 </div>

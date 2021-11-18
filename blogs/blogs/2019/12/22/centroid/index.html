@@ -60,21 +60,21 @@
 <li>1. <a href="#sec-theory">Theory</a></li>
 <li>2. <a href="#sec-code">Code</a></li>
 </ul>
-<h2 id="sec-theory" class="section-heading">1. Theory</h2> The centroid, \(\bar{r}\) , of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \bar{r}=\frac{1}{Volume}\iiint_{V}r\ dV=\frac{1}{Volume}\iiint_{V}\left(x,y,z\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<h2 id="sec-theory" class="section-heading">1. Theory</h2> The centroid, \(\bar{r}\) , of a solid is defined as, <div class="block-latex" id="eq-1"> $$ \bar{r}=\frac{1}{\text{Volume}}\iiint_{V}r\ dV=\frac{1}{\text{Volume}}\iiint_{V}\left(x,y,z\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(1) </div>
-</div> where, \(r\) is a position vector. The centroid has a few very interesting properties such as:<ol><li>For a homogeneous solid the <em>center of mass</em> is located at the centroid</li><li>For any <em>linear function</em>, the average of the function inside the solid can be calculated by simply evaluating the function at the centroid point.</li></ol>The calculation of the centroid of a solid can be done by using the divergence theorem to reduce the volume integral to area integral. <div class="block-latex" id="eq-2"> $$ \bar{r}=\frac{1}{Volume}\iiint_{V}\left(x,y,z\right)\ dV=\frac{1}{Volume}\iiint_{V}\left(x\frac{\partial x}{\partial x},y\frac{\partial y}{\partial y},z\frac{\partial z}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+</div> where, \(r\) is a position vector. The centroid has a few very interesting properties such as:<ol><li>For a homogeneous solid the <em>center of mass</em> is located at the centroid</li><li>For any <em>linear function</em>, the average of the function inside the solid can be calculated by simply evaluating the function at the centroid point.</li></ol>The calculation of the centroid of a solid can be done by using the divergence theorem to reduce the volume integral to area integral. <div class="block-latex" id="eq-2"> $$ \bar{r}=\frac{1}{\text{Volume}}\iiint_{V}\left(x,y,z\right)\ dV=\frac{1}{\text{Volume}}\iiint_{V}\left(x\frac{\partial x}{\partial x},y\frac{\partial y}{\partial y},z\frac{\partial z}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(2) </div>
 </div>
-<div class="block-latex" id="eq-3"> $$ \bar{r}=\frac{1}{Volume}\frac{1}{2}\iiint_{V}\left(\frac{\partial x^{2}}{\partial x},\frac{\partial y^{2}}{\partial y},\frac{\partial z^{2}}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<div class="block-latex" id="eq-3"> $$ \bar{r}=\frac{1}{\text{Volume}}\frac{1}{2}\iiint_{V}\left(\frac{\partial x^{2}}{\partial x},\frac{\partial y^{2}}{\partial y},\frac{\partial z^{2}}{\partial z}\right)\ dV $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(3) </div>
 </div>
-<div class="block-latex" id="eq-4"> $$ \bar{x}=\frac{1}{Volume}\frac{1}{2}\iint_{A}x^{2}\ n_{x}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<div class="block-latex" id="eq-4"> $$ \bar{x}=\frac{1}{\text{Volume}}\frac{1}{2}\iint_{A}x^{2}\ n_{x}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(4) </div>
 </div>
-<div class="block-latex" id="eq-5"> $$ \bar{y}=\frac{1}{Volume}\frac{1}{2}\iint_{A}y^{2}\ n_{y}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<div class="block-latex" id="eq-5"> $$ \bar{y}=\frac{1}{\text{Volume}}\frac{1}{2}\iint_{A}y^{2}\ n_{y}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(5) </div>
 </div>
-<div class="block-latex" id="eq-6"> $$ \bar{z}=\frac{1}{Volume}\frac{1}{2}\iint_{A}z^{2}\ n_{z}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<div class="block-latex" id="eq-6"> $$ \bar{z}=\frac{1}{\text{Volume}}\frac{1}{2}\iint_{A}z^{2}\ n_{z}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(6) </div>
 </div> where, \(\bar{x}\) , \(\bar{y}\) and \(\bar{z}\) are the components of the centroid in \(x\) , \(y\) and \(z\) directions respectively. The unit normal to the enclosing surface, \(\hat{n}=\left(n_{x},n_{y},n_{z}\right)\) , points outward of the solid. Thus, we can evaluate the centroid by calculation of second moment of area over the enclosing surface of the solid.<br>If we divide the enclosing surface into triangles, then for each of the triangle the normal remains constant and therefore can be moved out of the integral. Let us consider the integration of \(x\text{-coordinate}\) for an individual triangle in space. <div class="block-latex" id="eq-7"> $$ I_{x}=\iint_{A}x^{2}\ n_{x}\ dA $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(7) </div>
@@ -117,14 +117,14 @@
 <span style="font-size:1.2em;">&#10551;</span>(24) </div>
 </div> Using Maxima symbolic manipulator we can simplify this as, <div class="block-latex" id="eq-25"> $$ I_{x}=\left|\vec{A}_{T}\right|\, n_{x}\left(\frac{x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}}{12}\right) $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(25) </div>
-</div> Therefore the formula for centroid of a solid with \(N\) enclosing triangles becomes, <div class="block-latex" id="eq-26"> $$ \bar{x}=\frac{1}{Volume}\frac{1}{2}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(\frac{x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}}{12}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+</div> Therefore the formula for centroid of a solid with \(N\) enclosing triangles becomes, <div class="block-latex" id="eq-26"> $$ \bar{x}=\frac{1}{\text{Volume}}\frac{1}{2}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(\frac{x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}}{12}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(26) </div>
 </div>
-<div class="block-latex" id="eq-x-bar"> $$ \bar{x}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+<div class="block-latex" id="eq-x-bar"> $$ \bar{x}=\frac{1}{24}\frac{1}{\text{Volume}}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{xi}\left(x_{0}^{2}+x_{1}^{2}+x_{2}^{2}+x_{0}x_{1}+x_{0}x_{2}+x_{1}x_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(27) </div>
-</div> Similarly, <div class="block-latex" id="eq-y-bar"> $$ \bar{y}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{yi}\left(y_{0}^{2}+y_{1}^{2}+y_{2}^{2}+y_{0}y_{1}+y_{0}y_{2}+y_{1}y_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+</div> Similarly, <div class="block-latex" id="eq-y-bar"> $$ \bar{y}=\frac{1}{24}\frac{1}{\text{Volume}}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{yi}\left(y_{0}^{2}+y_{1}^{2}+y_{2}^{2}+y_{0}y_{1}+y_{0}y_{2}+y_{1}y_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(28) </div>
-</div> and <div class="block-latex" id="eq-z-bar"> $$ \bar{z}=\frac{1}{24}\frac{1}{Volume}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{zi}\left(z_{0}^{2}+z_{1}^{2}+z_{2}^{2}+z_{0}z_{1}+z_{0}z_{2}+z_{1}z_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
+</div> and <div class="block-latex" id="eq-z-bar"> $$ \bar{z}=\frac{1}{24}\frac{1}{\text{Volume}}\sum_{i=0}^{N-1}\left|\vec{A}_{Ti}\right|\, n_{zi}\left(z_{0}^{2}+z_{1}^{2}+z_{2}^{2}+z_{0}z_{1}+z_{0}z_{2}+z_{1}z_{2}\right)_{i} $$ <div style="text-align:right; position:relative; margin-top:-1.5em;">
 <span style="font-size:1.2em;">&#10551;</span>(29) </div>
 </div> The above expressions for centroid <a href="#eq-x-bar">eq.&#8239;(27)</a>, <a href="#eq-y-bar">eq.&#8239;(28)</a> and <a href="#eq-z-bar">eq.&#8239;(29)</a> can be further simplified by realizing that \(\left|\vec{A}_{T}\right|\,\left(n_{x},n_{y},n_{z}\right)=\overrightarrow{0-1}\times\overrightarrow{0-2}\) , which can be calculated only once and the \(x\text{-}\) \(y\text{-}\) and \(z\text{-components}\) can be used in respective equations. It is advisable to translate the solid close to the origin for the numerical calculations so that the numerical errors due to squaring of large numbers is reduced. The actual centroid can be obtained by translating back by the same amount. <h2 id="sec-code" class="section-heading">2. Code</h2> A sample program written to implement the algorithm is shown in <a href="#code-centroid-java">&lt;Code&#8239;1&gt;</a><div id="code-centroid-java" class="code-wrap">
 <span class="caption text-muted"><strong>Code 1:</strong> Code for computing centroid of any 3D object</span><hr>
@@ -205,7 +205,7 @@
 </a>
 </li>
 </ul>
-<p class="copyright text-muted">Last update: 18-Nov-2021 03:51 UTC</p>
+<p class="copyright text-muted">Last update: 18-Nov-2021 04:57 UTC</p>
 <p class="copyright text-muted">Copyright &copy; 2019-2021 Sourabh Bhat</p>
 </div>
 </div>

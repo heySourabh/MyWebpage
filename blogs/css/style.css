@@ -24,7 +24,7 @@ article a {
 
 .table-wrap {padding: 0em 1em 0em 1em; background: #d3f8ff;}
 
-.code-block {font-family: monospace; font-size: 0.8em; padding: 1em;}
+.code-block {font-family: monospace; font-size: 0.8em; padding: 0em 1em 1em 1em;}
 code-lang-keyword {color: blue; font-weight: bold;}
 code-user-keyword {color: black; font-weight: bold;}
 code-comment {color: gray; font-style: italic;}

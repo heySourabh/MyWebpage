@@ -20,14 +20,14 @@ article a {
 
 .video-wrap {padding: 1em 1em 0em 1em; background: #d3f8ff; text-align: center;}
 
-.code-wrap {background: #d3f8ff;}
+.code-wrap {background: #d3f8ff; margin-top: 1em; margin-bottom: 1em;}
 
 .table-wrap {padding: 0em 1em 0em 1em; background: #d3f8ff;}
 
-pre {font-size: medium;}
-pre code keyword {color: blue; font-weight: bold;}
-pre code user-keyword {color: black; font-weight: bold;}
-pre code comment {color: gray; font-style: italic;}
+.code-block {font-family: monospace; font-size: 0.8em; }
+code-lang-keyword {color: blue; font-weight: bold;}
+code-user-keyword {color: black; font-weight: bold;}
+code-comment {color: gray; font-style: italic;}
 
 .cited-items {
   font-size: medium;

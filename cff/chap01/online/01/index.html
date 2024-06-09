@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 1.1, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- AdSense -->
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-5232558571567163",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Math rendering -->
+    <script async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Problem 1.1</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 1: Introduction
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 1.1:</h4>
+        <div class="font1">
+            An air stream enters a variable area channel at a velocity of 30 m/s with a pressure of 120 kPa and a
+            temperature of 10<sup>o</sup>C. At a certain point in the channel, the velocity is found to be 250 m/s.
+            Using
+            Bernoulli's equation (i.e. \( p + \rho V^2/2 = constant \)), which assumes incompressible flow, find
+            the pressure at this point. In this calculation, use the density evaluated at the inlet conditions. If the
+            temperature of the air is assumed to remain constant, evaluate the air density at the point in the flow
+            where the velocity is 250 m/s. Compare this density with the density at the inlet to the channel. Based on
+            this comparison, do you think that the use of Bernoulli's equation is justified?
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            The problem description is schematically shown in Fig. 1.
+            <br>
+            <img src="images/fig1.png" alt="Schematic diagram of problem" width="50%">
+            <br>
+            Since the flow is assumed to be incompressible, \( \rho \) is constant and can be calculated at station
+            <span class="circled">1</span> using ideal gas equation,
+
+            $$
+            \rho=\rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{120\times10^{3}}{287\times\left(10+273\right)}=1.47745\,\text{kg/m}^{3}
+            $$
+
+            Using the Bernoulli's equation
+
+            $$
+            p_{1}+\rho\,\frac{V_{1}^{2}}{2}=p_{2}+\rho\,\frac{V_{2}^{2}}{2}
+            $$
+
+            which can be used to solve for pressure at station <span class="circled">2</span>
+
+            $$
+            p_{2}=p_{1}+\frac{\rho}{2}\left(V_{1}^{2}-V_{2}^{2}\right) \qquad\leftarrow (eq.1)
+            $$
+
+            <div class="advert"></div>
+
+            Substituting \( \rho=1.47745\,\text{kg/m}^{3} \) in (eq.1), the pressure at station
+            <span class="circled">2</span> can be calculated as,
+
+            $$
+            p_{2}=p_{1}+\frac{\rho}{2}\left(V_{1}^{2}-V_{2}^{2}\right)
+            $$
+
+            $$
+            p_{2}=120\times10^{3}+\frac{1.47745}{2}\left(30^{2}-250^{2}\right) = 74494.54\,\text{Pa}
+            $$
+
+            $$
+            \boxed{\left.p_{2}\right|_{\text{incomp.}}=74.49454\,\text{kPa}}
+            $$
+
+            If the temperature of the air is assumed to remain constant,
+            \( T_{2}=T_{1}=283\,\text{K} \), then we can calculate the density at station
+            <span class="circled">2</span> to be,
+
+            $$
+            \rho=\frac{p_{2}}{R\,T_{2}}=\frac{74494.54}{287\times283}
+            $$
+
+            $$
+            \boxed{\left.\rho\right|_{T=\text{constant}}=0.917183\,\text{kg/m}^{3}}
+            $$
+
+            The percentage difference in calculated density, at station
+            <span class="circled">1</span> and assuming constant temperature is,
+
+            $$
+            \%\ \text{difference in density calculation} =
+            \frac{\rho_{1}-\left.\rho\right|_{T=\text{constant}}}{\left.\rho\right|_{\text{Bernoulli}}}\times100
+            $$
+            $$
+            = \frac{1.47745-0.917183}{1.47745}\times100
+            = 37.92\%
+            $$
+
+            Based on this comparison, it is clear that the
+            <u><strong>use of Bernoulli's equation is not justified,</strong></u>
+            as in an incompressible flow (with no heat transfer) the temperature variations are negligible.
+            Therefore, the density calculated with this assumption must closely match with the result of
+            Bernoulli's equation if the flow is indeed incompressible.
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="advert"></div>
+
+    <div class="container-fluid">
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Insert advertisement -->
+    <script src="../advert.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

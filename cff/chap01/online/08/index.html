@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Additional meta tags -->
-    <meta name="description" content="Solutions of problem 1.5, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="description" content="Solutions of problem 1.8, Compressible Fluid Flow by Patrick H. Oosthuizen">
     <meta name="author" content="Sourabh Bhat">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
     <!-- Math rendering -->
-    <script async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
@@ -34,7 +34,7 @@
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
 
-    <title>Problem 1.5</title>
+    <title>Problem 1.8</title>
 </head>
 
 <body>
@@ -57,93 +57,66 @@
         </a>
         <br><br>
         <hr>
-        <h4>Problem 1.5:</h4>
+        <h4>Problem 1.8:</h4>
         <div class="font1">
-
-            Two jets of air, each having the same mass flow rate, are thoroughly mixed and then discharged into a large
-            chamber. One jet has a temperature of 120<sup>o</sup>C and a velocity of 100 m/s, whereas the other has a
-            temperature of -50<sup>o</sup>C and a velocity of 300 m/s. Assuming that the process is steady and
-            adiabatic, find the temperature of the air in the large chamber.
-
+            The engine of a small jet aircraft develops a thrust of 18 kN when the aircraft is flying
+            at a speed of 900 km/h at an altitude where the ambient pressure is 50 kPa. The air flow
+            rate through the engine is 75 kg/s and the engine uses fuel at a rate of 3 kg/s. The
+            pressure on the engine discharge plane is 55 kPa and the area of the engine exit is
+            0.2 m<sup>2</sup>. Find the jet efflux velocity.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
+            <p>
+                Given: <br>
+                Thrust = \( 18\,\text{kN} \),
+                fuel rate = \( 3\,\text{kg/s} \)
+                <br>
+                Inlet \( \rightarrow V_{1}=900\,\text{km/h}=900/3.6=250\,\text{m/s} \),
+                \( p_{1}=50\,\text{kPa} \),
+                \( \dot{m}_{1}=75\,\text{kg/s} \).
+                <br>
+                Outlet \( \rightarrow p_{2}=55\,\text{kPa} \),
+                \( A_{\text{exit}}=0.2\,\text{m}^{2} \),
+                \( V_{2}=?\,\text{m/s} \).
+            </p>
 
-            A schematic diagram of the configuration is shown in Fig. 1.
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
             <br>
             <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            <p>
-                Given: \( T_{1}=120^{\circ}\text{C}=393\,\text{K} \),
-                \( V_{1}=100\,\text{m/s} \),
-                \( T_{2}=-50^{\circ}\text{C}=223\,\text{K} \),
-                \( V_{2}=300\,\text{m/s} \).
-            </p>
-
-            <p>The mass flow rate is same through the two inlets, therefore,</p>
+            <p>Using the mass conservation equation,</p>
 
             $$
-            \dot{m}_{1}=\dot{m}_{2}=\dot{m}
+            \dot{m}_{2}=\dot{m}_{1}+\dot{m}_{\text{fuel}}
             $$
 
             $$
-            \dot{m}_{3}=\dot{m}_{1}+\dot{m}_{2}=2\,\dot{m}
+            \dot{m}_{2}=75+3=78\,\text{kg/s}
             $$
 
-            <!-- Ad Begin -->
-            <br>
-            <div style="background:lightblue; margin:0;">
-                <p>--- Ad ---</p>
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
-                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-                <p>---</p>
-            </div>
-            <br>
-            <!-- Ad End -->
-
-            <p>
-                Applying the conservation of energy equation (without heat and work),
-            </p>
+            <p>Using the conservation of momentum along horizontal direction,</p>
 
             $$
-            \left(\dot{m}_{1}\,c_{p}\,T_{1}+\dot{m}_{1}\frac{V_{1}^{2}}{2}\right) +
-            \left(\dot{m}_{2}\,c_{p}\,T_{2}+\dot{m}_{2}\frac{V_{2}^{2}}{2}\right) =
-            \left(\dot{m}_{3}\,c_{p}\,T_{3}+\dot{m}_{3}\frac{V_{3}^{2}}{2}\right)
+            \begin{aligned}
+
+            \text{Thrust}  =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
+                           & +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\ 
+            \text{Thrust}  =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
+            18\times10^{3} =&\ 78\times V_{2}-75\times250+\left(55\times10^{3}-50\times10^{3}\right)\times0.2
+
+            \end{aligned}
             $$
 
             $$
-            \left(\dot{m}\,c_{p}\,T_{1}+\dot{m}\frac{V_{1}^{2}}{2}\right) +
-            \left(\dot{m}\,c_{p}\,T_{2}+\dot{m}\frac{V_{2}^{2}}{2}\right) =
-            \left(2\,\dot{m}\,c_{p}\,T_{3}+2\,\dot{m}\frac{V_{3}^{2}}{2}\right)
+            V_{2}=\frac{18\times10^{3}+75\times250-\left(55\times10^{3}-50\times10^{3}\right)\times0.2}{78}
             $$
 
             $$
-            \left(c_{p}\,T_{1}+\frac{V_{1}^{2}}{2}\right) +
-            \left(c_{p}\,T_{2}+\frac{V_{2}^{2}}{2}\right) =
-            \left(2\,c_{p}\,T_{3}+2\frac{V_{3}^{2}}{2}\right)
-            $$
-
-            $$
-            T_{3}=\frac{c_{p}\,T_{1}+\frac{V_{1}^{2}}{2} +
-            c_{p}\,T_{2}+\frac{V_{2}^{2}}{2} - V_{3}^{2}}{2\,c_{p}}
-            $$
-
-            <p>
-                Assuming \( c_{p}=1005\,\text{J/kg-K} \) for air and the velocity in the large chamber to be effectively
-                zero,
-            </p>
-
-            $$
-            T_{3}=\frac{1005\times393+\frac{100^{2}}{2}+1005\times223+\frac{300^{2}}{2}-0}{2\times1005}
-            $$
-
-            $$
-            \boxed{T_{3}=332.876\,\text{K}=59.8756^{\circ}\text{C}}
+            \boxed{V_{2}=458.333\,\text{m/s}}\ .
             $$
 
         </div>

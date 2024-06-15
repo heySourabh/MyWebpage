@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 1.5, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Math rendering -->
+    <script async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 1.5</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 1: Introduction
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 1.5:</h4>
+        <div class="font1">
+
+            Two jets of air, each having the same mass flow rate, are thoroughly mixed and then discharged into a large
+            chamber. One jet has a temperature of 120<sup>o</sup>C and a velocity of 100 m/s, whereas the other has a
+            temperature of -50<sup>o</sup>C and a velocity of 300 m/s. Assuming that the process is steady and
+            adiabatic, find the temperature of the air in the large chamber.
+
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+
+            A schematic diagram of the configuration is shown in Fig. 1.
+            <br>
+            <img class="col-md-8" src="images/fig1.png" alt="Schematic diagram of problem">
+            <br>
+
+            <p>
+                Given: \( T_{1}=120^{\circ}\text{C}=393\,\text{K} \),
+                \( V_{1}=100\,\text{m/s} \),
+                \( T_{2}=-50^{\circ}\text{C}=223\,\text{K} \),
+                \( V_{2}=300\,\text{m/s} \).
+            </p>
+
+            <p>The mass flow rate is same through the two inlets, therefore,</p>
+
+            $$
+            \dot{m}_{1}=\dot{m}_{2}=\dot{m}
+            $$
+
+            $$
+            \dot{m}_{3}=\dot{m}_{1}+\dot{m}_{2}=2\,\dot{m}
+            $$
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>
+                Applying the conservation of energy equation (without heat and work),
+            </p>
+
+            $$
+            \left(\dot{m}_{1}\,c_{p}\,T_{1}+\dot{m}_{1}\frac{V_{1}^{2}}{2}\right) +
+            \left(\dot{m}_{2}\,c_{p}\,T_{2}+\dot{m}_{2}\frac{V_{2}^{2}}{2}\right) =
+            \left(\dot{m}_{3}\,c_{p}\,T_{3}+\dot{m}_{3}\frac{V_{3}^{2}}{2}\right)
+            $$
+
+            $$
+            \left(\dot{m}\,c_{p}\,T_{1}+\dot{m}\frac{V_{1}^{2}}{2}\right) +
+            \left(\dot{m}\,c_{p}\,T_{2}+\dot{m}\frac{V_{2}^{2}}{2}\right) =
+            \left(2\,\dot{m}\,c_{p}\,T_{3}+2\,\dot{m}\frac{V_{3}^{2}}{2}\right)
+            $$
+
+            $$
+            \left(c_{p}\,T_{1}+\frac{V_{1}^{2}}{2}\right) +
+            \left(c_{p}\,T_{2}+\frac{V_{2}^{2}}{2}\right) =
+            \left(2\,c_{p}\,T_{3}+2\frac{V_{3}^{2}}{2}\right)
+            $$
+
+            $$
+            T_{3}=\frac{c_{p}\,T_{1}+\frac{V_{1}^{2}}{2} +
+            c_{p}\,T_{2}+\frac{V_{2}^{2}}{2} - V_{3}^{2}}{2\,c_{p}}
+            $$
+
+            <p>
+                Assuming \( c_{p}=1005\,\text{J/kg-K} \) for air and the velocity in the large chamber to be effectively
+                zero,
+            </p>
+
+            $$
+            T_{3}=\frac{1005\times393+\frac{100^{2}}{2}+1005\times223+\frac{300^{2}}{2}-0}{2\times1005}
+            $$
+
+            $$
+            \boxed{T_{3}=332.876\,\text{K}=59.8756^{\circ}\text{C}}
+            $$
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <!-- Ad Begin -->
+    <br>
+    <div style="background:lightblue; margin:0;">
+        <p>--- Ad ---</p>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+            data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p>---</p>
+    </div>
+    <br>
+    <!-- Ad End -->
+
+    <div class="container-fluid">
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

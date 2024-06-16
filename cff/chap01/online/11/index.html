@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Additional meta tags -->
-    <meta name="description" content="Solutions of problem 1.10, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="description" content="Solutions of problem 1.11, Compressible Fluid Flow by Patrick H. Oosthuizen">
     <meta name="author" content="Sourabh Bhat">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -30,7 +30,7 @@
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
 
-    <title>Problem 1.10</title>
+    <title>Problem 1.11</title>
 </head>
 
 <body>
@@ -53,24 +53,29 @@
         </a>
         <br><br>
         <hr>
-        <h4>Problem 1.10:</h4>
+        <h4>Problem 1.11:</h4>
         <div class="font1 text-justify">
-            A rocket used to study the atmosphere has a fuel consumption rate of 120 kg/s and a
-            nozzle discharge velocity of 2300 m/s. The pressure on the nozzle discharge plane
-            is 90 kPa. Find the thrust developed when the rocket is launched at sea level.
-            The nozzle exit plane diameter is 0.3 m.
+            A solid fueled rocket is fitted with a convergent-divergent nozzle with an exit
+            plane diameter of 30 cm. The pressure and velocity on this nozzle exit plane are
+            75 kPa and 750 m/s, respectively, and the mass flow rate through the nozzle is
+            350 kg/s. Find the thrust developed by this engine when the ambient pressure is
+            (a) 100 kPa and (b) 20 kPa.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: <br>
-                \( \dot{m}_{fuel}=120\,\text{kg/s} \),
-                \( V_{e}=2300\,\text{m/s} \),
-                \( p_{e}=90\,\text{kPa} \),
-                \( D_{e}=⌀0.3\,\text{m} \).
-                <br>
-                To calculate: Thrust at sea level.
+                Given:
+                \( \dot{m}_{e}=350\,\text{kg/s} \),
+                \( V_{e}=750\,\text{m/s} \),
+                \( p_{e}=75\,\text{kPa} \),
+                \( D_{e}=⌀0.3\,\text{m} \). <br>
+
+                To calculate: <br>
+                <span style="padding-left: 2em;"></span>
+                (a) Thrust when \( p_{\text{amb}} = 100\,\text{kPa} \). <br>
+                <span style="padding-left: 2em;"></span>
+                (b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
@@ -79,31 +84,58 @@
             <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            <p>
-                Assuming the atmospheric pressure at sea level as \( p_{\text{atm}}=1\,\text{atm}=101325\,\text{Pa} \).
-            </p>
-
-            <p>
-                Assuming that the oxidizer is mixed with the fuel, \( \dot{m}_{e}=\dot{m}_{fuel}=120\,\text{kg/s} \).
-            </p>
-
-            <p>
-                Applying the conservation of momentum on the control-volume around the rocket,
-            </p>
+            <p>(a) Thrust when \( p_{\text{amb}} = 100\,kPa \).</p>
+            <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
 
             $$
             \begin{aligned}
 
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{atm}}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 120\times2300-0+\left(90\times10^{3}-101325\right)\times\frac{\pi}{4}\times0.3^{2}
+            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
+            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-100\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
 
             \end{aligned}
             $$
 
             $$
-            \boxed{\text{Thrust at sea level}=275199.483\,\text{N}}\ .
+            \text{when }\ p_{\text{amb}}=100\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=260732.85\,\text{N}}\ .
+            $$
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <!-- CFF inline ads -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>(b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).</p>
+            <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
+
+            $$
+            \begin{aligned}
+
+            \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
+            &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
+            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
+            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-20\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+
+            \end{aligned}
+            $$
+
+            $$
+            \text{when }\ p_{\text{amb}} = 20\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=266387.72\,\text{N}}\ .
             $$
 
         </div>

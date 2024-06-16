@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 1.9, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+        crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Math rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 1.9</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 1: Introduction
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 1.9:</h4>
+        <div class="font1 text-justify">
+            A small turbo-jet engine uses 50 kg/s of air, and the air/fuel ratio is 90:1.
+            The jet efflux velocity is 600 m/s. When the afterburner is used, the overall air/fuel
+            ratio decreases to 50:1 and the jet efflux velocity increases to 730 m/s.
+            Find the static thrust with and without the afterburner. The pressure on the engine
+            discharge plane can be assumed to be equal to the ambient pressure in both cases.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: \( p_{1}=p_{2} \) <br>
+                case 1 - without afterburner:
+                \( \dot{m}_{1}=50\,\text{kg/s} \),
+                \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=90:1 \),
+                \( V_{2}=600\,\text{m/s} \).
+
+                <br>
+
+                case 2 - with afterburner:
+                \( \dot{m}_{1}=50\,\text{kg/s}, \)
+                \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=50:1, \)
+                \( V_{2}=730\,\text{m/s} \).
+
+                <br>
+                To calculate: static thrust for case 1 and case 2.
+            </p>
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <br>
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+            <br>
+
+            <h4><u>Case1: without afterburner</u></h4>
+
+            <p>Using the conservation of mass,</p><u>Case1: without afterburner</u>
+
+            $$
+            \dot{m}_{2}=\dot{m}_{1}+\dot{m}_{f1}=\dot{m}_{1}+\dot{m}_{1}/90=50+50/90=50.556\,\text{kg/s}.
+            $$
+
+            <p>Assuming \( V_{1}\sim 0 \) (since engine is stationary on ground).</p>
+
+            <p>The conservation of momentum gives,</p>
+
+            $$
+            \begin{aligned}
+
+            \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
+            &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
+
+            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
+            \text{Thrust} =&\ 50.555556\times600\\ \\
+            \text{Thrust} =&\ 30333.3336\,\text{N}
+
+            \end{aligned}
+            $$
+
+            $$
+            \boxed{\text{Static thrust}=30333.3336\,\text{N}}\ .
+            $$
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <h4><u>Case2: with afterburner</u></h4>
+
+            <p>Using the conservation of mass,</p>
+
+            $$
+            \dot{m}_{2}=\dot{m}_{1}+\left(\dot{m}_{f1}+\dot{m}_{f2}\right)=\dot{m}_{1}+\dot{m}_{1}/50=50+50/50=51\,\text{kg/s}.
+            $$
+
+            <p>Assuming \( V_{1}\sim 0 \) (since engine is stationary on ground).</p>
+
+            <p>The conservation of momentum gives,</p>
+
+            $$
+            \begin{aligned}
+
+            \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
+            &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
+            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
+            \text{Thrust} =&\ 51\times730\\ \\
+            \text{Thrust} =&\ 37230\,\text{N}
+
+            \end{aligned}
+            $$
+
+            $$
+            \boxed{\text{Static thrust}=37230\,\text{N}}\ .
+            $$
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <!-- Ad Begin -->
+    <br>
+    <div style="background:lightblue; margin:0;">
+        <p>--- Ad ---</p>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+            data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p>---</p>
+    </div>
+    <br>
+    <!-- Ad End -->
+
+    <div class="container-fluid">
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

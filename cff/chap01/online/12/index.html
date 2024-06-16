@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Additional meta tags -->
-    <meta name="description" content="Solutions of problem 1.11, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="description" content="Solutions of problem 1.12, Compressible Fluid Flow by Patrick H. Oosthuizen">
     <meta name="author" content="Sourabh Bhat">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -30,7 +30,7 @@
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
 
-    <title>Problem 1.11</title>
+    <title>Problem 1.12</title>
 </head>
 
 <body>
@@ -53,29 +53,28 @@
         </a>
         <br><br>
         <hr>
-        <h4>Problem 1.11:</h4>
+        <h4>Problem 1.12:</h4>
         <div class="font1 text-justify">
-            A solid fueled rocket is fitted with a convergent-divergent nozzle with an exit
-            plane diameter of 30 cm. The pressure and velocity on this nozzle exit plane are
-            75 kPa and 750 m/s, respectively, and the mass flow rate through the nozzle is
-            350 kg/s. Find the thrust developed by this engine when the ambient pressure is
-            (a) 100 kPa and (b) 20 kPa.
+            In a hydrogen-powered rocket, hydrogen enters a nozzle at a very low velocity with a
+            temperature and pressure of 2000<sup>o</sup>C and 6.8 MPa, respectively.
+            The pressure on the exit plane of the nozzle is equal to the ambient pressure,
+            which is 10 kPa. If the required thrust is 10 MN, what hydrogen mass flow rate is required?
+            The flow through the nozzle can be assumed to be isentropic and the specific heat ratio
+            of the hydrogen can be assumed to be 1.4.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given:
-                \( \dot{m}_{e}=350\,\text{kg/s} \),
-                \( V_{e}=750\,\text{m/s} \),
-                \( p_{e}=75\,\text{kPa} \),
-                \( D_{e}=⌀0.3\,\text{m} \). <br>
+                Given: \( \gamma_{h}=1.4 \) <br>
+                \( V_{1}\approx 0 \),
+                \( T_{1} = T_{0} = 2000^{\circ}\,\text{C} = 2273\,\text{K} \),
+                \( p_{1}=p_{0}=6.8\,\text{MPa} \), <br>
 
-                To calculate: <br>
-                <span style="padding-left: 2em;"></span>
-                (a) Thrust when \( p_{\text{amb}} = 100\,\text{kPa} \). <br>
-                <span style="padding-left: 2em;"></span>
-                (b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).
+                \( p_{e} = p_{\text{amb}} = 10\,\text{kPa} \),
+                \( \text{Thrust} = 10\,\text{MN} \) <br><br>
+
+                To calculate: hydrogen mass flow rate?
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
@@ -84,22 +83,22 @@
             <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            <p>(a) Thrust when \( p_{\text{amb}} = 100\,\text{kPa} \).</p>
-            <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
+            Using the molar mass of hydrogen as \( \hat{m}=2.016\,\text{kg/kmol} \) and universal
+            gas constant as \( R_{u}=8314\,\text{J/kmol-K} \), the gas constant of hydrogen can be
+            calculated as,
 
             $$
-            \begin{aligned}
+            R=\frac{R_{u}}{\hat{m}} = \frac{8314}{2.016} = 4124\,\text{J/kg-K}\ .
+            $$
 
-            \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
-            &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-100\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+            The heat capacity of hydrogen at constant pressure can be calculated as,
 
-            \end{aligned}
+            $$
+            c_{p}=\frac{\gamma_{h}R}{\gamma_{h}-1}
             $$
 
             $$
-            \text{when }\ p_{\text{amb}}=100\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=260732.85\,\text{N}}\ .
+            c_{p} = \frac{1.4\times4124}{1.4-1} = 14434\,\text{J/kg-K}\ .
             $$
 
             <!-- Ad Begin -->
@@ -120,22 +119,51 @@
             <br>
             <!-- Ad End -->
 
-            <p>(b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).</p>
-            <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
+            Since the flow through the nozzle can be assumed to be isentropic,
 
             $$
-            \begin{aligned}
-
-            \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
-            &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-20\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
-
-            \end{aligned}
+            \frac{T_{e}}{T_{0}}=\left(\frac{p_{e}}{p_{0}}\right)^{\left(\gamma_{h}-1\right)/\gamma_{h}}
             $$
 
             $$
-            \text{when }\ p_{\text{amb}} = 20\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=266387.72\,\text{N}}\ .
+            T_{e}=T_{0}\left(\frac{p_{e}}{p_{0}}\right)^{\left(\gamma_{h}-1\right)/\gamma_{h}}
+            $$
+
+            $$
+            T_{e}=2273\times\left(\frac{10\times10^{3}}{6.8\times10^{6}}\right)^{\left(1.4-1\right)/1.4}=352.623\,\text{K}\
+            .
+            $$
+
+            <p>Using the conservation of energy equation,</p>
+
+            $$
+            c_{p}T_{0}=c_{p}T_{e}+\frac{V_{e}^{2}}{2}
+            $$
+
+            $$
+            14434\times2273=14434\times352.623+\frac{V_{e}^{2}}{2}
+            $$
+
+            <p>which can be solved for exit velocity as,</p>
+
+            $$
+            V_{e}=\sqrt{2\times\left(14434\times2273-14434\times352.623\right)}=7445.6325\,\text{m/s}\ .
+            $$
+
+            <p>Using the conservation of momentum, since the exit plane pressure is same as ambient,</p>
+
+            $$
+            \text{Thrust} = \dot{m}_{e}V_{e}
+            $$
+
+            <p>Therefore, the mass flow rate is,</p>
+
+            $$
+            \dot{m}_{e}=\frac{\text{Thrust}}{V_{e}}=\frac{10\times10^{6}}{7445.6325}
+            $$
+
+            $$
+            \boxed{\dot{m}_{e}=1343.07\,\text{kg/s}}\ .
             $$
 
         </div>

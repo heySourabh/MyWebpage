@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Additional meta tags -->
-    <meta name="description" content="Solutions of problem 1.15, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="description" content="Solutions of problem 1.16, Compressible Fluid Flow by Patrick H. Oosthuizen">
     <meta name="author" content="Sourabh Bhat">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -30,7 +30,7 @@
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
 
-    <title>Problem 1.15</title>
+    <title>Problem 1.16</title>
 </head>
 
 <body>
@@ -53,69 +53,68 @@
         </a>
         <br><br>
         <hr>
-        <h4>Problem 1.15:</h4>
+        <h4>Problem 1.16:</h4>
         <div class="font1 text-justify">
-            Air enters a heat exchanger with a velocity of 120 m/s and a temperature and pressure
-            of 225<sup>o</sup>C and 2.5 MPa. Heat is removed from the air in the heat exchanger
-            and the air leaves with a velocity 30 m/s at a temperature and pressure of 80<sup>o</sup>C
-            and 2.45 MPa. Find the heat removed per kilogram of air flowing through the heat exchanger
-            and the density of the air at the inlet and the exit to the heat exchanger.
+            The mass flow rate through the nozzle of a rocket engine is 200 kg/s. The areas of the
+            nozzle inlet and exit planes are 0.7 and 2.4 m<sup>2</sup>, respectively. On the nozzle
+            inlet plane, the pressure and velocity are 1600 kPa and 150 m/s, respectively, whereas
+            on the nozzle exit plane, the pressure and velocity are 80 kPa and 2300 m/s, respectively.
+            Find the thrust force acting on the nozzle.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: <br>
-                \( V_{1} = 120\,\text{m/s} \),
-                \( T_{1} = 225^{\circ}\,\text{C} = 498\,\text{K} \),
-                \( p_{1} = 2.5\,\text{MPa} \), <br>
-                \( V_{e} = 30\,\text{m/s} \),
-                \( T_{e} = 80^{\circ}\,\text{C} = 353\,\text{K} \),
-                \( p_{e} = 2.45\,\text{MPa} \).
+                Given: \( \dot{m}=200\,\text{kg/s} \), <br>
+                \( A_{1}=0.7\,\text{m}^{2} \),
+                \( p_{1}=1600\,\text{kPa} \),
+                \( V_{1}=150\,\text{m/s} \), <br>
+                \( A_{e}=2.4\,\text{m}^{2} \),
+                \( p_{e}=80\,\text{kPa} \),
+                \( V_{e}=2300\,\text{m/s} \).
             </p>
             <p>
-                To calculate:
-                \( \dot{q}/\dot{m} = ? \),
-                \( \rho_{1} = ? \),
-                \( \rho_{e} = ? \).
+                To calculate: Thrust = ?.
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
 
             <br>
-            <img class="col-md-10 col-lg-8 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            <p>Applying the conservation of energy,</p>
-
-            $$
-            \text{Rate of energy at inlet} + \text{Rate of heat addition} = \text{Rate of energy at exit}
-            $$
-
-            $$
-            c_{p}T_{1}+\frac{V_{1}^{2}}{2}+\frac{\dot{q}}{\dot{m}}=c_{p}T_{e}+\frac{V_{e}^{2}}{2}
-            $$
-
             <p>
-                Taking the heat capacity of air at constant pressure, \( c_{p}=1005\,\text{J/kg-K} \),
+                Considering the control volume around the nozzle, and applying conservation of
+                momentum in the horizontal direction, the thrust force acting on the nozzle can be written as,
             </p>
 
             $$
-            1005 \times 498 + \frac{120^{2}}{2} + \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2}
+            \begin{aligned}
+            \text{Thrust force on nozzle} =&\ \text{Rate of momentum leaving the nozzle} \\
+            & - \text{Rate on momentum entering the nozzle} \\
+            & + \text{pressure force on the exit plane} \\
+            & + \text{pressure force on the inlet plane}
+            \end{aligned}
             $$
 
-            Which can be solved for heat flow rate to be,
+            $$
+            \begin{aligned}
+            \text{Thrust force on nozzle} =&\ \dot{m}_{e}V_{e} - \dot{m}_{1}V_{1} \\
+            & + p_{e}A_{e} + p_{\text{amb}}\left(A-A_{e}\right) \\
+            & - p_{1}A_{1}-p_{\text{amb}}\left(A-A_{1}\right)
+            \end{aligned}
+            $$
+
+            <p>
+                where \( A \) is an arbitrary area of the vertical side of the control volume.
+                Simplifying this equation gives,</p>
 
             $$
-            \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2} - 1005 \times 498
-            - \frac{120^{2}}{2} = -152475\ .
-            $$
-
-            <p>The negative sign indicates that the heat is removed.
-                The heat removed per kilogram of air flowing through the heat exchanger, </p>
-
-            $$
-            \boxed{\frac{\dot{q}}{\dot{m}}=152475\,\text{J/kg}}\ .
+            \begin{aligned}
+            \text{Thrust force on nozzle} =&\ \dot{m}_{e}V_{e}-\dot{m}_{1}V_{1} \\
+            & + p_{e}A_{e}-p_{1}A_{1} \\
+            & - p_{\text{amb}}\left(A_{e}-A_{1}\right)\ .
+            \end{aligned}
             $$
 
             <!-- Ad Begin -->
@@ -136,23 +135,69 @@
             <br>
             <!-- Ad End -->
 
-            <p>The density at the inlet and exit can be calculated using the ideal gas equation.</p>
-
+            <p>Since \( \dot{m}_{1} = \dot{m}_{e} = \dot{m} \),</p>
             $$
-            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{2.5\times10^{6}}{287\times498}
-            $$
-
-            $$
-            \boxed{\rho_{1}=17.49\,\text{kg/m}^{3}}\ .
-            $$
-
-            $$
-            \rho_{e} = \frac{p_{e}}{R\,T_{e}} = \frac{2.45 \times 10^{6}}{287 \times 353}
+            \begin{aligned}
+            \text{Thrust force on nozzle} =&\ \dot{m}\left(V_{e}-V_{1}\right) \\
+            & + p_{e}A_{e}-p_{1}A_{1} \\
+            & - p_{\text{amb}}\left(A_{e}-A_{1}\right)\ .
+            \end{aligned}
             $$
 
+            <p>
+                Case 1. Assuming that the inlet pressure is same as the ambient pressure,
+                \( p_{1}=p_{\text{amb}} \), the equation becomes,
+            </p>
             $$
-            \boxed{\rho_{e}=24.18\,\text{kg/m}^{3}}\ .
+            \text{Thrust force on nozzle}=\dot{m}\left(V_{e}-V_{1}\right)+\left(p_{e}-p_{1}\right)A_{e}\ .
             $$
+
+            $$
+            \text{Thrust force on nozzle} =
+            200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times2.4\ .
+            $$
+
+            $$
+            \boxed{\text{Thrust force on nozzle}=-3218\,\text{kN}}\
+            $$
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <!-- CFF inline ads -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>
+                Case 2) Assuming that the exit pressure is same as the ambient pressure,
+                \( p_{e}=p_{\text{amb}} \), the equation becomes,
+            </p>
+
+            $$
+            \text{Thrust force on nozzle}=\dot{m}\left(V_{e}-V_{1}\right)+\left(p_{e}-p_{1}\right)A_{1}\ .
+            $$
+
+            $$
+            \text{Thrust force on
+            nozzle}=200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times0.7\ .
+            $$
+
+            $$
+            \boxed{\text{Thrust force on nozzle}=-634\,\text{kN}}\ .
+            $$
+
+
         </div>
 
         <hr>

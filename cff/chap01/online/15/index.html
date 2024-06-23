@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 1.15, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!-- Math rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 1.15</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 1: Introduction
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 1.15:</h4>
+        <div class="font1 text-justify">
+            Air enters a heat exchanger with a velocity of 120 m/s and a temperature and pressure
+            of 225<sup>o</sup>C and 2.5 MPa. Heat is removed from the air in the heat exchanger
+            and the air leaves with a velocity 30 m/s at a temperature and pressure of 80<sup>o</sup>C
+            and 2.45 MPa. Find the heat removed per kilogram of air flowing through the heat exchanger
+            and the density of the air at the inlet and the exit to the heat exchanger.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: <br>
+                \( V_{1} = 120\,\text{m/s} \),
+                \( T_{1} = 225^{\circ}\,\text{C} = 498\,\text{K} \),
+                \( p_{1} = 2.5\,\text{MPa} \), <br>
+                \( V_{e} = 30\,\text{m/s} \),
+                \( T_{e} = 80^{\circ}\,\text{C} = 353\,\text{K} \),
+                \( p_{e} = 2.45\,\text{MPa} \).
+            </p>
+            <p>
+                To calculate:
+                \( \dot{q}/\dot{m} = ? \),
+                \( \rho_{1} = ? \),
+                \( \rho_{e} = ? \).
+            </p>
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <br>
+            <img class="col-md-10 col-lg-8 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+            <br>
+
+            <p>Applying the conservation of energy,</p>
+
+            $$
+            \text{Rate of energy at inlet} + \text{Rate of heat addition} = \text{Rate of energy at exit}
+            $$
+
+            $$
+            c_{p}T_{1}+\frac{V_{1}^{2}}{2}+\frac{\dot{q}}{\dot{m}}=c_{p}T_{e}+\frac{V_{e}^{2}}{2}
+            $$
+
+            <p>
+                Taking the heat capacity of air at constant pressure, \( c_{p}=1005\,\text{J/kg-K} \),
+            </p>
+
+            $$
+            1005 \times 498 + \frac{120^{2}}{2} + \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2}
+            $$
+
+            Which can be solved for heat flow rate to be,
+
+            $$
+            \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2} - 1005 \times 498
+            - \frac{120^{2}}{2} = -152475\ .
+            $$
+
+            <p>The negative sign indicates that the heat is removed.
+                The heat removed per kilogram of air flowing through the heat exchanger, </p>
+
+            $$
+            \boxed{\frac{\dot{q}}{\dot{m}}=152475\,\text{J/kg}}\ .
+            $$
+
+            <p>The density at the inlet and exit can be calculated using the ideal gas equation.</p>
+
+            $$
+            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{2.5\times10^{6}}{287\times498}
+            $$
+
+            $$
+            \boxed{\rho_{1}=17.49\,\text{kg/m}^{3}}\ .
+            $$
+
+            $$
+            \rho_{e} = \frac{p_{e}}{R\,T_{e}} = \frac{2.45 \times 10^{6}}{287 \times 353}
+            $$
+
+            $$
+            \boxed{\rho_{e}=24.18\,\text{kg/m}^{3}}\ .
+            $$
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <!-- Ad Begin -->
+    <br>
+    <div style="background:lightblue; margin:0;">
+        <p>--- Ad ---</p>
+        <script async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+            crossorigin="anonymous"></script>
+        <!-- CFF inline ads -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+            data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p>---</p>
+    </div>
+    <br>
+    <!-- Ad End -->
+
+    <div class="container-fluid">
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

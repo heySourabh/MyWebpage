@@ -123,6 +123,8 @@ function start_pause_continue() {
 
         hideImage();
 
+        requestScreenWakeLock(false);
+
         return;
     }
 
@@ -145,6 +147,7 @@ function stop() {
     clearAllTimers();
     hideImage();
     stopAllAudio();
+    requestScreenWakeLock(false);
 }
 
 function stopAllAudio() {
@@ -192,6 +195,7 @@ function initial_instructions_and_start_counting() {
 }
 
 function start_counting() {
+    requestScreenWakeLock(true);
     displayEstimatedTime();
     bgMusicStart();
     showImage();
@@ -338,6 +342,21 @@ function totalTimeEstimateMs() {
     return totalSN * 12 * avg_speed;
 }
 
+let wakeLock = null;
+function requestScreenWakeLock(keepAwake) {
+    if (keepAwake) {
+        console.log("Request screen awake lock");
+        navigator.wakeLock.request('screen').then(result => {
+            wakeLock = result;
+        });
+    } else {
+        console.log("Release screen awake lock");
+        if (wakeLock != null) {
+            wakeLock.release().then(() => wakeLock = null);
+        }
+    }
+}
+
 function msToTime(duration) {
     var seconds = Math.floor((duration / 1000) % 60),
         minutes = Math.floor((duration / (1000 * 60)) % 60),
@@ -375,22 +394,22 @@ function savePrefs() {
 
 function loadPrefs() {
     var totalSN = getCookie("total");
-    if(totalSN != "") {
+    if (totalSN != "") {
         document.getElementById("totalSN").value = totalSN;
     }
 
     var delayBeforeStart = getCookie("delay");
-    if(delayBeforeStart != "") {
+    if (delayBeforeStart != "") {
         document.getElementById("delay").value = delayBeforeStart;
     }
 
     var speed = getCookie("speed");
-    if(speed != "") {
+    if (speed != "") {
         document.getElementById("speed_range").value = speed;
     }
 
     var bgMusicOn = getCookie("music");
-    if(bgMusicOn != "") {
+    if (bgMusicOn != "") {
         document.getElementById("bg_music_cb").checked = (bgMusicOn == "false") ? false : true;
     }
 }

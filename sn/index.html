@@ -169,11 +169,14 @@
                 <input type="number" name="delay" id="delay" min="0" value="2">
                 <label for="delay">seconds</label>
                 <br><br>
-                <div>
-                    <label for="speed_range">slow</label>
+                <div style="display: flex; align-items: start;">
+                    <label for="speed_range">slow&nbsp;</label>
                     <input type="range" name="speed" id="speed_range" min="1000" max="10000" value="4000" step="5"
-                        style="direction: rtl;" oninput="speedRange_changed()">
-                    <label for="speed_range">fast</label>
+                        style="direction: rtl; flex-grow: 1;" oninput="speedRange_changed()">
+                    <label for="speed_range">&nbsp;fast</label>
+                </div>
+                <div id="time-estimate">
+                    <span id="total-time-estimate">Approx. total time: </span>
                 </div>
                 <br>
                 <label class="switch">
@@ -192,9 +195,6 @@
         <div id="count-display">
             <span id="current-sn"></span>
             <span id="current-sn-step"></span>
-        </div>
-        <div id="time-estimate">
-            <span id="total-time-estimate">Approx. total time: </span>
         </div>
     </div>
     <br>

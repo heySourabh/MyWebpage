@@ -109,7 +109,7 @@
 </head>
 
 <body onload="initialize()">
-    <div id=audio-placeholder>
+    <div>
         <audio id="initial-instructions" preload="auto">
             <source src="media/voices/sourabh/initial_instructions.mp3" type="audio/mpeg">
         </audio>
@@ -164,7 +164,7 @@
         </audio>
     </div>
 
-    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+    <div class="alert alert-success alert-dismissible fade show text-center mb-0" role="alert">
         <span id="top-msg">
             Please wait, loading data ...
         </span>
@@ -173,7 +173,7 @@
         </button>
     </div>
 
-    <div id="app-container" class="container">
+    <div id="app-container" class="container pt-1">
         <div class="row">
             <h2 class="offset-lg-2">Counts for Surya Namaskar</h2>
         </div>
@@ -215,6 +215,9 @@
         <div id="count-display">
             <span id="current-sn"></span>
             <span id="current-sn-step"></span>
+        </div>
+        <div>
+            <button id="installAppBtn" class="btn btn-outline-info mb-1">Install App</button>
         </div>
     </div>
     <br>
@@ -1004,7 +1007,8 @@
     <br><br>
 
     <!-- JS code -->
-    <script type="text/javascript" src="js/sn.js"></script>
+    <script src="js/sn.js"></script>
+    <script src="app/prompt.js"></script>
 
     <!-- Optional JavaScript - Bootstrap -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

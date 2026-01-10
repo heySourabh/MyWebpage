@@ -13,7 +13,7 @@ window.addEventListener("beforeinstallprompt", e => {
 
     // Update UI notify the user they can add to home screen
     for (const btn of installAppButtons) {
-        btn.style.display = 'block';
+        btn.style.display = 'inline-block';
     }
 });
 

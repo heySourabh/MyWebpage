@@ -44,14 +44,14 @@ function load_commands_audio() {
     endAudio = document.getElementById("end-instructions");
     endAudio.volume = 1.0;
     for (var i = 1; i <= 12; i++) {
-        var audio = document.getElementById("" + i);
+        var audio = document.getElementById("voice-count-" + i);
         audio.volume = 1.0;
         countsAudio.push(audio);
     }
 
-    rightAudio = document.getElementById("right");
+    rightAudio = document.getElementById("voice-right");
     rightAudio.volume = 0.5;
-    leftAudio = document.getElementById("left");
+    leftAudio = document.getElementById("voice-left");
     leftAudio.volume = 0.5;
 }
 

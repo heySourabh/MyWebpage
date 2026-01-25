@@ -43,69 +43,16 @@
     </script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <!-- Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../vendor/devicons/css/devicons.min.css" rel="stylesheet">
-    <link href="../vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <!-- My Styles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/chat-style.css">
     <link rel="stylesheet" href="../css/form.css">
-
-    <style>
-        #top-msg {
-            color: black;
-            margin: 0em;
-            animation-name: top-msg-anim;
-            animation-duration: 8s;
-        }
-
-        @keyframes top-msg-anim {
-            0% {
-                color: red;
-            }
-
-            22% {
-                margin-left: 0ex;
-            }
-
-            25% {
-                margin-left: -10ex;
-            }
-
-            28% {
-                margin-left: 10ex;
-            }
-
-            30% {
-                margin-left: -5ex;
-            }
-
-            32% {
-                margin-left: 5ex;
-            }
-
-            34% {
-                margin-left: 0ex;
-            }
-
-            50% {
-                color: blue;
-            }
-
-            90% {
-                color: green;
-            }
-
-            100% {
-                color: black;
-            }
-        }
-    </style>
 </head>
 
 <body onload="initialize()">
@@ -113,47 +60,47 @@
         <audio id="initial-instructions" preload="auto">
             <source src="media/voices/sourabh/initial_instructions.mp3" type="audio/mpeg">
         </audio>
-        <audio id="1" preload="auto">
+        <audio id="voice-count-1" preload="auto">
             <source src="media/voices/sourabh/1.mp3" type="audio/mpeg">
             Your browser does not support the audio tag.
         </audio>
-        <audio id="2" preload="auto">
+        <audio id="voice-count-2" preload="auto">
             <source src="media/voices/sourabh/2.mp3" type="audio/mpeg">
         </audio>
-        <audio id="3" preload="auto">
+        <audio id="voice-count-3" preload="auto">
             <source src="media/voices/sourabh/3.mp3" type="audio/mpeg">
         </audio>
-        <audio id="4" preload="auto">
+        <audio id="voice-count-4" preload="auto">
             <source src="media/voices/sourabh/4.mp3" type="audio/mpeg">
         </audio>
-        <audio id="5" preload="auto">
+        <audio id="voice-count-5" preload="auto">
             <source src="media/voices/sourabh/5.mp3" type="audio/mpeg">
         </audio>
-        <audio id="6" preload="auto">
+        <audio id="voice-count-6" preload="auto">
             <source src="media/voices/sourabh/6.mp3" type="audio/mpeg">
         </audio>
-        <audio id="7" preload="auto">
+        <audio id="voice-count-7" preload="auto">
             <source src="media/voices/sourabh/7.mp3" type="audio/mpeg">
         </audio>
-        <audio id="8" preload="auto">
+        <audio id="voice-count-8" preload="auto">
             <source src="media/voices/sourabh/8.mp3" type="audio/mpeg">
         </audio>
-        <audio id="9" preload="auto">
+        <audio id="voice-count-9" preload="auto">
             <source src="media/voices/sourabh/9.mp3" type="audio/mpeg">
         </audio>
-        <audio id="10" preload="auto">
+        <audio id="voice-count-10" preload="auto">
             <source src="media/voices/sourabh/10.mp3" type="audio/mpeg">
         </audio>
-        <audio id="11" preload="auto">
+        <audio id="voice-count-11" preload="auto">
             <source src="media/voices/sourabh/11.mp3" type="audio/mpeg">
         </audio>
-        <audio id="12" preload="auto">
+        <audio id="voice-count-12" preload="auto">
             <source src="media/voices/sourabh/12.mp3" type="audio/mpeg">
         </audio>
-        <audio id="right" preload="auto">
+        <audio id="voice-right" preload="auto">
             <source src="media/voices/sourabh/right.mp3" type="audio/mpeg">
         </audio>
-        <audio id="left" preload="auto">
+        <audio id="voice-left" preload="auto">
             <source src="media/voices/sourabh/left.mp3" type="audio/mpeg">
         </audio>
         <audio id="background_music" preload="auto">
@@ -168,33 +115,33 @@
         <span id="top-msg">
             Please wait, loading data ...
         </span>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 
     <div id="app-container" class="container pt-1">
-        <div class="row">
-            <div class="h2 offset-lg-2">
+        <div class="row text-center">
+            <div class="col h2">
                 Counts for Surya Namaskar
                 <sup>
                     <button class="btn btn-outline-info p-0 install-btn"><small>Install App</small></button>
                 </sup>
             </div>
         </div>
-        <div class="row">
-            <div class="col col-lg-4 offset-lg-2">
-                <div id="sn-pos-img-div" class="hide-sn-image-div">
-                    <img id="sn-pos-img" class="ml-4" height="100%" src="images/0.png" alt="Suryanamaskar asanas">
-                </div>
-                <label for="totalSN" style="padding-right:3em;">How many?</label>
+        <div class="row justify-content-center">
+            <div id="sn-pos-img-div" class="col col-md-6 col-lg-5 text-center hide-sn-image-div">
+                <img id="sn-pos-img" src="images/0.png" alt="Suryanamaskar asanas">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col col-md-6 col-lg-5">
+                <label for="totalSN" class="pe-5">How many?</label>
                 <input type="number" name="totalSN" id="totalSN" min="1" value="16" onchange="totalSN_changed()">
                 <br><br>
                 <label for="delay">Delay before start: </label>
                 <input type="number" name="delay" id="delay" min="0" value="2">
                 <label for="delay">seconds</label>
                 <br><br>
-                <div style="display: flex; align-items: start;">
+                <div class="d-flex">
                     <label for="speed_range">slow&nbsp;</label>
                     <input type="range" name="speed" id="speed_range" min="1000" max="10000" value="4000" step="5"
                         style="direction: rtl; flex-grow: 1;" oninput="speedRange_changed()">
@@ -210,10 +157,12 @@
                 </label>
                 <label for="bg_music_cb">Music</label>
             </div>
-            <div class="col-lg-3">
-                <input type="button" class="btn btn-success btn-lg pr-5 pl-5 mt-2 mb-2" value="Start"
+        </div>
+        <div class="row justify-content-center">
+            <div class="col col-md-6 col-lg-5 text-center">
+                <input type="button" class="btn btn-success btn-lg pe-5 ps-5 mt-2 mb-2" value="Start"
                     onclick="start_pause_continue()" id="play_pause_btn" disabled>
-                <input type="button" class="btn btn-danger btn-lg pr-5 pl-5 mt-2 mb-2" value="Stop" onclick="stop()"
+                <input type="button" class="btn btn-danger btn-lg pe-5 ps-5 mt-2 mb-2" value="Stop" onclick="stop()"
                     id="stop_btn" disabled>
             </div>
         </div>
@@ -1056,16 +1005,9 @@
     <script src="js/sn.js"></script>
     <script src="app/prompt.js"></script>
 
-    <!-- Optional JavaScript - Bootstrap -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 </body>
 

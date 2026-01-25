@@ -358,9 +358,10 @@ function requestScreenWakeLock(keepAwake) {
 }
 
 function msToTime(duration) {
-    var seconds = Math.floor((duration / 1000) % 60),
-        minutes = Math.floor((duration / (1000 * 60)) % 60),
-        hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+    const totalSeconds = Math.floor(duration / 1000);
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds - hours * 3600) / 60);
+    let seconds = Math.floor(totalSeconds - hours * 3600 - minutes * 60);
 
     hours = (hours < 10) ? "0" + hours : hours;
     minutes = (minutes < 10) ? "0" + minutes : minutes;

@@ -261,10 +261,10 @@ function sayAndDisplayCount() {
 }
 
 function displayCounts() {
-    snCountText = document.getElementById("current-sn");
+    const snCountText = document.getElementById("current-sn");
     snCountText.innerHTML = "" + (snCount + 1);
 
-    stepCountText = document.getElementById("current-sn-step");
+    const stepCountText = document.getElementById("current-sn-step");
     stepCountText.innerHTML = "" + (stepCount + 1);
 }
 
@@ -290,10 +290,10 @@ function hideImage() {
 }
 
 function clearDisplay() {
-    snCountText = document.getElementById("current-sn");
+    const snCountText = document.getElementById("current-sn");
     snCountText.innerHTML = "";
 
-    stepCountText = document.getElementById("current-sn-step");
+    const stepCountText = document.getElementById("current-sn-step");
     stepCountText.innerHTML = "";
 }
 

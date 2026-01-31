@@ -14,6 +14,9 @@ var states = ["INIT", "PLAYING", "PAUSED"];
 var current_state = "INIT";
 var timer_id = [];
 
+let num_cycles = 1;
+let speed_variation = 0.4;
+
 function initialize() {
     document.getElementById("top-msg").innerHTML = "I am ready!";
 
@@ -138,7 +141,7 @@ function start_pause_continue() {
     }
 }
 
-function stop() {
+function stopCounting() {
     stop_btn.disabled = true;
     current_state = "INIT";
     start_btn.value = "Start";
@@ -185,7 +188,7 @@ function initial_instructions_and_start_counting() {
     if (isNaN(dur)) {
         dur = 11;
     }
-    instructions_duration = dur * 1000;
+    const instructions_duration = dur * 1000;
     bgMusicStart();
     instructionsAudio.play();
 
@@ -209,7 +212,7 @@ function next_count() {
     }
     console.log("Count: " + snCount + " : " + stepCount);
     sayAndDisplayCount();
-    timer_id.push(setTimeout("next_count()", gapBetweenCounts()));
+    timer_id.push(setTimeout("next_count()", gapBetweenCounts(snCount, stepCount)));
 
     incrementCount();
 
@@ -245,7 +248,7 @@ function end_instructions_and_stop() {
 
     timer_id.push(setTimeout("endAudio.play()", lastCountDuration));
 
-    timer_id.push(setTimeout("stop()", lastCountDuration + endAudioDuration));
+    timer_id.push(setTimeout("stopCounting()", lastCountDuration + endAudioDuration));
 }
 
 function sayAndDisplayCount() {
@@ -297,22 +300,18 @@ function clearDisplay() {
     stepCountText.innerHTML = "";
 }
 
-function gapBetweenCounts() {
-    // to be set using UI later
-    var num_cycles = 1;
-    var speed_variation = 0.4;
+function gapBetweenCounts(snCount, stepCount) {
+    const MAX_GAP = 10000;
+    const MIN_GAP = 1000;
 
-    var MAX_GAP = 10000;
-    var MIN_GAP = 1000;
-
-    var totalSN = parseInt(document.getElementById("totalSN").value);
-    if (totalSN <= 10) speed_variation = 0;
-
-    var avg_speed = parseFloat(document.getElementById("speed_range").value);
+    const avg_speed = parseFloat(document.getElementById("speed_range").value);
+    const totalSN = parseInt(document.getElementById("totalSN").value);
+    let speed_change = speed_variation * avg_speed
+    if (totalSN <= 10) speed_change = 0;
 
     var t = ((snCount * 12.0 + stepCount) / ((totalSN - 1.0) * 12.0 + 11.0));
 
-    var gap = avg_speed + Math.cos(t * 2.0 * Math.PI * num_cycles) * speed_variation * avg_speed;
+    var gap = avg_speed + Math.cos(t * 2.0 * Math.PI * num_cycles) * speed_change;
 
     if (gap > MAX_GAP) gap = MAX_GAP;
     if (gap < MIN_GAP) gap = MIN_GAP;
@@ -336,8 +335,8 @@ function displayEstimatedTime() {
 }
 
 function totalTimeEstimateMs() {
-    var totalSN = parseInt(document.getElementById("totalSN").value);
-    var avg_speed = parseFloat(document.getElementById("speed_range").value);
+    const totalSN = parseInt(document.getElementById("totalSN").value);
+    const avg_speed = parseFloat(document.getElementById("speed_range").value);
 
     return totalSN * 12 * avg_speed;
 }

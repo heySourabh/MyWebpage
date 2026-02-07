@@ -1,28 +1,24 @@
 // initialized
-var stepCount = 0;
-var snCount = 0;
-var countsAudio = [];
-var snImages = [];
-var leftAudio;
+let stepCount = 0;
+let snCount = 0;
+const countsAudio = [];
+const snImages = [];
+let leftAudio;
 var rightAudio;
 var instructionsAudio;
 var endAudio;
 var bgAudio;
 var start_btn;
 var stop_btn;
-var states = ["INIT", "PLAYING", "PAUSED"];
 var current_state = "INIT";
-var timer_id = [];
-
-let num_cycles = 1;
-let speed_variation = 0.4;
+let timer_id = [];
 
 function initialize() {
     document.getElementById("top-msg").innerHTML = "I am ready!";
 
     setTimeout(() => {
         document.getElementById("top-msg").innerHTML =
-            "Scroll down for <strong>Instructions and more Information</strong>.";
+            "Scroll down for <strong>more Information</strong>.";
     }, 2000);
 
 
@@ -102,6 +98,9 @@ function bgMusicStop() {
 }
 
 function start_pause_continue() {
+    // Update average speed
+    setAvgCountGapMs(parseFloat(document.getElementById("speed_range").value));
+
     // Save preferences
     savePrefs()
 
@@ -212,7 +211,8 @@ function next_count() {
     }
     console.log("Count: " + snCount + " : " + stepCount);
     sayAndDisplayCount();
-    timer_id.push(setTimeout("next_count()", gapBetweenCounts(snCount, stepCount)));
+    timer_id.push(setTimeout("next_count()", gapBetweenCountsMs(snCount, stepCount,
+        getAvgCountGapMs(), getIsConstantSpeed())));
 
     incrementCount();
 
@@ -300,23 +300,25 @@ function clearDisplay() {
     stepCountText.innerHTML = "";
 }
 
-function gapBetweenCounts(snCount, stepCount) {
+function gapBetweenCountsMs(snCount, stepCount, avgGapMs, constantSpeed) {
     const MAX_GAP = 10000;
     const MIN_GAP = 1000;
 
-    const avg_speed = parseFloat(document.getElementById("speed_range").value);
-    const totalSN = parseInt(document.getElementById("totalSN").value);
-    let speed_change = speed_variation * avg_speed
-    if (totalSN <= 10) speed_change = 0;
+    const totalSN = getTotalSN();
+
+    if (constantSpeed || totalSN <= 10) {
+        return avgGapMs;
+    }
+
+    const speed_change = getSpeedVariation() * avgGapMs;
+
+    const num_cycles = getNumCycles();
 
     var t = ((snCount * 12.0 + stepCount) / ((totalSN - 1.0) * 12.0 + 11.0));
-
-    var gap = avg_speed + Math.cos(t * 2.0 * Math.PI * num_cycles) * speed_change;
+    var gap = avgGapMs + Math.cos(t * 2.0 * Math.PI * num_cycles) * speed_change;
 
     if (gap > MAX_GAP) gap = MAX_GAP;
     if (gap < MIN_GAP) gap = MIN_GAP;
-
-    console.log(gap);
 
     return gap;
 }

@@ -646,14 +646,15 @@
                     <!--Blog Name-->
                     <input type="hidden" id="page" name="sn-page" value="Suryanamaskar page">
                     <!--label for="fname">Name</label>-->
-                    <input type="text" id="name" name="name" placeholder="Your Name (Email - optional)">
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name (Email - optional)">
+                    <div class="form-text mb-2">Your email will not be published in comments. Submit email if you expect a reply by email.</div>
 
                     <!--label for="message">Message</label>-->
-                    <textarea id="message" name="message" placeholder="What's on your mind ..."
+                    <textarea id="message" name="message" class="form-control mb-3" placeholder="What's on your mind ..."
                         style="height:100px"></textarea>
 
-                    <button type="submit">
-                        <i class="fa fa-paper-plane mr-2"></i> Submit
+                    <button type="submit" class="btn btn-outline-success">
+                        <i class="bi bi-send"></i> Submit
                     </button>
                 </form>
             </div>

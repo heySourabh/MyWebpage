@@ -5,7 +5,7 @@ const shareData = {
 };
 
 const shareBtn = document.getElementById("share-btn");
-if (!navigator.canShare) {
+if (!navigator.canShare || !navigator.canShare(shareData)) {
     shareBtn.style.display = "none";
 }
 
@@ -15,5 +15,4 @@ shareBtn.addEventListener("click", async () => {
     } catch (err) {
         console.log(err);
     }
-    shareBtn.style.display = "none";
 });

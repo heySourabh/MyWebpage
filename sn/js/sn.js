@@ -385,29 +385,48 @@ function savePrefs() {
     setCookie("delay", delayBeforeStart);
     setCookie("speed", speed);
     setCookie("music", bgMusicOn);
+    setCookie("speed_constant", isConstantSpeed ? "true" : "false");
+    setCookie("num_cycles", numCyclesSelected);
+    setCookie("speed_variance", `${speed_variation}`);
 
     // console.log(document.cookie);
 }
 
 function loadPrefs() {
-    var totalSN = getCookie("total");
+    const totalSN = getCookie("total");
     if (totalSN != "") {
         document.getElementById("totalSN").value = totalSN;
     }
 
-    var delayBeforeStart = getCookie("delay");
+    const delayBeforeStart = getCookie("delay");
     if (delayBeforeStart != "") {
         document.getElementById("delay").value = delayBeforeStart;
     }
 
-    var speed = getCookie("speed");
+    const speed = getCookie("speed");
     if (speed != "") {
         document.getElementById("speed_range").value = speed;
     }
 
-    var bgMusicOn = getCookie("music");
+    const bgMusicOn = getCookie("music");
     if (bgMusicOn != "") {
         document.getElementById("bg_music_cb").checked = (bgMusicOn == "false") ? false : true;
+    }
+
+    const constant_speed = getCookie("speed_constant");
+    if (constant_speed != "") {
+        isConstantSpeed = (constant_speed == "false") ? false : true;
+        enableSpeedSettingsFieldSet(!isConstantSpeed);
+
+        const num_cycles = getCookie("num_cycles");
+        if (!isConstantSpeed && num_cycles != "") {
+            numCyclesSelected = num_cycles;
+        }
+
+        const speed_var_cookie = getCookie("speed_variance");
+        if (!isConstantSpeed && speed_var_cookie != "") {
+            speed_variation = parseFloat(speed_var_cookie);
+        }
     }
 }
 

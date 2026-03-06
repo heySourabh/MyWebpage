@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,14 +51,18 @@
         <hr>
         <h4>Problem 1.1:</h4>
         <div class="font1 text-justify">
-            An air stream enters a variable area channel at a velocity of 30 m/s with a pressure of 120 kPa and a
-            temperature of 10<sup>o</sup>C. At a certain point in the channel, the velocity is found to be 250 m/s.
-            Using
-            Bernoulli's equation (i.e. \( p + \rho V^2/2 = constant \)), which assumes incompressible flow, find
-            the pressure at this point. In this calculation, use the density evaluated at the inlet conditions. If the
-            temperature of the air is assumed to remain constant, evaluate the air density at the point in the flow
-            where the velocity is 250 m/s. Compare this density with the density at the inlet to the channel. Based on
-            this comparison, do you think that the use of Bernoulli's equation is justified?
+            An air stream enters a variable area channel at a velocity of
+            <input type="number" id="q-v1" value="30" size="3">m/s with a pressure of
+            <input type="number" id="q-p1" value="120" size="3">kPa and a temperature of
+            <input type="number" id="q-T1" value="10" size="3"><sup>o</sup>C. At a certain point in the channel, the
+            velocity is
+            found to be <input type="number" id="q-v2" value="250" size="4">m/s. Using Bernoulli's equation
+            (i.e. \( p + \rho V^2/2 = constant \)), which assumes incompressible flow, find the pressure at this point.
+            In this calculation, use the density evaluated at the inlet conditions. If the temperature of the air is
+            assumed to remain constant, evaluate the air density at the point in the flow where the velocity is
+            <span id="qo-v2">250</span>m/s.
+            Compare this density with the density at the inlet to the channel. Based on this comparison, do you think
+            that the use of Bernoulli's equation is justified?
         </div>
         <br>
         <h4>Solution:</h4>
@@ -74,9 +74,11 @@
             Since the flow is assumed to be incompressible, \( \rho \) is constant and can be calculated at station
             <span class="circled">1</span> using ideal gas equation,
 
-            $$
-            \rho=\rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{120\times10^{3}}{287\times\left(10+273\right)}=1.47745\,\text{kg/m}^{3}
-            $$
+            <div id="eq-rho">
+                <!-- \[
+                \rho=\rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{120\times10^{3}}{287\times\left(10+273\right)}=1.47745\,\text{kg/m}^{3}
+                \] -->
+            </div>
 
             Using the Bernoulli's equation
 
@@ -108,32 +110,42 @@
             <br>
             <!-- Ad End -->
 
-            Substituting \( \rho=1.47745\,\text{kg/m}^{3} \) in (eq.1), the pressure at station
+            Substituting <span id="rho-value"><!--\( \rho=1.47745\,\text{kg/m}^{3} \)--></span> in (eq.1), the pressure
+            at station
             <span class="circled">2</span> can be calculated as,
 
             $$
             p_{2}=p_{1}+\frac{\rho}{2}\left(V_{1}^{2}-V_{2}^{2}\right)
             $$
 
-            $$
-            p_{2}=120\times10^{3}+\frac{1.47745}{2}\left(30^{2}-250^{2}\right) = 74494.54\,\text{Pa}
-            $$
+            <div id="eq-p2">
+                <!-- $$
+                p_{2}=120\times10^{3}+\frac{1.47745}{2}\left(30^{2}-250^{2}\right) = 74494.54\,\text{Pa}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{\left.p_{2}\right|_{\text{incomp.}}=74.49454\,\text{kPa}}
-            $$
+            <div id="p2-boxed">
+                <!-- $$
+                \boxed{\left.p_{2}\right|_{\text{incomp.}}=74.49454\,\text{kPa}}
+                $$ -->
+            </div>
 
             If the temperature of the air is assumed to remain constant,
-            \( T_{2}=T_{1}=283\,\text{K} \), then we can calculate the density at station
+            <span id="T2T1-value"><!-- \( T_{2}=T_{1}=283\,\text{K} \) --></span>,
+            then we can calculate the density at station
             <span class="circled">2</span> to be,
 
-            $$
-            \rho=\frac{p_{2}}{R\,T_{2}}=\frac{74494.54}{287\times283}
-            $$
+            <div id="rhoT-const">
+                <!-- $$
+                \rho=\frac{p_{2}}{R\,T_{2}}=\frac{74494.54}{287\times283}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{\left.\rho\right|_{T=\text{constant}}=0.917183\,\text{kg/m}^{3}}
-            $$
+            <div id="rhoT-const-boxed">
+                <!-- $$
+                \boxed{\left.\rho\right|_{T=\text{constant}}=0.917183\,\text{kg/m}^{3}}
+                $$ -->
+            </div>
 
             The percentage difference in calculated density, at station
             <span class="circled">1</span> and assuming constant temperature is,
@@ -142,17 +154,20 @@
             \%\ \text{difference in density calculation} =
             \frac{\rho_{1}-\left.\rho\right|_{T=\text{constant}}}{\left.\rho\right|_{\text{Bernoulli}}}\times100
             $$
-            $$
-            = \frac{1.47745-0.917183}{1.47745}\times100
-            = 37.92\%
-            $$
+            <div id="percent-change-out">
+                <!-- $$
+                = \frac{1.47745-0.917183}{1.47745}\times100
+                = 37.92\%
+                $$ -->
+            </div>
 
-            Based on this comparison, it is clear that the
-            <u><strong>use of Bernoulli's equation is not justified,</strong></u>
-            as in an incompressible flow (with no heat transfer) the temperature variations are negligible.
-            Therefore, the density calculated with this assumption must closely match with the result of
-            Bernoulli's equation if the flow is indeed incompressible.
-
+            <div id="conclusion-out">
+                <!-- Based on this comparison, it is clear that the
+                <u><strong>use of Bernoulli's equation is not justified,</strong></u>
+                as in an incompressible flow (with no heat transfer) the temperature variations are negligible.
+                Therefore, the density calculated with this assumption must closely match with the result of
+                Bernoulli's equation if the flow is indeed incompressible. -->
+            </div>
         </div>
 
         <hr>
@@ -200,6 +215,10 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Math rendering -->
+    <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"></script>
+    <script src="./script-min.js"></script>
 </body>
 
 </html>

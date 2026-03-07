@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,17 +51,25 @@
         <hr>
         <h4>Problem 1.4:</h4>
         <div class="font1 text-justify">
-            Two kilograms of air at an initial temperature and pressure of 30<sup>o</sup>C and 100 kPa undergoes an
-            isentropic process, the final temperature attained being 850<sup>o</sup>C. Find the final pressure, the
-            initial and final densities, and the initial and final volumes.
+            A chamber with
+            <input type="number" id="m" value="2" size="2">kg
+            of air at an initial temperature and pressure of
+            <input type="number" id="T1" value="30" size="3"><sup>o</sup>C
+            and
+            <input type="number" id="p1" value="100" size="3">kPa
+            undergoes an isentropic process, the final temperature attained being
+            <input type="number" id="T2" value="850" size="3"><sup>o</sup>C.
+            Find the final pressure, the initial and final densities, and the initial and final volumes.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>Given:
-                \( m=2\,\text{kg} \), \( T_{1}=30^{\circ}\text{C}=303\,\text{K} \),
+                <span id="given">
+                    <!-- \( m=2\,\text{kg} \), \( T_{1}=30^{\circ}\text{C}=303\,\text{K} \),
                 \( p_{1}=100\,\text{kPa} \), isentropic process,
-                \( T_{2}=850^{\circ}\text{C}=1123\,\text{K} \).
+                \( T_{2}=850^{\circ}\text{C}=1123\,\text{K} \). -->
+                </span>
             </p>
             <p>
                 To calculate:
@@ -84,14 +88,15 @@
             p_{2}=p_{1}\left(\frac{T_{2}}{T_{1}}\right)^{\gamma/\left(\gamma-1\right)}
             $$
 
-            $$
-            p_{2}=100\times10^{3}\times\left(\frac{1123}{303}\right)^{1.4/\left(1.4-1\right)}
-            $$
+            <div id="p2-eqn-out">
+                <!-- $$
+                p_{2}=100\times10^{3}\times\left(\frac{1123}{303}\right)^{1.4/\left(1.4-1\right)}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{p_{2}=9801.216\,\text{kPa}}\ .
-            $$
-
+            <div id="p2-out">
+                <!-- $$ \boxed{p_{2}=9801.216\,\text{kPa}}\ . $$ -->
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -114,33 +119,47 @@
 
             <p>The density \( \rho_{1} \) can be calculated using the ideal gas equation as,</p>
 
-            $$
-            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{100\times10^{3}}{287\times303}
-            $$
+            <div id="rho1-eqn-out">
+                <!-- $$
+                \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{100\times10^{3}}{287\times303}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{\rho_{1}=1.15\,\text{kg/m}^{3}}\ .
-            $$
+            <div id="rho1-out">
+                <!-- $$
+                \boxed{\rho_{1}=1.15\,\text{kg/m}^{3}}\ .
+                $$ -->
+            </div>
 
             <p>The density \( \rho_{2} \) can be calculated using the ideal gas equation as,</p>
 
-            $$
-            \rho_{2}=\frac{p_{2}}{R\,T_{2}}=\frac{9801.216\times10^{3}}{287\times1123}
-            $$
+            <div id="rho2-eqn-out">
+                <!-- $$
+                \rho_{2}=\frac{p_{2}}{R\,T_{2}}=\frac{9801.216\times10^{3}}{287\times1123}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{\rho_{2}=30.41\,\text{kg/m}^{3}}\ .
-            $$
+            <div id="rho2-out">
+                <!-- $$
+                \boxed{\rho_{2}=30.41\,\text{kg/m}^{3}}\ .
+                $$ -->
+            </div>
 
-            <p>Since the mass is constant \( m=2\,\text{kg} \), the volumes can be calculated as,</p>
+            <p>Since the mass is constant
+                <span id="m-out"><!-- \( m=2\,\text{kg} \) --></span>, the volumes can be calculated as,
+            </p>
 
-            $$
-            \boxed{v_{1}=\frac{m}{\rho_{1}}=\frac{2}{1.15}=1.73913\,\text{m}^{3}}
-            $$
+            <div id="vol1-out">
+                <!-- $$
+                \boxed{v_{1}=\frac{m}{\rho_{1}}=\frac{2}{1.15}=1.73913\,\text{m}^{3}}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{v_{2}=\frac{m}{\rho_{2}}=\frac{2}{30.41}=0.0657678\,\text{m}^{3}}
-            $$
+            <div id="vol2-out">
+                <!-- $$
+                \boxed{v_{2}=\frac{m}{\rho_{2}}=\frac{2}{30.41}=0.0657678\,\text{m}^{3}}
+                $$ -->
+            </div>
 
         </div>
 
@@ -189,6 +208,8 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

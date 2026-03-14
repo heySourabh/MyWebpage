@@ -16,16 +16,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
@@ -55,32 +48,52 @@
         <hr>
         <h4>Problem 1.6:</h4>
         <div class="font1 text-justify">
-            Two air streams are mixed in a chamber. One stream enters the chamber through a 5 cm diameter
-            pipe at a velocity of 100 m/s with a pressure of 150 kPa and a temperature of 30<sup>o</sup>C.
-            The other stream enters the chamber through a 1.5 cm diameter pipe at a velocity of 150 m/s
-            with a pressure of 75 kPa and a temperature of 30<sup>o</sup>C.
-            The air leaves the chamber through a 9 cm diameter pipe at a pressure of 90 kPa and a
-            temperature of 30<sup>o</sup>C. Assuming that the flow is steady, find the velocity in the
-            exit pipe.
+            Two air streams are mixed in a chamber. One stream enters the chamber through a
+            <input type="number" id="D1" size="2" value="5">cm diameter
+            pipe at a velocity of
+            <input type="number" id="V1" size="3" value="100">m/s
+            with a pressure of
+            <input type="number" id="p1" size="3" value="150">kPa
+            and a temperature of
+            <input type="number" id="T1" size="3" value="30"><sup>o</sup>C.
+            The other stream enters the chamber through a
+            <input type="number" id="D2" size="2" value="1.5">cm diameter
+            pipe at a velocity of
+            <input type="number" id="V2" size="3" value="150">m/s
+            with a pressure of
+            <input type="number" id="p2" size="3" value="75">kPa
+            and a temperature of
+            <input type="number" id="T2" size="3" value="30"><sup>o</sup>C.
+            The air leaves the chamber through a
+            <input type="number" id="D3" size="2" value="9">cm
+            diameter pipe at a pressure of
+            <input type="number" id="p3" size="3" value="90">kPa
+            and a temperature of
+            <input type="number" id="T3" size="3" value="30"><sup>o</sup>C.
+            Assuming that the flow is steady, find the velocity in the exit pipe.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: Steady flow <br>
-                - \( T_{1}=30^{\circ}\text{C}=303\,\text{K} \),
-                \( p_{1}=150\,\text{kPa} \),
-                \( D_{1}= ⌀5\,\text{cm} \),
-                \( V_{1}=100\,\text{m/s} \) (Inlet)
-                <br>
-                - \( T_{2}=30^{\circ}\text{C}=303\,\text{K} \),
-                \( p_{2}=75\,\text{kPa} \),
-                \( D_{2}= ⌀1.5\,\text{cm} \),
-                \( V_{2}=150\,\text{m/s} \) (Inlet)
-                <br>
-                - \( T_{3}=30^{\circ}\text{C}=303\,\text{K} \),
-                \( p_{3}=90\,\text{kPa}, D_{3}= ⌀9\,\text{cm} \),
-                \( V_{3}=?\,\text{m/s} \) (Outlet)
+                Given: Steady flow
+                <div id="given1">
+                    <!-- - \( T_{1}=30^{\circ}\text{C}=303\,\text{K} \),
+                    \( p_{1}=150\,\text{kPa} \),
+                    \( D_{1}= ⌀5\,\text{cm} \),
+                    \( V_{1}=100\,\text{m/s} \) (Inlet) -->
+                </div>
+                <div id="given2">
+                    <!-- - \( T_{2}=30^{\circ}\text{C}=303\,\text{K} \),
+                    \( p_{2}=75\,\text{kPa} \),
+                    \( D_{2}= ⌀1.5\,\text{cm} \),
+                    \( V_{2}=150\,\text{m/s} \) (Inlet) -->
+                </div>
+                <div id="given3">
+                    <!-- - \( T_{3}=30^{\circ}\text{C}=303\,\text{K} \),
+                    \( p_{3}=90\,\text{kPa}, D_{3}= ⌀9\,\text{cm} \),
+                    \( V_{3}=?\,\text{m/s} \) (Outlet) -->
+                </div>
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
@@ -94,17 +107,23 @@
                 temperatures and using the ideal gas equation.
             </p>
 
-            $$
-            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{150\times10^{3}}{287\times303}=1.7249\,\text{kg/m}^{3}
-            $$
+            <div id="rho1-out">
+                <!-- $$
+                \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{150\times10^{3}}{287\times303}=1.7249\,\text{kg/m}^{3}
+                $$ -->
+            </div>
 
-            $$
-            \rho_{2}=\frac{p_{2}}{R\,T_{2}}=\frac{75\times10^{3}}{287\times303}=0.86246\,\text{kg/m}^{3}
-            $$
+            <div id="rho2-out">
+                <!-- $$
+                \rho_{2}=\frac{p_{2}}{R\,T_{2}}=\frac{75\times10^{3}}{287\times303}=0.86246\,\text{kg/m}^{3}
+                $$ -->
+            </div>
 
-            $$
-            \rho_{3}=\frac{p_{1}}{R\,T_{1}}=\frac{90\times10^{3}}{287\times303}=1.0349\,\text{kg/m}^{3}
-            $$
+            <div id="rho3-out">
+                <!-- $$
+                \rho_{3}=\frac{p_{1}}{R\,T_{1}}=\frac{90\times10^{3}}{287\times303}=1.0349\,\text{kg/m}^{3}
+                $$ -->
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -130,29 +149,37 @@
 
             $$\begin{aligned}
 
-            m_{1}+m_{2} &= m_{3} \\ \\
+            m_{1}+m_{2} &= m_{3} \\
 
-            \rho_{1}\,A_{1}\,V_{1}+\rho_{2}\,A_{2}\,V_{2} &= \rho_{3}\,A_{3}\,V_{3} \\ \\
+            \rho_{1}\,A_{1}\,V_{1}+\rho_{2}\,A_{2}\,V_{2} &= \rho_{3}\,A_{3}\,V_{3} \\
 
             \rho_{1}\times\frac{\pi}{4}D_{1}^{2}\times V_{1} +
             \rho_{2}\times\frac{\pi}{4}D_{2}^{2}\times V_{2} &=
-            \rho_{3}\times\frac{\pi}{4}D_{3}^{2}\times V_{3} \\ \\
-
-            1.7249\times\frac{\pi}{4}\times0.05^{2}\times100
-            +0.86246\times\frac{\pi}{4}\times0.015^{2}\times150 & =
-            1.0349\times\frac{\pi}{4}\times0.09^{2}\times V_{3}
+            \rho_{3}\times\frac{\pi}{4}D_{3}^{2}\times V_{3}
 
             \end{aligned}$$
 
-            $$
-            V_{3}=\frac{1.7249\times\frac{\pi}{4}\times0.05^{2}\times100 +
-            0.86246\times\frac{\pi}{4}\times0.015^{2}\times150}{1.0349\times\frac{\pi}{4}
-            \times0.09^{2}}
-            $$
+            <div id="mass-eqn">
+                <!-- $$
+                1.7249\times\frac{\pi}{4}\times0.05^{2}\times100
+                +0.86246\times\frac{\pi}{4}\times0.015^{2}\times150 =
+                1.0349\times\frac{\pi}{4}\times0.09^{2}\times V_{3}
+                $$ -->
+            </div>
 
-            $$
-            \boxed{V_{3}=54.915\,\text{m/s}}\ .
-            $$
+            <div id="V3-eqn">
+                <!-- $$
+                V_{3}=\frac{1.7249\times\frac{\pi}{4}\times0.05^{2}\times100 +
+                0.86246\times\frac{\pi}{4}\times0.015^{2}\times150}{1.0349\times\frac{\pi}{4}
+                \times0.09^{2}}
+                $$ -->
+            </div>
+
+            <div id="V3-out">
+                <!-- $$
+                \boxed{V_{3}=54.915\,\text{m/s}}\ .
+                $$ -->
+            </div>
 
         </div>
 
@@ -201,6 +228,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

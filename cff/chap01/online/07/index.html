@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,9 +51,13 @@
         <hr>
         <h4>Problem 1.7:</h4>
         <div class="font1 text-justify">
-            The jet engine fitted to a small aircraft uses 35 kg/s of air when the aircraft is
-            flying at a speed of 800 km/h. The jet efflux velocity is 590 m/s. If the pressure on
-            the engine discharge plane is assumed to be equal to the ambient pressure and if effects
+            The jet engine fitted to a small aircraft uses
+            <input type="number" id="m" size="4" value="35">kg/s
+            of air when the aircraft is flying at a speed of
+            <input type="number" id="V1" size="4" value="800">km/h.
+            The jet efflux velocity is
+            <input type="number" id="V2" size="4" value="590">m/s.
+            If the pressure on the engine discharge plane is assumed to be equal to the ambient pressure and if effects
             of the mass of the fuel used are ignored, find the thrust developed by the engine.
         </div>
         <br>
@@ -65,10 +65,18 @@
         <div class="font3">
             <p>
                 Given:
-                Inlet \( \rightarrow \) \( V_{1}=800\,\text{km/h}=800/3.6=222.22\,\text{m/s} \),
-                \( \dot{m}_{1}=35\,\text{kg/s} \) <br>
-                Outlet \( \rightarrow \) \( V_{2}=590\,\text{m/s} \),
-                \( \dot{m}_{2}=35\,\text{kg/s} \) (ignoring fuel),
+                Inlet \( \rightarrow \) <span id="given-V1">
+                    <!-- \( V_{1}=800\,\text{km/h}=800/3.6=222.22\,\text{m/s} \) -->
+                </span>,
+                <span id="given-m1">
+                    <!-- \( \dot{m}_{1}=35\,\text{kg/s} \) -->
+                </span> <br>
+                Outlet <span id="given-V2">
+                    <!-- \( \rightarrow \) \( V_{2}=590\,\text{m/s} \) -->
+                </span>,
+                <span id="given-m2">
+                    <!-- \( \dot{m}_{2}=35\,\text{kg/s} \) -->
+                </span> (ignoring fuel),
                 \( p_{2}=p_{1}=p_{\text{ambient}} \)
             </p>
 
@@ -87,15 +95,22 @@
             &\ + \text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
             \text{Thrust} =&\ \dot{m}V_{2}-\dot{m}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
             \text{Thrust} =&\ \dot{m}V_{2}-\dot{m}V_{1}+0\\ \\
-            \text{Thrust} =&\ \dot{m}\left(V_{2}-V_{1}\right)\\ \\
-            \text{Thrust} =&\ 35\times\left(590-222.22\right)
+            \text{Thrust} =&\ \dot{m}\left(V_{2}-V_{1}\right)
 
             \end{aligned}
             $$
 
-            $$
-            \boxed{\text{Thrust}=12872.3\,\text{N}}
-            $$
+            <div id="thrust-calc">
+                <!-- $$
+                \text{Thrust} =\ 35\times\left(590-222.22\right)
+                $$ -->
+            </div>
+
+            <div id="thrust-out">
+                <!-- $$
+                \boxed{\text{Thrust}=12872.3\,\text{N}}
+                $$ -->
+            </div>
 
         </div>
 
@@ -144,6 +159,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

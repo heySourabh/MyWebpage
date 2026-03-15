@@ -16,16 +16,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
@@ -55,9 +48,16 @@
         <hr>
         <h4>Problem 1.9:</h4>
         <div class="font1 text-justify">
-            A small turbo-jet engine uses 50 kg/s of air, and the air/fuel ratio is 90:1.
-            The jet efflux velocity is 600 m/s. When the afterburner is used, the overall air/fuel
-            ratio decreases to 50:1 and the jet efflux velocity increases to 730 m/s.
+            A small turbo-jet engine uses
+            <input type="number" id="m1" size="3" value="50">kg/s
+            of air, and the air/fuel ratio is
+            <input type="number" id="af-ratio-1" size="3" style="text-align: right;" value="90">:1.
+            The jet efflux velocity is
+            <input type="number" id="V2-1" size="3" value="600">m/s.
+            When the afterburner is used, the overall air/fuel ratio decreases to
+            <input type="number" id="af-ratio-2" size="3" style="text-align: right;" value="50">:1
+            and the jet efflux velocity increases to
+            <input type="number" id="V2-2" size="3" value="730">m/s.
             Find the static thrust with and without the afterburner. The pressure on the engine
             discharge plane can be assumed to be equal to the ambient pressure in both cases.
         </div>
@@ -67,16 +67,28 @@
             <p>
                 Given: \( p_{1}=p_{2} \) <br>
                 case 1 - without afterburner:
-                \( \dot{m}_{1}=50\,\text{kg/s} \),
-                \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=90:1 \),
-                \( V_{2}=600\,\text{m/s} \).
+                <span id="given-m1-1">
+                    <!-- \( \dot{m}_{1}=50\,\text{kg/s} \) -->
+                </span>,
+                <span id="given-af-ratio-1">
+                    <!-- \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=90:1 \) -->
+                </span>,
+                <span id="given-V2-1">
+                    <!-- \( V_{2}=600\,\text{m/s} \) -->
+                </span>.
 
                 <br>
 
                 case 2 - with afterburner:
-                \( \dot{m}_{1}=50\,\text{kg/s}, \)
-                \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=50:1, \)
-                \( V_{2}=730\,\text{m/s} \).
+                <span id="given-m1-2">
+                    <!-- \( \dot{m}_{1}=50\,\text{kg/s}, \) -->
+                </span>
+                <span id="given-af-ratio-2">
+                    <!-- \( \dot{m}_{1}:\dot{m}_{\text{fuel}}=50:1, \) -->
+                </span>
+                <span id="given-V2-2">
+                    <!-- \( V_{2}=730\,\text{m/s} \) -->
+                </span>.
 
                 <br>
                 To calculate: static thrust for case 1 and case 2.
@@ -92,9 +104,11 @@
 
             <p>Using the conservation of mass,</p><u>Case1: without afterburner</u>
 
-            $$
-            \dot{m}_{2}=\dot{m}_{1}+\dot{m}_{f1}=\dot{m}_{1}+\dot{m}_{1}/90=50+50/90=50.556\,\text{kg/s}.
-            $$
+            <div id="m2-eqn-1">
+                <!-- $$
+                \dot{m}_{2}=\dot{m}_{1}+\dot{m}_{f1}=\dot{m}_{1}+\dot{m}_{1}/90=50+50/90=50.556\,\text{kg/s}.
+                $$ -->
+            </div>
 
             <p>Assuming \( V_{1}\sim 0 \) (since engine is stationary on ground).</p>
 
@@ -106,16 +120,20 @@
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
 
-            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 50.555556\times600\\ \\
-            \text{Thrust} =&\ 30333.3336\,\text{N}
+            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}
 
             \end{aligned}
             $$
 
-            $$
-            \boxed{\text{Static thrust}=30333.3336\,\text{N}}\ .
-            $$
+            <div id="thrust-eqn-1">
+                <!-- $$
+                \text{Thrust} = 50.555556\times600
+                $$ -->
+            </div>
+
+            <div id="thrust-out-1">
+                <!-- $$ \\boxed{\\text{Static thrust}=30333.3336\\,\\text{N}}\\ . $$ -->
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -139,9 +157,11 @@
 
             <p>Using the conservation of mass,</p>
 
-            $$
-            \dot{m}_{2}=\dot{m}_{1}+\left(\dot{m}_{f1}+\dot{m}_{f2}\right)=\dot{m}_{1}+\dot{m}_{1}/50=50+50/50=51\,\text{kg/s}.
-            $$
+            <div id="m2-eqn-2">
+                <!-- $$
+                \dot{m}_{2}=\dot{m}_{1}+\left(\dot{m}_{f1}+\dot{m}_{f2}\right)=\dot{m}_{1}+\dot{m}_{1}/50=50+50/50=51\,\text{kg/s}.
+                $$ -->
+            </div>
 
             <p>Assuming \( V_{1}\sim 0 \) (since engine is stationary on ground).</p>
 
@@ -152,16 +172,22 @@
 
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 51\times730\\ \\
-            \text{Thrust} =&\ 37230\,\text{N}
+            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}
 
             \end{aligned}
             $$
 
-            $$
-            \boxed{\text{Static thrust}=37230\,\text{N}}\ .
-            $$
+            <div id="thrust-eqn-2">
+                <!-- $$
+                \text{Thrust} = 51\times730
+                $$ -->
+            </div>
+
+            <div id="thrust-out-2">
+                <!-- $$
+                \boxed{\text{Static thrust}=37230\,\text{N}}\ .
+                $$ -->
+            </div>
 
         </div>
 
@@ -209,6 +235,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

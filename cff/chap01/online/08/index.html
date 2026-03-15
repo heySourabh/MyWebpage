@@ -16,16 +16,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
-
-    <!-- Add icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!--My styles-->
     <link rel="stylesheet" href="../style.css">
@@ -55,26 +48,50 @@
         <hr>
         <h4>Problem 1.8:</h4>
         <div class="font1 text-justify">
-            The engine of a small jet aircraft develops a thrust of 18 kN when the aircraft is flying
-            at a speed of 900 km/h at an altitude where the ambient pressure is 50 kPa. The air flow
-            rate through the engine is 75 kg/s and the engine uses fuel at a rate of 3 kg/s. The
-            pressure on the engine discharge plane is 55 kPa and the area of the engine exit is
-            0.2 m<sup>2</sup>. Find the jet efflux velocity.
+            The engine of a small jet aircraft develops a thrust of
+            <input type="number" id="thrust" size="3" value="">kN
+            when the aircraft is flying at a speed of
+            <input type="number" id="V1" size="3" value="900">km/h
+            at an altitude where the ambient pressure is
+            <input type="number" id="p1" size="3" value="50">kPa.
+            The air flow rate through the engine is
+            <input type="number" id="ma" size="3" value="75">kg/s
+            and the engine uses fuel at a rate of
+            <input type="number" id="mf" size="3" value="3">kg/s.
+            The pressure on the engine discharge plane is
+            <input type="number" id="p2" size="3" value="55">kPa
+            and the area of the engine exit is
+            <input type="number" id="A" size="3" value="0.2">m<sup>2</sup>.
+            Find the jet efflux velocity.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
                 Given: <br>
-                Thrust = \( 18\,\text{kN} \),
-                fuel rate = \( 3\,\text{kg/s} \)
+                Thrust = <span id="given-thrust">
+                    <!-- \( 18\,\text{kN} \) -->
+                </span>,
+                fuel rate = <span id="given-mf">
+                    <!-- \( 3\,\text{kg/s} \) -->
+                </span>
                 <br>
-                Inlet \( \rightarrow V_{1}=900\,\text{km/h}=900/3.6=250\,\text{m/s} \),
-                \( p_{1}=50\,\text{kPa} \),
-                \( \dot{m}_{1}=75\,\text{kg/s} \).
+                Inlet <span id="given-V1">
+                    <!-- \( \rightarrow V_{1}=900\,\text{km/h}=900/3.6=250\,\text{m/s} \) -->
+                </span>,
+                <span id="given-p1">
+                    <!-- \( p_{1}=50\,\text{kPa} \) -->
+                </span>,
+                <span id="given-ma">
+                    <!-- \( \dot{m}_{1}=75\,\text{kg/s} \) -->
+                </span>.
                 <br>
-                Outlet \( \rightarrow p_{2}=55\,\text{kPa} \),
-                \( A_{\text{exit}}=0.2\,\text{m}^{2} \),
+                Outlet <span id="given-p2">
+                    <!-- \( \rightarrow p_{2}=55\,\text{kPa} \) -->
+                </span>,
+                <span id="given-A">
+                    <!-- \( A_{\text{exit}}=0.2\,\text{m}^{2} \) -->
+                </span>,
                 \( V_{2}=?\,\text{m/s} \).
             </p>
 
@@ -90,9 +107,11 @@
             \dot{m}_{2}=\dot{m}_{1}+\dot{m}_{\text{fuel}}
             $$
 
-            $$
-            \dot{m}_{2}=75+3=78\,\text{kg/s}
-            $$
+            <div id="mass-eqn">
+                <!-- $$
+                \dot{m}_{2}=75+3=78\,\text{kg/s}
+                $$ -->
+            </div>
 
             <p>Using the conservation of momentum along horizontal direction,</p>
 
@@ -101,19 +120,28 @@
 
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             & +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}\\ \\
-            18\times10^{3} =&\ 78\times V_{2}-75\times250+\left(55\times10^{3}-50\times10^{3}\right)\times0.2
+            \text{Thrust} =&\ \dot{m}_{2}V_{2}-\dot{m}_{1}V_{1}+\left(p_{2}-p_{1}\right)A_{\text{exit}}
 
             \end{aligned}
             $$
 
-            $$
-            V_{2}=\frac{18\times10^{3}+75\times250-\left(55\times10^{3}-50\times10^{3}\right)\times0.2}{78}
-            $$
+            <div id="thrust-eqn">
+                <!-- $$
+                18\times10^{3} = 78\times V_{2}-75\times250+\left(55\times10^{3}-50\times10^{3}\right)\times0.2
+                $$ -->
+            </div>
 
-            $$
-            \boxed{V_{2}=458.333\,\text{m/s}}\ .
-            $$
+            <div id="V2-eqn">
+                <!-- $$
+                V_{2}=\frac{18\times10^{3}+75\times250-\left(55\times10^{3}-50\times10^{3}\right)\times0.2}{78}
+                $$ -->
+            </div>
+
+            <div id="V2-out">
+                <!-- $$
+                \boxed{V_{2}=458.333\,\text{m/s}}\ .
+                $$ -->
+            </div>
 
         </div>
 
@@ -161,6 +189,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- MathJax -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

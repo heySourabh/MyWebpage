@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,27 +51,34 @@
         <hr>
         <h4>Problem 1.11:</h4>
         <div class="font1 text-justify">
-            A solid fueled rocket is fitted with a convergent-divergent nozzle with an exit
-            plane diameter of 30 cm. The pressure and velocity on this nozzle exit plane are
-            75 kPa and 750 m/s, respectively, and the mass flow rate through the nozzle is
-            350 kg/s. Find the thrust developed by this engine when the ambient pressure is
-            (a) 100 kPa and (b) 20 kPa.
+            A solid fueled rocket is fitted with a convergent-divergent nozzle with an exit plane diameter of
+            <input type="number" id="De" size="3" value="30">cm.
+            The pressure and velocity on this nozzle exit plane are
+            <input type="number" id="pe" size="3" value="75">kPa
+            and
+            <input type="number" id="Ve" size="3" value="750">m/s,
+            respectively, and the mass flow rate through the nozzle is
+            <input type="number" id="me" size="3" value="350">kg/s.
+            Find the thrust developed by this engine when the ambient pressure is (a)
+            <input type="number" id="pa1" size="3" value="100">kPa
+            and (b)
+            <input type="number" id="pa2" size="3" value="20">kPa.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
                 Given:
-                \( \dot{m}_{e}=350\,\text{kg/s} \),
-                \( V_{e}=750\,\text{m/s} \),
-                \( p_{e}=75\,\text{kPa} \),
-                \( D_{e}=⌀0.3\,\text{m} \). <br>
+                <span id="given-me">\( \dot{m}_{e}=350\,\text{kg/s} \)</span>,
+                <span id="given-Ve">\( V_{e}=750\,\text{m/s} \)</span>,
+                <span id="given-pe">\( p_{e}=75\,\text{kPa} \)</span>,
+                <span id="given-De">\( D_{e}=⌀0.3\,\text{m} \)</span>. <br>
 
                 To calculate: <br>
                 <span style="padding-left: 2em;"></span>
-                (a) Thrust when \( p_{\text{amb}} = 100\,\text{kPa} \). <br>
+                (a) Thrust when <span id="given-pa1">\( p_{\text{amb}} = 100\,\text{kPa} \)</span>. <br>
                 <span style="padding-left: 2em;"></span>
-                (b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).
+                (b) Thrust when <span id="given-pa2">\( p_{\text{amb}} = 20\,\text{kPa} \)</span>.
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
@@ -84,7 +87,7 @@
             <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            <p>(a) Thrust when \( p_{\text{amb}} = 100\,\text{kPa} \).</p>
+            <p>(a) Thrust when <span id="heading-pa1">\( p_{\text{amb}} = 100\,\text{kPa} \)</span>.</p>
             <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
 
             $$
@@ -92,15 +95,24 @@
 
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-100\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}
 
             \end{aligned}
             $$
 
-            $$
-            \text{when }\ p_{\text{amb}}=100\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=260732.85\,\text{N}}\ .
-            $$
+            <div id="thrust1-eqn">
+                $$
+                \text{Thrust} =
+                350\times750-0+\left(75\times10^{3}-100\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+                $$
+            </div>
+
+            <div id="thrust1-out">
+                $$
+                \text{when }\ p_{\text{amb}}=100\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=260732.85\,\text{N}}\
+                .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -120,7 +132,7 @@
             <br>
             <!-- Ad End -->
 
-            <p>(b) Thrust when \( p_{\text{amb}} = 20\,\text{kPa} \).</p>
+            <p>(b) Thrust when <span id="heading-pa2">\( p_{\text{amb}} = 20\,\text{kPa} \)</span>.</p>
             <p>Applying the conservation of momentum on the control-volume around the rocket,</p>
 
             $$
@@ -128,15 +140,24 @@
 
             \text{Thrust} =&\ \text{rate of momentum exiting }-\text{ rate of momentum entering}\\
             &\ +\text{ pressure force at exit }-\text{ pressure force at inlet}\\ \\
-            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}\\ \\
-            \text{Thrust} =&\ 350\times750-0+\left(75\times10^{3}-20\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+            \text{Thrust} =&\ \dot{m}_{e}V_{e}-0+\left(p_{e}-p_{\text{amb}}\right)A_{\text{exit}}
 
             \end{aligned}
             $$
 
-            $$
-            \text{when }\ p_{\text{amb}} = 20\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=266387.72\,\text{N}}\ .
-            $$
+            <div id="thrust2-eqn">
+                $$
+                \text{Thrust} =
+                350\times750-0+\left(75\times10^{3}-20\times10^{3}\right)\times\frac{\pi}{4}\times0.3^{2}
+                $$
+            </div>
+
+            <div id="thrust2-out">
+                $$
+                \text{when }\ p_{\text{amb}} =
+                20\,\text{kPa}\quad\implies\quad\boxed{\text{Thrust}=266387.72\,\text{N}}\ .
+                $$
+            </div>
 
         </div>
 
@@ -184,6 +205,8 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

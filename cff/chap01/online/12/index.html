@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,26 +51,36 @@
         <hr>
         <h4>Problem 1.12:</h4>
         <div class="font1 text-justify">
-            In a hydrogen-powered rocket, hydrogen enters a nozzle at a very low velocity with a
-            temperature and pressure of 2000<sup>o</sup>C and 6.8 MPa, respectively.
-            The pressure on the exit plane of the nozzle is equal to the ambient pressure,
-            which is 10 kPa. If the required thrust is 10 MN, what hydrogen mass flow rate is required?
-            The flow through the nozzle can be assumed to be isentropic and the specific heat ratio
-            of the hydrogen can be assumed to be 1.4.
+            In a <select id="gases">
+                <option value="hydrogen">hydrogen</option>
+                <option value="methane">methane</option>
+            </select>-powered rocket, <span class="gas-out">hydrogen</span>
+            enters a nozzle at a very low velocity with a temperature and pressure of
+            <input type="number" id="T0" size="4" value="2000"><sup>o</sup>C
+            and
+            <input type="number" id="p0" size="4" value="6.8">MPa,
+            respectively. The pressure on the exit plane of the nozzle is equal to the ambient pressure, which is
+            <input type="number" id="pe" size="4" value="10">kPa.
+            If the required thrust is
+            <input type="number" id="thrust" size="4" value="10">MN,
+            what <span class="gas-out">hydrogen</span> mass flow rate is required? The flow through the nozzle can be
+            assumed to be isentropic and the specific heat ratio
+            of the <span class="gas-out">hydrogen</span> can be assumed to be
+            <span id="q-gamma">1.4</span>.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: \( \gamma_{h}=1.4 \) <br>
+                Given: <span id="given-gamma">\( \gamma_{h}=1.4 \)</span> <br>
                 \( V_{1}\approx 0 \),
-                \( T_{1} = T_{0} = 2000^{\circ}\,\text{C} = 2273\,\text{K} \),
-                \( p_{1}=p_{0}=6.8\,\text{MPa} \), <br>
+                <span id="given-T0">\( T_{1} = T_{0} = 2000^{\circ}\,\text{C} = 2273\,\text{K} \)</span>,
+                <span id="given-p0">\( p_{1}=p_{0}=6.8\,\text{MPa} \)</span>, <br>
 
-                \( p_{e} = p_{\text{amb}} = 10\,\text{kPa} \),
-                \( \text{Thrust} = 10\,\text{MN} \) <br><br>
+                <span id="given-pe">\( p_{e} = p_{\text{amb}} = 10\,\text{kPa} \)</span>,
+                <span id="given-thrust">\( \text{Thrust} = 10\,\text{MN} \)</span> <br><br>
 
-                To calculate: hydrogen mass flow rate?
+                To calculate: <span class="gas-out">hydrogen</span> mass flow rate?
             </p>
 
             <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
@@ -83,23 +89,28 @@
             <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
             <br>
 
-            Using the molar mass of hydrogen as \( \hat{m}=2.016\,\text{kg/kmol} \) and universal
-            gas constant as \( R_{u}=8314\,\text{J/kmol-K} \), the gas constant of hydrogen can be
-            calculated as,
+            Using the molar mass of <span class="gas-out">hydrogen</span> as
+            <span id="molar-out">\( \hat{m}=2.016\,\text{kg/kmol} \)</span> and universal
+            gas constant as \( R_{u}=8314\,\text{J/kmol-K} \), the gas constant of 
+            <span class="gas-out">hydrogen</span> can be calculated as,
 
-            $$
-            R=\frac{R_{u}}{\hat{m}} = \frac{8314}{2.016} = 4124\,\text{J/kg-K}\ .
-            $$
+            <div id="R-out">
+                $$
+                R=\frac{R_{u}}{\hat{m}} = \frac{8314}{2.016} = 4124\,\text{J/kg-K}\ .
+                $$
+            </div>
 
-            The heat capacity of hydrogen at constant pressure can be calculated as,
+            The heat capacity of <span class="gas-out">hydrogen</span> at constant pressure can be calculated as,
 
             $$
             c_{p}=\frac{\gamma_{h}R}{\gamma_{h}-1}
             $$
 
-            $$
-            c_{p} = \frac{1.4\times4124}{1.4-1} = 14434\,\text{J/kg-K}\ .
-            $$
+            <div id="cp-out">
+                $$
+                c_{p} = \frac{1.4\times4124}{1.4-1} = 14434\,\text{J/kg-K}\ .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -129,10 +140,11 @@
             T_{e}=T_{0}\left(\frac{p_{e}}{p_{0}}\right)^{\left(\gamma_{h}-1\right)/\gamma_{h}}
             $$
 
-            $$
-            T_{e}=2273\times\left(\frac{10\times10^{3}}{6.8\times10^{6}}\right)^{\left(1.4-1\right)/1.4}=352.623\,\text{K}\
-            .
-            $$
+            <div id="Te-out">
+                $$
+                T_{e}=2273\times\left(\frac{10\times10^{3}}{6.8\times10^{6}}\right)^{\left(1.4-1\right)/1.4}=352.623\,\text{K}\ .
+                $$
+            </div>
 
             <p>Using the conservation of energy equation,</p>
 
@@ -140,15 +152,19 @@
             c_{p}T_{0}=c_{p}T_{e}+\frac{V_{e}^{2}}{2}
             $$
 
-            $$
-            14434\times2273=14434\times352.623+\frac{V_{e}^{2}}{2}
-            $$
+            <div id="energy-eqn">
+                $$
+                14434\times2273=14434\times352.623+\frac{V_{e}^{2}}{2}
+                $$
+            </div>
 
             <p>which can be solved for exit velocity as,</p>
 
-            $$
-            V_{e}=\sqrt{2\times\left(14434\times2273-14434\times352.623\right)}=7445.6325\,\text{m/s}\ .
-            $$
+            <div id="Ve-out">
+                $$
+                V_{e}=\sqrt{2\times\left(14434\times2273-14434\times352.623\right)}=7445.6325\,\text{m/s}\ .
+                $$
+            </div>
 
             <p>Using the conservation of momentum, since the exit plane pressure is same as ambient,</p>
 
@@ -158,13 +174,17 @@
 
             <p>Therefore, the mass flow rate is,</p>
 
-            $$
-            \dot{m}_{e}=\frac{\text{Thrust}}{V_{e}}=\frac{10\times10^{6}}{7445.6325}
-            $$
+            <div id="me-eqn">
+                $$
+                \dot{m}_{e}=\frac{\text{Thrust}}{V_{e}}=\frac{10\times10^{6}}{7445.6325}
+                $$
+            </div>
 
-            $$
-            \boxed{\dot{m}_{e}=1343.07\,\text{kg/s}}\ .
-            $$
+            <div id="me-out">
+                $$
+                \boxed{\dot{m}_{e}=1343.07\,\text{kg/s}}\ .
+                $$
+            </div>
 
         </div>
 
@@ -212,6 +232,8 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

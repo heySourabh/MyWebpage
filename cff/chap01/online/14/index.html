@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,26 +51,42 @@
         <hr>
         <h4>Problem 1.14:</h4>
         <div class="font1 text-justify">
-            Carbon dioxide flows through a constant area duct. At the inlet to the duct, the
-            velocity is 120 m/s and the temperature and pressure are 200<sup>o</sup>C and
-            700 kPa, respectively. Heat is added to the flow in the duct and at the exit of the
-            duct the velocity is 240 m/s and the temperature is 450<sup>o</sup>C.
-            Find the amount of heat being added to the carbon dioxide per unit mass of gas and the
-            mass flow rate through the duct per unit cross-sectional area of the duct.
-            Assume that for carbon dioxide, &gamma;=1.3.
+            <select id="gases">
+                <option value="co2">Carbon dioxide (CO₂)</option>
+                <option value="air">Air</option>
+                <option value="argon">Argon (Ar)</option>
+                <option value="freon12">Freon12 (CCl₂F₂)</option>
+                <option value="helium">Helium (He)</option>
+                <option value="hydrogen">Hydrogen (H₂)</option>
+                <option value="xenon">Xenon (Xe)</option>
+            </select>
+            flows through a constant area duct. At the inlet to the duct, the velocity is
+            <input type="number" id="V1" size="3" value="120">m/s
+            and the temperature and pressure are
+            <input type="number" id="T1" size="3" value="200"><sup>o</sup>C
+            and
+            <input type="number" id="p1" size="3" value="700">kPa,
+            respectively. Heat is added to the flow in the duct and at the exit of the duct the velocity is
+            <input type="number" id="Ve" size="3" value="240">m/s
+            and the temperature is
+            <input type="number" id="Te" size="3" value="450"><sup>o</sup>C.
+            Find the amount of heat being added to the <span class="gas-name-out">carbon-dioxide</span> per unit mass of
+            gas and
+            the mass flow rate through the duct per unit cross-sectional area of the duct.
+            Assume that for <span class="gas-name-out">carbon-dioxide</span>, &gamma;=<span id="gamma-out">1.3</span>.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: \( \gamma=1.3 \)<br>
+                Given: <span id="given-gamma">\( \gamma=1.3 \)</span><br>
                 \( A_{1} = A_{e}=A \),
-                \( V_{1} = 120\,\text{m/s} \),
-                \( T_{1} = 200^{\circ}\,\text{C} = 473\,\text{K} \),
-                \( p_{1} = 700\,\text{kPa} \), <br>
+                <span id="given-V1">\( V_{1} = 120\,\text{m/s} \)</span>,
+                <span id="given-T1">\( T_{1} = 200^{\circ}\,\text{C} = 473\,\text{K} \)</span>,
+                <span id="given-p1">\( p_{1} = 700\,\text{kPa} \)</span>, <br>
 
-                \( V_{e} = 240\,\text{m/s} \),
-                \( T_{e} = 450^{\circ}\,\text{C} = 723\,\text{K} \).
+                <span id="given-Ve">\( V_{e} = 240\,\text{m/s} \)</span>,
+                <span id="given-Te">\( T_{e} = 450^{\circ}\,\text{C} = 723\,\text{K} \)</span>.
             </p>
             <p>
                 To calculate: \( \dot{q}/\dot{m}=? \), \( \dot{m}/A=? \).
@@ -87,21 +99,25 @@
             <br>
 
             <p>
-                Using the molar mass of cardon-dioxide \( \left(\text{CO}_{2}\right) \)
-                as \( 12\times1_{\text{C}}+16\times2_{\text{O}}=44\,\text{kg/kmol} \)
+                Using the molar mass of <span class="gas-name-out">carbon-dioxide</span> as
+                <span id="molar-mass-out">44</span> kg/kmol,
                 and the universal gas constant as \( 8314\,\text{J/kmol-K} \), the gas constant
                 can be written as,
             </p>
 
-            $$
-            R=\frac{R_{u}}{\hat{m}}=\frac{8314}{44}=188.95\,\text{J/kg-K}\ .
-            $$
+            <div id="R-out">
+                $$
+                R=\frac{R_{u}}{\hat{m}}=\frac{8314}{44}=188.95\,\text{J/kg-K}\ .
+                $$
+            </div>
 
             <p>The heat capacity at constant pressure can be calculated as, </p>
 
-            $$
-            c_{p}=\frac{\gamma\,R}{\gamma-1}=\frac{1.3\times188.95}{1.3-1}=818.78\,\text{J/kg-K}\ .
-            $$
+            <div id="cp-out">
+                $$
+                c_{p}=\frac{\gamma\,R}{\gamma-1}=\frac{1.3\times188.95}{1.3-1}=818.78\,\text{J/kg-K}\ .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -127,19 +143,25 @@
             c_{p}T_{1}+\frac{V_{1}^{2}}{2}+\dot{q}/\dot{m}=c_{p}T_{e}+\frac{V_{e}^{2}}{2}
             $$
 
-            $$
-            818.78\times473+\frac{120^{2}}{2}+\dot{q}/\dot{m}=818.78\times723+\frac{240^{2}}{2}
-            $$
+            <div id="energy-eqn">
+                $$
+                818.78\times473+\frac{120^{2}}{2}+\dot{q}/\dot{m}=818.78\times723+\frac{240^{2}}{2}
+                $$
+            </div>
 
             <p>We can solve for the heat added per unit mass to be, </p>
 
-            $$
-            \dot{q}/\dot{m}=818.78\times723+\frac{240^{2}}{2}-818.78\times473-\frac{120^{2}}{2}
-            $$
+            <div id="q_m-eqn">
+                $$
+                \dot{q}/\dot{m}=818.78\times723+\frac{240^{2}}{2}-818.78\times473-\frac{120^{2}}{2}
+                $$
+            </div>
 
-            $$
-            \boxed{\dot{q}/\dot{m}=226295\,\text{J/kg}}\ .
-            $$
+            <div id="q_m-out">
+                $$
+                \boxed{\dot{q}/\dot{m}=226295\,\text{J/kg}}\ .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -161,9 +183,11 @@
 
             <p>The density at the inlet can be calculated using the ideal gas equation to be,</p>
 
-            $$
-            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{700\times10^{3}}{188.95\times473}=7.8323\,\text{kg/m}^{3}
-            $$
+            <div id="rho1-out">
+                $$
+                \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{700\times10^{3}}{188.95\times473}=7.8323\,\text{kg/m}^{3}
+                $$
+            </div>
 
             <p>The mass flow rate,</p>
 
@@ -173,13 +197,17 @@
 
             <p>which gives the mass flow rate per unit area as,</p>
 
-            $$
-            \dot{m}/A=\rho_{1}V_{1}=7.8323\times120
-            $$
+            <div id="m_A-eqn">
+                $$
+                \dot{m}/A=\rho_{1}V_{1}=7.8323\times120
+                $$
+            </div>
 
-            $$
-            \boxed{\dot{m}/A=939.876\,\text{kg/s-m}^{2}}\ .
-            $$
+            <div id="m_A-out">
+                $$
+                \boxed{\dot{m}/A=939.876\,\text{kg/s-m}^{2}}\ .
+                $$
+            </div>
         </div>
 
         <hr>
@@ -226,6 +254,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Math -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

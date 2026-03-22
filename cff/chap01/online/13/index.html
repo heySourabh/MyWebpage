@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -56,11 +52,19 @@
         <h4>Problem 1.13:</h4>
         <div class="font1 text-justify">
             In a proposed jet propulsion system for an automobile, air is drawn in vertically through
-            a large intake in the roof at a rate of 3 kg/s, the velocity through this intake being
-            small. Ambient pressure and temperature are 100 kPa and 30<sup>o</sup>C, respectively.
-            This air is compressed and heated and then discharged horizontally out of a nozzle at
-            the rear of the automobile at a velocity of 500 m/s and a pressure of 140 kPa. If the rate
-            of heat addition to the air stream is 600 kW, find the nozzle discharge area and the thrust
+            a large intake in the roof at a rate of
+            <input type="number" id="m" size="3" value="3">kg/s,
+            the velocity through this intake being small. Ambient pressure and temperature are
+            <input type="number" id="p0" size="3" value="100">kPa
+            and
+            <input type="number" id="T0" size="3" value="30"><sup>o</sup>C,
+            respectively. This air is compressed and heated and then discharged horizontally out of a nozzle at
+            the rear of the automobile at a velocity of
+            <input type="number" id="Ve" size="3" value="500">m/s
+            and a pressure of
+            <input type="number" id="pe" size="3" value="140">kPa.
+            If the rate of heat addition to the air stream is
+            <input type="number" id="q" size="3" value="600">kW, find the nozzle discharge area and the thrust
             developed by the system.
         </div>
         <br>
@@ -68,15 +72,15 @@
         <div class="font3">
             <p>
                 Given: <br>
-                Air is drawn vertically, \( \dot{m}=3\,\text{kg/s} \),
+                Air is drawn vertically, <span id="given-m">\( \dot{m}=3\,\text{kg/s} \)</span>,
                 \( V_{1}\approx0\,\text{m/s} \),
-                \( p_{\text{amb}}=p_{0}=100\,\text{kPa} \),
-                \( T_{\text{amb}}=T_{0}=30^{\circ}\,\text{C}=303\,\text{K} \). <br>
+                <span id="given-p0">\( p_{\text{amb}}=p_{0}=100\,\text{kPa} \)</span>,
+                <span id="given-T0">\( T_{\text{amb}}=T_{0}=30^{\circ}\,\text{C}=303\,\text{K} \)</span>. <br>
 
                 Air is compressed and heated and discharged horizontally,
-                \( V_{e}=500\,\text{m/s} \),
-                \( p_{e}=140\,\text{kPa} \),
-                \( \dot{q}=600\,\text{kW} \).
+                <span id="given-Ve">\( V_{e}=500\,\text{m/s} \)</span>,
+                <span id="given-pe">\( p_{e}=140\,\text{kPa} \)</span>,
+                <span id="given-q">\( \dot{q}=600\,\text{kW} \)</span>.
             </p>
             <p>
                 To calculate: \( A_{e}=? \), \( \text{Thrust}=? \).
@@ -101,13 +105,18 @@
             \dot{m}\,c_{p}T_{0}+\dot{q}=\dot{m}\,c_{p}T_{e}+\dot{m}\,\frac{V_{e}^{2}}{2}+W
             $$
 
-            $$
-            3\times1005\times303+600\times10^{3}=3\times1005\times T_{e}+3\times\frac{500^{2}}{2}+0
-            $$
+            <div id="energy-eqn">
+                $$
+                3\times1005\times303+600\times10^{3}=3\times1005\times T_{e}+3\times\frac{500^{2}}{2}+0
+                $$
+            </div>
 
-            $$
-            T_{e}=\frac{3\times1005\times303+600\times10^{3}-3\times\frac{500^{2}}{2}}{3\times1005}=377.627\,\text{K}\ .
-            $$
+            <div id="Te-out">
+                $$
+                T_{e}=\frac{3\times1005\times303+600\times10^{3}-3\times\frac{500^{2}}{2}}{3\times1005}=377.627\,\text{K}\
+                .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -129,19 +138,25 @@
 
             <p>The density at the exit can be calculated using the ideal gas equation,</p>
 
-            $$
-            \rho_{e}=\frac{p_{e}}{R\,T_{e}}=\frac{140\times10^{3}}{287\times377.6}=1.29176\,\text{kg/m}^{3}
-            $$
+            <div id="rho-e-out">
+                $$
+                \rho_{e}=\frac{p_{e}}{R\,T_{e}}=\frac{140\times10^{3}}{287\times377.6}=1.29176\,\text{kg/m}^{3}
+                $$
+            </div>
 
             <p>Applying the conservation of mass equation,</p>
 
-            $$
-            A_{e}=\frac{\dot{m}}{\rho_{e}V_{e}}=\frac{3}{1.29176\times 500}
-            $$
+            <div id="Ae-eqn">
+                $$
+                A_{e}=\frac{\dot{m}}{\rho_{e}V_{e}}=\frac{3}{1.29176\times 500}
+                $$
+            </div>
 
-            $$
-            \boxed{A_{e}=0.0046448\,\text{m}^{2}}\ .
-            $$
+            <div id="Ae-out">
+                $$
+                \boxed{A_{e}=0.0046448\,\text{m}^{2}}\ .
+                $$
+            </div>
 
             <p>Applying the conservation of horizontal momentum,</p>
 
@@ -149,13 +164,17 @@
             \text{Thrust}=\dot{m}_{e}V_{e}+\left(p_{e}-p_{\text{amb}}\right)A_{e}
             $$
 
-            $$
-            \text{Thrust}=3\times500+\left(140\times10^{3}-100\times10^{3}\right)\times0.0046448
-            $$
+            <div id="thrust-eqn">
+                $$
+                \text{Thrust}=3\times500+\left(140\times10^{3}-100\times10^{3}\right)\times0.0046448
+                $$
+            </div>
 
-            $$
-            \boxed{\text{Thrust}=1685.79\,\text{N}}\ .
-            $$
+            <div id="thrust-out">
+                $$
+                \boxed{\text{Thrust}=1685.79\,\text{N}}\ .
+                $$
+            </div>
         </div>
 
         <hr>
@@ -202,6 +221,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Math -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

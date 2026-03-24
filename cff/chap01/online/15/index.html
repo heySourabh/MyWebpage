@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,23 +51,32 @@
         <hr>
         <h4>Problem 1.15:</h4>
         <div class="font1 text-justify">
-            Air enters a heat exchanger with a velocity of 120 m/s and a temperature and pressure
-            of 225<sup>o</sup>C and 2.5 MPa. Heat is removed from the air in the heat exchanger
-            and the air leaves with a velocity 30 m/s at a temperature and pressure of 80<sup>o</sup>C
-            and 2.45 MPa. Find the heat removed per kilogram of air flowing through the heat exchanger
-            and the density of the air at the inlet and the exit to the heat exchanger.
+            Air enters a heat exchanger with a velocity of
+            <input type="number" id="V1" size="3" value="120">m/s
+            and a temperature and pressure of
+            <input type="number" id="T1" size="3" value="225"><sup>o</sup>C
+            and
+            <input type="number" id="p1" size="3" value="2.5">MPa.
+            Heat is removed from the air in the heat exchanger and the air leaves with a velocity
+            <input type="number" id="Ve" size="3" value="30">m/s
+            at a temperature and pressure of
+            <input type="number" id="Te" size="3" value="80"><sup>o</sup>C
+            and
+            <input type="number" id="pe" size="3" value="2.45">MPa.
+            Find the heat removed per kilogram of air flowing through the heat exchanger and the density of the
+            air at the inlet and the exit to the heat exchanger.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
                 Given: <br>
-                \( V_{1} = 120\,\text{m/s} \),
-                \( T_{1} = 225^{\circ}\,\text{C} = 498\,\text{K} \),
-                \( p_{1} = 2.5\,\text{MPa} \), <br>
-                \( V_{e} = 30\,\text{m/s} \),
-                \( T_{e} = 80^{\circ}\,\text{C} = 353\,\text{K} \),
-                \( p_{e} = 2.45\,\text{MPa} \).
+                <span id="given-V1">\( V_{1} = 120\,\text{m/s} \)</span>,
+                <span id="given-T1">\( T_{1} = 225^{\circ}\,\text{C} = 498\,\text{K} \)</span>,
+                <span id="given-p1">\( p_{1} = 2.5\,\text{MPa} \)</span>, <br>
+                <span id="given-Ve">\( V_{e} = 30\,\text{m/s} \)</span>,
+                <span id="given-Te">\( T_{e} = 80^{\circ}\,\text{C} = 353\,\text{K} \)</span>,
+                <span id="given-pe">\( p_{e} = 2.45\,\text{MPa} \)</span>.
             </p>
             <p>
                 To calculate:
@@ -97,26 +102,35 @@
             $$
 
             <p>
-                Taking the heat capacity of air at constant pressure, \( c_{p}=1005\,\text{J/kg-K} \),
+                Taking the heat capacity of air at constant pressure,
+                <span id="cp-out">\( c_{p}=1005\,\text{J/kg-K} \)</span>,
             </p>
 
-            $$
-            1005 \times 498 + \frac{120^{2}}{2} + \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2}
-            $$
+            <div id="energy-eqn">
+                $$
+                1005 \times 498 + \frac{120^{2}}{2} + \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2}
+                $$
+            </div>
 
             Which can be solved for heat flow rate to be,
 
-            $$
-            \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2} - 1005 \times 498
-            - \frac{120^{2}}{2} = -152475\ .
-            $$
+            <div id="heat-flow-eqn">
+                $$
+                \frac{\dot{q}}{\dot{m}} = 1005 \times 353 + \frac{30^{2}}{2} - 1005 \times 498
+                - \frac{120^{2}}{2} = -152475\ .
+                $$
+            </div>
 
-            <p>The negative sign indicates that the heat is removed.
-                The heat removed per kilogram of air flowing through the heat exchanger, </p>
+            <p>The <span id="q-m-sign">negative</span> sign indicates that the heat is
+                <span class="q-m-dir">removed</span>.
+                The heat <span class="q-m-dir">removed</span> per kilogram of air flowing through the heat exchanger,
+            </p>
 
-            $$
-            \boxed{\frac{\dot{q}}{\dot{m}}=152475\,\text{J/kg}}\ .
-            $$
+            <div id="heat-flow-out">
+                $$
+                \boxed{\frac{\dot{q}}{\dot{m}}=152475\,\text{J/kg}}\ .
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -138,21 +152,29 @@
 
             <p>The density at the inlet and exit can be calculated using the ideal gas equation.</p>
 
-            $$
-            \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{2.5\times10^{6}}{287\times498}
-            $$
+            <div id="rho1-eqn">
+                $$
+                \rho_{1}=\frac{p_{1}}{R\,T_{1}}=\frac{2.5\times10^{6}}{287\times498}
+                $$
+            </div>
 
-            $$
-            \boxed{\rho_{1}=17.49\,\text{kg/m}^{3}}\ .
-            $$
+            <div id="rho1-out">
+                $$
+                \boxed{\rho_{1}=17.49\,\text{kg/m}^{3}}\ .
+                $$
+            </div>
 
-            $$
-            \rho_{e} = \frac{p_{e}}{R\,T_{e}} = \frac{2.45 \times 10^{6}}{287 \times 353}
-            $$
+            <div id="rhoe-eqn">
+                $$
+                \rho_{e} = \frac{p_{e}}{R\,T_{e}} = \frac{2.45 \times 10^{6}}{287 \times 353}
+                $$
+            </div>
 
-            $$
-            \boxed{\rho_{e}=24.18\,\text{kg/m}^{3}}\ .
-            $$
+            <div id="rhoe-out">
+                $$
+                \boxed{\rho_{e}=24.18\,\text{kg/m}^{3}}\ .
+                $$
+            </div>
         </div>
 
         <hr>
@@ -199,6 +221,9 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Math -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

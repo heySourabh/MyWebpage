@@ -16,10 +16,6 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
 
-    <!-- Math rendering -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <!--Font definitions-->
     <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
         rel="stylesheet">
@@ -55,23 +51,33 @@
         <hr>
         <h4>Problem 1.16:</h4>
         <div class="font1 text-justify">
-            The mass flow rate through the nozzle of a rocket engine is 200 kg/s. The areas of the
-            nozzle inlet and exit planes are 0.7 and 2.4 m<sup>2</sup>, respectively. On the nozzle
-            inlet plane, the pressure and velocity are 1600 kPa and 150 m/s, respectively, whereas
-            on the nozzle exit plane, the pressure and velocity are 80 kPa and 2300 m/s, respectively.
-            Find the thrust force acting on the nozzle.
+            The mass flow rate through the nozzle of a rocket engine is
+            <input type="number" id="m" size="4" value="200">kg/s.
+            The areas of the nozzle inlet and exit planes are
+            <input type="number" id="A1" size="4" value="0.7">
+            and
+            <input type="number" id="Ae" size="4" value="2.4">m<sup>2</sup>,
+            respectively. On the nozzle inlet plane, the pressure and velocity are
+            <input type="number" id="p1" size="4" value="1600">kPa
+            and
+            <input type="number" id="V1" size="4" value="150">m/s,
+            respectively, whereas on the nozzle exit plane, the pressure and velocity are
+            <input type="number" id="pe" size="4" value="80">kPa
+            and
+            <input type="number" id="Ve" size="4" value="2300">m/s,
+            respectively. Find the thrust force acting on the nozzle.
         </div>
         <br>
         <h4>Solution:</h4>
         <div class="font3">
             <p>
-                Given: \( \dot{m}=200\,\text{kg/s} \), <br>
-                \( A_{1}=0.7\,\text{m}^{2} \),
-                \( p_{1}=1600\,\text{kPa} \),
-                \( V_{1}=150\,\text{m/s} \), <br>
-                \( A_{e}=2.4\,\text{m}^{2} \),
-                \( p_{e}=80\,\text{kPa} \),
-                \( V_{e}=2300\,\text{m/s} \).
+                Given: <span id="given-m">\( \dot{m}=200\,\text{kg/s} \)</span>, <br>
+                <span id="given-A1">\( A_{1}=0.7\,\text{m}^{2} \)</span>,
+                <span id="given-p1">\( p_{1}=1600\,\text{kPa} \)</span>,
+                <span id="given-V1">\( V_{1}=150\,\text{m/s} \)</span>, <br>
+                <span id="given-Ae">\( A_{e}=2.4\,\text{m}^{2} \)</span>,
+                <span id="given-pe">\( p_{e}=80\,\text{kPa} \)</span>,
+                <span id="given-Ve">\( V_{e}=2300\,\text{m/s} \)</span>.
             </p>
             <p>
                 To calculate: Thrust = ?.
@@ -152,14 +158,18 @@
             \text{Thrust force on nozzle}=\dot{m}\left(V_{e}-V_{1}\right)+\left(p_{e}-p_{1}\right)A_{e}\ .
             $$
 
-            $$
-            \text{Thrust force on nozzle} =
-            200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times2.4\ .
-            $$
+            <div id="thrust1-eqn">
+                $$
+                \text{Thrust force on nozzle} =
+                200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times2.4\ .
+                $$
+            </div>
 
-            $$
-            \boxed{\text{Thrust force on nozzle}=-3218\,\text{kN}}\
-            $$
+            <div id="thrust1-out">
+                $$
+                \boxed{\text{Thrust force on nozzle}=-3218\,\text{kN}}\
+                $$
+            </div>
 
             <!-- Ad Begin -->
             <br>
@@ -188,14 +198,18 @@
             \text{Thrust force on nozzle}=\dot{m}\left(V_{e}-V_{1}\right)+\left(p_{e}-p_{1}\right)A_{1}\ .
             $$
 
-            $$
-            \text{Thrust force on
-            nozzle}=200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times0.7\ .
-            $$
+            <div id="thrust2-eqn">
+                $$
+                \text{Thrust force on
+                nozzle}=200\times\left(2300-150\right)+\left(80\times10^{3}-1600\times10^{3}\right)\times0.7\ .
+                $$
+            </div>
 
-            $$
-            \boxed{\text{Thrust force on nozzle}=-634\,\text{kN}}\ .
-            $$
+            <div id="thrust2-out">
+                $$
+                \boxed{\text{Thrust force on nozzle}=-634\,\text{kN}}\ .
+                $$
+            </div>
 
 
         </div>
@@ -244,6 +258,8 @@
     <!-- jQuery first, then Bootstrap JS -->
     <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
     <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
 </body>
 
 </html>

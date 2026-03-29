@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 2.1, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 2.1</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 2: Equations for Steady One-Dimensional Compressible Fluid Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 2.1:</h4>
+        <div class="font1 text-justify">
+            Air enters a tank at a velocity of
+            <input type="number" id="V1" size="3" value="100">m/s
+            and leaves the tank at a velocity of
+            <input type="number" id="V2" size="3" value="200">m/s.
+            If the flow is adiabatic find the difference between the temperature of the air at exit and the temperature
+            of the air at inlet.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given:
+                <span id="given-V1">\( V_{1}=100\,\text{m/s} \)</span>,
+                <span id="given-V2">\( V_{2}=200\,\text{m/s} \)</span>.
+            </p>
+            <p>
+                To calculate: \( T_{2}-T_{1}=? \)
+            </p>
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            Using the conservation of energy,
+
+            \[
+            c_{p}T_{1}+\frac{V_{1}^{2}}{2}+\frac{\dot{q}}{\dot{m}}=c_{p}T_{2}+\frac{V_{2}^{2}}{2}
+            \]
+
+            <div id="energy-eqn">
+                \[
+                1005\times T_{1}+\frac{100^{2}}{2}+\cancelto{\text{adiabatic}}{\frac{\dot{q}}{\dot{m}}}=1005\times
+                T_{2}+\frac{200^{2}}{2}
+                \]
+            </div>
+
+            The solution for \( T_{2}-T_{1} \) can be obtained as,
+            <div id="T2-T1-eqn">
+                \[
+                T_{2}-T_{1}=\frac{100^{2}-200^{2}}{2\times1005}
+                \]
+            </div>
+            <div id="T2-T1-out">
+                \[
+                \boxed{T_{2}-T_{1}=-14.92537^{\circ}\text{C}}
+                \]
+            </div>
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
+</body>
+
+</html>

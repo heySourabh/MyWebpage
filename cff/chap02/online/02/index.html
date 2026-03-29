@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 2.2, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 2.2</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 2: Equations for Steady One-Dimensional Compressible Fluid Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 2.2:</h4>
+        <div class="font1 text-justify">
+            Air at a temperature of
+            <input type="number" id="T1" size="3" value="25"><sup>o</sup>C
+            is flowing at a velocity of
+            <input type="number" id="V1" size="4" value="500">m/s.
+            A shock wave (covered in details in Chapters 5 and 6) occurs in the flow reducing the velocity to
+            <input type="number" id="V2" size="4" value="300">m/s.
+            Assuming the flow through the shock wave to be adiabatic, find the temperature of the air behind the shock
+            wave.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: <br>
+                <em>T</em><sub>1</sub> = <span id="given-T1C">25</span><sup>o</sup>C
+                = <span id="given-T1K">298</span> K, <br>
+                <em>V</em><sub>1</sub> = <span id="given-V1">500</span> m/s, <br>
+                <em>V</em><sub>2</sub> = <span id="given-V2">300</span> m/s, <br>
+                adiabatic flow \( \implies\dot{q} = 0 \).
+            </p>
+            <p>
+                To calculate: \( T_{2}=? \)
+            </p>
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+
+            Using the conservation of energy,
+            \[
+            c_{p}T_{1}+\frac{V_{1}^{2}}{2}+\frac{\dot{q}}{\dot{m}}=c_{p}T_{2}+\frac{V_{2}^{2}}{2}
+            \]
+            <div id="energy-eqn">
+                \[
+                1005\times298+\frac{500^{2}}{2}+\cancelto{\text{adiabatic}}{\frac{\dot{q}}{\dot{m}}}=1005\times
+                T_{2}+\frac{300^{2}}{2}
+                \]
+            </div>
+
+            The solution for \( T_{2} \) can be obtained as,
+            <div id="T2-eqn">
+                \[
+                T_{2}=298+\frac{500^{2}-300^{2}}{2\times1005}
+                \]
+            </div>
+
+            <div id="T2-out">
+                \[
+                \boxed{T_{2}=377.602\, \text{K}}\ .
+                \]
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
+</body>
+
+</html>

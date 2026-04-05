@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 2.5, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 2.5</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 2: Equations for Steady One-Dimensional Compressible Fluid Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 2.5:</h4>
+        <div class="font1 text-justify">
+            At a section of a circular duct through which air is flowing the pressure is
+            <input type="number" id="p" size="3" value="150">kPa,
+            the temperature is
+            <input type="number" id="T" size="3" value="35"><sup>o</sup>C,
+            the velocity is
+            <input type="number" id="V" size="3" value="250">m/s,
+            and the diameter is
+            <input type="number" id="D" size="3" value="0.2">m.
+            If, at this section, the duct diameter is increasing at a rate of
+            <input type="number" id="dD_dx" size="3" value="0.1">m/m,
+            find dp/dx, dV/dx, and d\rho/dx.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: circular duct, <br>
+                \( p = \) <span id="given-p">150</span> kPa, <br>
+                \( T = \) <span id="given-T">35</span><sup>o</sup>C = <span id="given-TK">308</span> K, <br>
+                \( V = \) <span id="given-V">250</span> m/s, <br>
+                \( D = \) <span id="given-D">0.2</span> m, <br>
+                \( dD/dx = \) <span id="given-dD_dx">0.1</span> m/m
+            </p>
+            <p>
+                To calculate: \( dp/dx, dV/dx, d\rho/dx \).
+            </p>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+
+            <p>The cross-sectional area is circular thus,</p>
+            \[
+            A=\frac{\pi}{4}D^{2}\ .
+            \]
+
+            <p>Differentiating with respect to \( x \) gives,</p>
+            <div class="row align-items-center">
+                <div class="col-10">
+                    \[
+                    \frac{dA}{dx}=\frac{\pi D}{2}\,\frac{dD}{dx}\ .
+                    \]
+                </div>
+                <div class="col-2 text-right"><span class="circled">1</span></div>
+            </div>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>The density at the section can be calculated using the equation of state for ideal gas as,</p>
+
+            <div id="rho-out">
+                \[
+                \rho=\frac{p}{R\,T}=\frac{150\times10^{3}}{287\times308}= 1.69691\, \text{kg/m}^3\ .
+                \]
+            </div>
+
+            <p>Using the conservation of mass,</p>
+            \[
+            \rho\,A\,V=\text{constant}\ .
+            \]
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>
+                Differentiating the above equation with respect to \( x \) and diving by \( \left(\rho\,A\,V\right) \)
+                results in,
+            </p>
+            \[
+            \frac{1}{\rho}\,\frac{d\rho}{dx}+\frac{1}{A}\,\frac{dA}{dx}+\frac{1}{V}\,\frac{dV}{dx}=0\ .
+            \]
+
+            <p>Substituting <span class="circled">1</span> we get,</p>
+            \[
+            \frac{1}{\rho}\,\frac{d\rho}{dx}+\frac{\pi D}{2A}\,\frac{dD}{dx}+\frac{1}{V}\,\frac{dV}{dx}=0
+            \]
+
+            <div class="row align-items-center">
+                <div class="col-10">
+                    \[
+                    \frac{1}{\rho}\,\frac{d\rho}{dx}+\frac{1}{V}\,\frac{dV}{dx}=-\frac{2}{D}\,\frac{dD}{dx}\ .
+                    \]
+                </div>
+                <div class="col-2 text-right">
+                    <span class="circled">2</span>
+                </div>
+            </div>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>The momentum equation along the duct in the differential form can be written as,</p>
+            <div class="row align-items-center">
+                <div class="col-10">
+                    \[
+                    \frac{1}{\rho}\frac{dp}{dx}+V\,\frac{dV}{dx}=0
+                    \]
+                </div>
+                <div class="col-2 text-right">
+                    <span class="circled">3</span>
+                </div>
+            </div>
+
+            <p>The energy equation along the duct in the differential form can be written as,</p>
+            <div class="row align-items-center">
+                <div class="col-10">
+                    \[
+                    c_{p}\,\frac{dT}{dx}+V\,\frac{dV}{dx}=0
+                    \]
+                </div>
+                <div class="col-2 text-right">
+                    <span class="circled">4</span>
+                </div>
+            </div>
+
+            <p>The equation of state for ideal gas is given by,</p>
+            \[
+            p=\rho\,R\,T\ .
+            \]
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>Differentiating the equation with respect to \( x \) and dividing by \( \rho\,R\,T \) gives,</p>
+            <div class="row align-items-center">
+                <div class="col-10">
+                    \[
+                    \frac{1}{p}\,\frac{dp}{dx}-\frac{1}{\rho}\,\frac{d\rho}{dx}-\frac{1}{T}\,\frac{dT}{dx}=0
+                    \]
+                </div>
+                <div class="col-2 text-right">
+                    <span class="circled">5</span>
+                </div>
+            </div>
+
+            <p>The equations <span class="circled">4</span> and <span class="circled">5</span>
+                can be used to eliminate \( dT/dx \) and obtain,</p>
+            \[
+            \frac{V}{c_{p}}\,\frac{dV}{dx}+\frac{T}{p}\,\frac{dp}{dx}-\frac{T}{\rho}\,\frac{d\rho}{dx}=0
+            \]
+
+            <p>Substituting \( d\rho/dx \) from <span class="circled">2</span> we get,</p>
+            \[
+            \frac{V}{c_{p}}\,\frac{dV}{dx}+\frac{T}{V}\,\frac{dV}{dx}+\frac{T}{p}\,\frac{dp}{dx}+\frac{2T}{D}\,\frac{dD}{dx}=0
+            \]
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>Substituting \( dV/dx \) from <span class="circled">3</span> we get,</p>
+            \[
+            \left(\frac{D}{2\rho\,c_{p}T}+\frac{D}{2\,\rho V^{2}}-\frac{D}{2\,p}\right)\frac{dp}{dx}=\frac{dD}{dx}
+            \]
+
+            <p>Substituting all the values at the section, we get,</p>
+            \[
+            \frac{dp}{dx}=\frac{1}{\left(\frac{D}{2\rho\,c_{p}T}+\frac{D}{2\,\rho
+            V^{2}}-\frac{D}{2\,p}\right)}\frac{dD}{dx}
+            \]
+            <div id="dp_dx-eqn">
+                \[
+                \frac{dp}{dx}=\frac{0.1}{\left(\frac{0.2}{2\times1.69691\times1005\times308}+\frac{0.2}{2\times1.69691\times250^{2}}-\frac{0.2}{2\times150\times10^{3}}\right)}
+                \]
+            </div>
+            <div class="dp_dx-out">
+                \[
+                \boxed{\frac{dp}{dx}= 214314.034\, \text{Pa/m} }\ .
+                \]
+            </div>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>Substituting the value of \( dp/dx \) in <span class="circled">3</span>, we get,</p>
+
+            \[
+            \,\frac{dV}{dx}=-\frac{1}{V\rho}\frac{dp}{dx}
+            \]
+
+            <div id="dV_dx-eqn">
+                \[
+                \frac{dV}{dx}=-\frac{214314.034}{250\times1.69691}= -505.187\, \text{(m/s)/m}
+                \]
+            </div>
+
+            <div class="dV_dx-out">
+                \[
+                \boxed{\frac{dV}{dx}= -505.187\,\text{(m/s)/m}}\ .
+                \]
+            </div>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            Finally, substituting \( dV/dx \) in <span class="circled">2</span>, we get,
+            \[
+            \frac{d\rho}{dx}=-\frac{\rho}{V}\,\frac{dV}{dx}-\frac{2\rho}{D}\,\frac{dD}{dx}
+            \]
+
+            <div id="drho_dx-eqn">
+                \[
+                \frac{d\rho}{dx}=\frac{1.69691}{250}\times505.187-\frac{2\times1.69691}{0.2}\times0.1
+                \]
+            </div>
+
+            <div class="drho_dx-out">
+                \[
+                \boxed{\frac{d\rho}{dx}= 1.732\,\text{(kg/m}^{3}\text{)/m}}\ .
+                \]
+            </div>
+
+            <hr>
+
+            <button class="btn btn-link" data-toggle="collapse" data-target="#matrix-solution" aria-expanded="true"
+                aria-controls="matrix-solution">
+                Hide / Show Matrix Solution
+            </button>
+
+            <div id="matrix-solution" class="collapse show bg-light border rounded p-2">
+                Instead of manipulating the equations manually we can do it more concisely by
+                using linear algebra. Writing the equations <span class="circled">2</span>,
+                <span class="circled">3</span>, <span class="circled">4</span> and
+                <span class="circled">5</span> in a compact matrix form, we get,
+
+                \[
+                \left[\begin{array}{cccc}
+                0 & 1/V & 1/\rho & 0\\
+                1/\rho & V & 0 & 0\\
+                0 & V & 0 & c_{p}\\
+                1/p & 0 & -1/\rho & -1/T
+                \end{array}\right]\left[\begin{array}{c}
+                dp/dx\\
+                dV/dx\\
+                d\rho/dx\\
+                dT/dx
+                \end{array}\right]=\left[\begin{array}{c}
+                -\frac{2}{D}\,\frac{dD}{dx}\\
+                0\\
+                0\\
+                0
+                \end{array}\right]\ ,
+                \]
+
+                <div id="matrix-form-eqn">
+                    \[
+                    \left[\begin{array}{cccc}
+                    0 & 1/250 & 1/1.69691 & 0\
+                    1/1.69691 & 250 & 0 & 0\
+                    0 & 250 & 0 & 1005\
+                    1/\left(150\times10^{3}\right) & 0 & -1/1.69691 & -1/308
+                    \end{array}\right]\left[\begin{array}{c}
+                    dp/dx\
+                    dV/dx\
+                    d\rho/dx\
+                    dT/dx
+                    \end{array}\right]=\left[\begin{array}{c}
+                    -1\
+                    0\
+                    0\
+                    0
+                    \end{array}\right]\ ,
+                    \]
+                    \[
+                    \left[\begin{array}{c}
+                    dp/dx\
+                    dV/dx\
+                    d\rho/dx\
+                    dT/dx
+                    \end{array}\right]=\left[\begin{array}{cccc}
+                    0 & 1/250 & 1/1.69691 & 0\
+                    1/1.69691 & 250 & 0 & 0\
+                    0 & 250 & 0 & 1005\
+                    1/\left(150\times10^{3}\right) & 0 & -1/1.69691 & -1/308
+                    \end{array}\right]^{-1}\left[\begin{array}{c}
+                    -1\
+                    0\
+                    0\
+                    0
+                    \end{array}\right]\ ,
+                    \]
+                </div>
+
+                <!-- Ad Begin -->
+                <br>
+                <div style="background:lightblue; margin:0;">
+                    <p>--- Ad ---</p>
+                    <script async
+                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                        crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                        data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                    <p>---</p>
+                </div>
+                <br>
+                <!-- Ad End -->
+
+                <div id="matrix-form-out">
+                    \[
+                    \left[\begin{array}{c}
+                    dp/dx\
+                    dV/dx\
+                    d\rho/dx\
+                    dT/dx
+                    \end{array}\right]=\left[\begin{array}{c}
+                    214314.034\
+                    -505.187\
+                    1.732\
+                    125.668
+                    \end{array}\right]\ .
+                    \]
+                </div>
+
+                <div class="dp_dx-out">
+                    \[
+                    \boxed{dp/dx= 214314.034\,\text{Pa/m}}\ ,
+                    \]
+                </div>
+
+                <div class="dV_dx-out">
+                    \[
+                    \boxed{dV/dx= -505.187\,\text{(m/s)/m}}\ ,
+                    \]
+                </div>
+
+                <div class="drho_dx-out">
+                    \[
+                    \boxed{d\rho/dx= 1.732\,\text{(kg/m}^{3}\text{)/m}}\ .
+                    \]
+                </div>
+                We get the same result as above using this method as well.
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="script-min.js"></script>
+</body>
+
+</html>

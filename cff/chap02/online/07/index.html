@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 2.7, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 2.7</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 2: Equations for Steady One-Dimensional Compressible Fluid Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 2.7:</h4>
+        <div class="font1 text-justify">
+            Consider adiabatic air flow through a variable area duct. At a certain section of the duct the flow area is
+            <input type="number" id="A" size="3" value="0.1">m<sup>2</sup>,
+            the pressure is
+            <input type="number" id="p" size="3" value="120">kPa,
+            the temperature is
+            <input type="number" id="T" size="3" value="15"><sup>o</sup>C,
+            and the duct area is changing at a rate of
+            <input type="number" id="dA_dx" size="3" value="0.1">m<sup>2</sup>/m.
+            Plot the variations of \( dp/dx \), \( dV/dx \), and \( d\rho/dx \) with the velocity at the section
+            for velocities between
+            <input type="number" id="minV" size="3" value="50">
+            and
+            <input type="number" id="maxV" size="3" value="300">m/s.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: adiabatic air flow\( \implies dq=0 \), <br>
+                \( A =\) <span id="given-A">0.1</span> m<sup>2</sup>, <br>
+                \( p= \) <span id="given-p">120</span> kPa, <br>
+                \( T= \) <span id="given-T">15</span><sup>o</sup>C = <span id="given-TK">288</span> K, <br>
+                \( dA/dx= \) <span id="given-dA_dx">0.1</span> m<sup>2</sup>/m.
+            </p>
+            <p>
+                To plot: \( dp/dx, dV/dx \) and \( d\rho/dx \) for
+                velocity between \( V= \) <span class="given-minV">50</span> m/s and <span class="given-maxV">300</span>
+                m/s.
+            </p>
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>The schematic diagram of the problem description is shown in Fig. 1.</p>
+
+            <img class="col-md-8 col-lg-6 mx-auto d-block" src="images/fig1.png" alt="Schematic diagram of problem">
+
+            <p>The differential form of mass equation can be written as,</p>
+            \[
+            \frac{1}{\rho}\,\frac{d\rho}{dx}+\frac{1}{A}\,\frac{dA}{dx}+\frac{1}{V}\,\frac{dV}{dx}=0
+            \]
+            \begin{equation}
+            \frac{1}{\rho}\,\frac{d\rho}{dx}+\frac{1}{V}\,\frac{dV}{dx}=-\frac{1}{A}\,\frac{dA}{dx}\label{eq:mass-eqn}
+            \end{equation}
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>The differential form of momentum equation (Euler equation) along horizontal direction gives,</p>
+            \begin{equation}
+            \frac{1}{\rho}\,\frac{dp}{dx}+V\,\frac{dV}{dx}=0\label{eq:momentum-eqn}
+            \end{equation}
+
+            <p>The differential form of the energy equation (for adiabatic flow) can be written as,</p>
+            \begin{equation}
+            c_{p}\frac{dT}{dx}+V\,\frac{dV}{dx}=0\label{eq:energy-eqn}
+            \end{equation}
+
+            <p>Differentiating the equation of state for ideal gas with respect to \( x \) gives,</p>
+            \begin{equation}
+            \frac{1}{p}\,\frac{dp}{dx}-\frac{1}{\rho}\,\frac{d\rho}{dx}-\frac{1}{T}\,\frac{dT}{dx}=0\label{eq:eos}
+            \end{equation}
+
+            <!-- Ad Begin -->
+            <br>
+            <div style="background:lightblue; margin:0;">
+                <p>--- Ad ---</p>
+                <script async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                    crossorigin="anonymous"></script>
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                    data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                <p>---</p>
+            </div>
+            <br>
+            <!-- Ad End -->
+
+            <p>
+                Writing the above equations (\ref{eq:mass-eqn}), (\ref{eq:momentum-eqn}),
+                (\ref{eq:energy-eqn}) and (\ref{eq:eos}) in a matrix form we obtain,
+            </p>
+            \[
+            \left[\begin{array}{cccc}
+            0 & 1/V & 1/\rho & 0\\
+            1/\rho & V & 0 & 0\\
+            0 & V & 0 & c_{p}\\
+            1/p & 0 & -1/\rho & -1/T
+            \end{array}\right]\left[\begin{array}{c}
+            dp/dx\\
+            dV/dx\\
+            d\rho/dx\\
+            dT/dx
+            \end{array}\right]=\left[\begin{array}{c}
+            -\left(1/A\right)\times\left(dA/dx\right)\\
+            0\\
+            0\\
+            0
+            \end{array}\right]
+            \]
+            <p>
+                These system of equations can be solved to obtain \( dp/dx \), \( dV/dx \),
+                \( d\rho/dx \) and \( dT/dx \) for any given \( V \). The solution plots for
+                velocity in the range
+                [<span class="given-minV">50</span>, <span class="given-maxV">300</span>] m/s
+                are drawn in Fig.&nbsp;2, Fig.&nbsp;3 and Fig.&nbsp;4.
+            </p>
+
+            <!-- plots -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <canvas id="dp_dx-out"></canvas>
+                    <div class="text-center">Fig. 2: Plot of \(dp/dx\)</div>
+                </div>
+                <div class="col-lg-6">
+                    <canvas id="dV_dx-out"></canvas>
+                    <div class="text-center">Fig. 3: Plot of \(dV/dx\)</div>
+                </div>
+                <div class="col-lg-6">
+                    <canvas id="drho_dx-out"></canvas>
+                    <div class="text-center">Fig. 4: Plot of \(d\rho/dx\)</div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="mathjax_setup.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

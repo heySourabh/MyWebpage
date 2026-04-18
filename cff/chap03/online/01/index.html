@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 3.1, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 3.1</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 3: Some Fundamental Aspects of Compressible Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 3.1:</h4>
+        <div class="font1 text-justify">
+            The velocity of
+            <select id="select-gas">
+                <option value="air">Air</option>
+                <option value="argon">Argon</option>
+                <option value="carbon dioxide">Carbon dioxide</option>
+                <option value="freon-12">Freon 12</option>
+                <option value="helium">Helium</option>
+                <option value="hydrogen">Hydrogen</option>
+                <option value="methane">Methane</option>
+                <option value="xenon">Xenon</option>
+            </select> flow changes by
+            <input type="number" id="percent-dV_V" size="2" value="1">%.
+            Assuming that the flow is isentropic, plot the percentage changes in pressure,
+            temperature, and density induced by this change in velocity with flow Mach number
+            for Mach numbers between
+            <input type="number" id="min-Mach" size="3" value="0.2">
+            and
+            <input type="number" id="max-Mach" size="3" value="2">.
+            For <span class="gas-name">air</span>, \( \gamma= \) <span class="gamma-out">1.4</span>.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: <br>
+                \(dV/V=\) <span id="given-dV_V">1</span>% = <span class="dV_V-out">0.01</span>, isentropic flow.
+            </p>
+            <p>
+                To plot: \( dp/p, dT/T, d\rho/\rho \) for M=[<span class="given-minMach">0.2</span>,
+                <span class="given-maxMach">2</span>].
+            </p>
+            <p>Using the conservation of momentum equation (Euler equation),</p>
+            \[
+            \frac{dp}{\rho}+V\,dV=0
+            \]
+
+            <p>dividing by \( V^{2} \),</p>
+            \[
+            \frac{p}{\rho V^{2}}\,\frac{dp}{p}+\frac{dV}{V}=0\ .
+            \]
+
+            <p>
+                Using the equation for speed of sound, \( a^{2}=\gamma\,p/\rho\implies p/\rho=a^{2}/\gamma \),
+                the above equation may be written as,
+            </p>
+            \[
+            \frac{a^{2}}{\gamma\,V^{2}}\,\frac{dp}{p}+\frac{dV}{V}=0\ ,
+            \]
+            \[
+            \frac{1}{\gamma\,M^{2}}\,\frac{dp}{p}+\frac{dV}{V}=0\ ,
+            \]
+            \[
+            \frac{dp}{p}=-\gamma\,M^{2}\frac{dV}{V}\ .
+            \]
+
+            <p>
+                Substituting the value of \( \gamma= \) <span class="gamma-out">1.4</span>,
+                for <span class="gas-name">air</span>, and \( dV/V= \) <span class="dV_V-out">0.01</span>,
+                the above equation becomes,
+            </p>
+
+            <div id="dp_p-out">
+                \begin{equation}
+                \boxed{\frac{dp}{p}=-0.014\,M^{2}}\ .\label{eq:dp_p}
+                \end{equation}
+            </div>
+
+            <p>Using the equation for conservation of energy for an isentropic flow,</p>
+            \[
+            c_{p}dT+V\,dV=0
+            \]
+
+            <p>Dividing the equation by \( V^{2} \), we obtain,</p>
+            \[
+            \frac{c_{p}T}{V^{2}}\,\frac{dT}{T}+\frac{dV}{V}=0\ .
+            \]
+
+            <p>
+                The value of specific heat \( c_{p} \) can be obtained using the equation,
+                \( c_{p}=\gamma R/\left(\gamma-1\right) \), which results in,
+            </p>
+            \[
+            \frac{1}{\gamma-1}\,\frac{\gamma\,R\,T}{V^{2}}\,\frac{dT}{T}+\frac{dV}{V}=0\ .
+            \]
+
+            <p>Using the equation for speed of sound, \( a^{2}=\gamma\,R\,T \), we can write,</p>
+            \[
+            \frac{1}{\gamma-1}\,\frac{a^{2}}{V^{2}}\,\frac{dT}{T}+\frac{dV}{V}=0\,
+            \]
+            \[
+            \frac{1}{\left(\gamma-1\right)M^{2}}\,\frac{dT}{T}+\frac{dV}{V}=0\ ,
+            \]
+            \[
+            \frac{dT}{T}=-\left(\gamma-1\right)M^{2}\,\frac{dV}{V}\ .
+            \]
+
+            <p>
+                Substituting the value of \( \gamma = \) <span class="gamma-out">1.4</span>,
+                for <span class="gas-name">air</span>, and \( dV/V \) = <span class="dV_V-out">0.01</span>,
+                the above equation becomes,
+            </p>
+            <div id="dT_T-out">
+                \begin{equation}
+                \boxed{\frac{dT}{T}=-0.004\,M^{2}}\ .\label{eq:dT_T}
+                \end{equation}
+            </div>
+
+            <p>Using the differential form of the equation of state for an ideal gas,</p>
+            \[
+            \frac{dp}{p}-\frac{d\rho}{\rho}-\frac{dT}{T}=0\ ,
+            \]
+
+            <p>Substituting the derived formula for \( dp/p \) and \( dT/T \) in the above equation,</p>
+            \[
+            -\gamma\,M^{2}\frac{dV}{V}-\frac{d\rho}{\rho}+\left(\gamma-1\right)M^{2}\,\frac{dV}{V}=0\ .
+            \]
+
+            <p>Which can be solved for \( d\rho/\rho \) to be,</p>
+            \[
+            \frac{d\rho}{\rho}=-M^{2}\,\frac{dV}{V}\ .
+            \]
+
+            <p>Substituting the value of \( dV/V= \) <span class="dV_V-out">0.01</span>, the above equation becomes,</p>
+            <div id="drho_rho-out">
+                \begin{equation}
+                \boxed{\frac{d\rho}{\rho}=-0.01\,M^{2}}\ .\label{eq:drho_rho}
+                \end{equation}
+            </div>
+
+            <p>
+                The equations (\ref{eq:dp_p}), (\ref{eq:dT_T}) and (\ref{eq:drho_rho})
+                are plotted in Fig. 1, with varying Mach number, \( M \) in range
+                [<span class="given-minMach">0.2</span>, <span class="given-maxMach">2</span>].
+            </p>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8 border rounded">
+                    <canvas id="plot-percent-change"></canvas>
+                    <div class="text-center">Fig. 1: Percentage changes in pressure, temperature and density as a
+                        function of Mach number for an isentropic flow</div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Content continues after Google Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="mathjax_setup.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script-min.js"></script>
+</body>
+
+</html>

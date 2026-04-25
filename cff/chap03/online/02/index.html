@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 3.2, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 3.2</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 3: Some Fundamental Aspects of Compressible Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 3.2:</h4>
+        <div class="font1 text-justify">
+            Calculate the speed of sound at
+            <input type="number" id="T" size="3" value="288">K
+            in
+            <select id="select-gas">
+                <option value="hydrogen">hydrogen</option>
+                <option value="helium">helium</option>
+                <option value="nitrogen">nitrogen</option>
+            </select>. <br>
+            Under what conditions will the speed of sound in
+            <span class="selected-gas font-weight-bold">hydrogen</span>
+            be equal to that in
+            <select id="select-compare-gas">
+                <option value="hydrogen">hydrogen</option>
+                <option selected value="helium">helium</option>
+                <option value="nitrogen">nitrogen</option>
+            </select> ?
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: \(T= \) <span id="given-T">288</span> K.
+            </p>
+            <p>
+                To calculate: <br>
+                Speed of sound in <span class="selected-gas-symbol">H<sub>2</sub></span>. <br>
+                If, speed in <span class="selected-gas">hydrogen</span>
+                = speed of sound in <span class="compared-gas">helium</span>, then \( T= \)?.
+            </p>
+
+            <p>
+                The speed of sound can be calculated for any gas using the temperature, the gas constant,
+                \( R \), and the ratio of specific heats, \( \gamma \), using the formula,
+            </p>
+            \[
+            a=\sqrt{\gamma\,R\,T}\ .
+            \]
+
+            <h5>
+                Speed of sound in <span class="selected-gas">hydrogen</span>,
+                <span class="selected-gas-symbol">H<sub>2</sub></span>:
+            </h5>
+
+            <p>The molar mass is,</p>
+            <div id="molar-out">
+                \[
+                \hat{m}=2.016\,\text{kg/kmol}\ ,
+                \]
+            </div>
+
+            <p>and the ratio of specific heats is,</p>
+            <div id="gamma-out">
+                \[
+                \gamma=1.407\ .
+                \]
+            </div>
+
+            <p>The gas constant is,</p>
+            <div id="R-out">
+                \[
+                R=\frac{R_{u}}{\hat{m}}=\frac{8314}{\hat{m}}, \text{J/kg-K}\ .
+                \]
+            </div>
+
+            <p>Therefore,</p>
+            <div id="a-eqn">
+                \[
+                a=\sqrt{\gamma\,R\,T}=\sqrt{\gamma\,\frac{R_{u}}{\hat{m}}\,T}=\sqrt{1.407\times\frac{8314}{2.016}\times288}
+                \]
+            </div>
+
+            <div id="a-out">
+                \[
+                \boxed{a=1292.72\,\text{m/s}}\ .
+                \]
+            </div>
+
+            <p>If, speed of sound in <span class="selected-gas">hydrogen</span>
+                = speed of sound in <span class="compared-gas">helium</span>,</p>
+            <div id="a-compare-eqn">
+                \[
+                \sqrt{1.407\times\frac{R_{u}}{2.016}\times T_{H_{2}}}=\sqrt{1.667\times\frac{R_{u}}{4.003}\times T_{He}}
+                \]
+            </div>
+
+            <div id="T-compare-eqn">
+                \[
+                T_{H_{2}}=\frac{2.016\times1.667}{1.407\times4.003}\times T_{He}
+                \]
+            </div>
+
+            <div id="T-eqn">
+                \[
+                \boxed{T_{H_{2}}=0.597\,T_{He}}\ .
+                \]
+            </div>
+
+            <div id="T-out">
+                \[
+                \boxed{T_{H_{2}}=0.597\times288= 171.94\,\text{K}}\ .
+                \]
+            </div>
+
+            <p>
+                The speed of sound in <span class="selected-gas">hydrogen</span> will be equal to that in
+                <span class="compared-gas">helium</span> when,
+                the temperature (measured in Kelvin) in <span class="selected-gas">hydrogen</span>
+                is about <span id="T-ratio-out">0.597</span>
+                times of that in <span class="compared-gas">helium</span>.
+                So, the temperature of <span class="selected-gas">hydrogen</span> needs to
+                be about <span id="T-value-out">171.94</span>&nbsp;K for the speed of sound in
+                <span class="selected-gas">hydrogen</span> to
+                be equal to that in <span class="compared-gas">helium</span>.
+            </p>
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Content continues after Google Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="mathjax_setup.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <script src="script-min.js"></script>
+</body>
+
+</html>

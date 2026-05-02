@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 3.4, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 3.4</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 3: Some Fundamental Aspects of Compressible Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 3.4:</h4>
+        <div class="font1 text-justify">
+            A very weak pressure wave, i.e., a sound wave, across which the pressure rise is
+            <input type="number" id="dp" size="3" value="30">Pa
+            moves through air which has a temperature of
+            <input type="number" id="T" size="3" value="30"><sup>o</sup>C
+            and a pressure of
+            <input type="number" id="p" size="3" value="101">kPa.
+            Find the density change, the temperature change, and the velocity change across this wave.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: <br>
+                \(\Delta p = \)<span class="given-delta-p">30 Pa</span>, <br>
+                \( T= \) <span id="given-T">30<sup>o</sup>C = 303 K</span>, <br>
+                \(p = \) <span id="given-p">101 kPa</span>.
+            </p>
+            <p>
+                To calculate: \( d\rho, dT, dV \)
+            </p>
+
+            The problem description is schematically shown in Fig. 1.
+            <div style="text-align: center; margin: 1em;">
+                <object class="img-fluid" data="images/fig_1.svg" type="image/svg+xml" id="figure"></object>
+                <div style="margin-top: 1em;">Fig. 1: Schematic of the problem description</div>
+            </div>
+
+            <p>
+                Placing the frame of reference on the sound wave, as shown on the right side of Fig. 1.
+                The velocity at which the flow enters the wave is equal to the speed of sound,
+            </p>
+            <div id="V-out">
+                \[
+                V=a=\sqrt{\gamma\,R\,T}=\sqrt{1.4\times287\times303}= 348.92\, \text{m/s}\ .
+                \]
+            </div>
+            <p>Also \( M=V/a=1 \).</p>
+
+            <p>There are possibly two methods of solving this problem. </p>
+
+            <button class="btn btn-link text-left" data-toggle="collapse" data-target="#method1" aria-expanded="false">
+                <strong>&gt; Method 1:</strong>
+                Observe that the jump in pressure \( \Delta p \) is very small compared to pressure \( p \)
+                and therefore use the differential equations.
+            </button>
+            <div class="collapse" id="method1">
+
+                <p>
+                    Since the wave is a weak pressure wave with a very small
+                    jump in pressure, $\Delta p/p\approx dp/p$. We can assume the flow
+                    through the wave to be isentropic. Therefore, we can use the differential
+                    relations,
+                </p>
+                \[
+                \frac{dp}{p}=-\gamma\,M^{2}\,\frac{dV}{V}
+                \]
+                <p>which we can solve for \( dV \) to be,</p>
+                <div id="dV-eqn">
+                    \[
+                    dV=-\frac{V\,dp}{\gamma\,p\,M^{2}}=-\frac{348.92\times30}{1.4\times101\times10^{3}\times1^{2}}
+                    \]
+                </div>
+
+                <div id="dV-out">
+                    \[
+                    \boxed{dV= -0.0740282\, \text{m/s}}\ .
+                    \]
+                </div>
+
+                <p>The change of temperature is given as,</p>
+                \[
+                \frac{dT}{T}=-\left(\gamma-1\right)\,M^{2}\,\frac{dV}{V}
+                \]
+
+                <p>which can be solved for \( dT \) as,</p>
+                <div id="dT-eqn">
+                    \[
+                    dT=-T\,\left(\gamma-1\right)\,M^{2}\,\frac{dV}{V}=-303\times\left(1.4-1\right)\times1^{2}\times\left(\frac{-0.0740282}{348.92}\right)
+                    \]
+                </div>
+
+                <div id="dT-out">
+                    \[
+                    \boxed{dT=0.02571425\,\text{K}}\ .
+                    \]
+                </div>
+
+                <p>The change in density is given as,</p>
+                \[
+                \frac{d\rho}{\rho}=-M^{2}\,\frac{dV}{V}
+                \]
+
+                <p>which can be solved for \( d\rho \) as,</p>
+                \[
+                d\rho=-\rho\,M^{2}\,\frac{dV}{V}
+                \]
+
+                <p>using the equation of state for ideal gas equation,</p>
+                <div id="drho-eqn">
+                    \[
+                    d\rho=-\frac{p}{R\,T}\,M^{2}\,\frac{dV}{V}=-\frac{101\times10^{3}}{287\times303}\times1^{2}\times\left(\frac{-0.0740282}{348.92}\right)
+                    \]
+                </div>
+
+                <div id="drho-out">
+                    \[
+                    \boxed{d\rho= 2.464\times10^{-4}\,\text{kg/m}^{3}}\ .
+                    \]
+                </div>
+            </div>
+
+            <hr>
+
+            <button class="btn btn-link text-left" data-toggle="collapse" data-target="#method2" aria-expanded="false">
+                <strong>&gt; Method 2:</strong>
+                Since the wave is a weak pressure wave, use the isentropic relations to calculate the changes of
+                properties.
+            </button>
+            <div class="collapse" id="method2">
+                Let us name the two sides of the wave as <span class="circled">1</span> and
+                <span class="circled">2</span> and shown in Fig. 1.
+
+                <p>\( p_{1} = \) <span class="given-p">101 kPa</span>,</p>
+                <p><span id="p2-eqn">\( p_{2}=p_{1}+\Delta p=101\times10^{3}+30= 101030\,\text{Pa} \)</span>.</p>
+
+                <p>Using isentropic relation of ratios of pressure and temperature, we get,</p>
+                \[
+                \frac{T_{2}}{T_{1}}=\left(\frac{p_{2}}{p_{1}}\right)^{\left(\gamma-1\right)/\gamma}
+                \]
+                \[
+                T_{2}=T_{1}\left(\frac{p_{2}}{p_{1}}\right)^{\left(\gamma-1\right)/\gamma}
+                \]
+                \[
+                T_{2}-T_{1}=T_{1}\left(\frac{p_{2}}{p_{1}}\right)^{\left(\gamma-1\right)/\gamma}-T_{1}
+                \]
+
+                <div id="deltaT-eqn">
+                    \[
+                    \Delta T=303\times\left[\left(\frac{101030}{101000}\right)^{\left(1.4-1\right)/1.4}-1\right]
+                    \]
+                </div>
+
+                <div id="deltaT-out">
+                    \[
+                    \boxed{\Delta T=0.025712\,\text{K}}\ .
+                    \]
+                </div>
+
+                <p>Using isentropic relation of ratios of pressure and density, we get,</p>
+                \[
+                \frac{\rho_{2}}{\rho_{1}}=\left(\frac{p_{2}}{p_{1}}\right)^{1/\gamma}
+                \]
+                \[
+                \rho_{2}-\rho_{1}=\rho_{1}\left[\left(\frac{p_{2}}{p_{1}}\right)^{1/\gamma}-1\right]
+                \]
+                Using the equation of state for ideal gas,
+                \[
+                \Delta\rho=\frac{p_{1}}{R\,T_{1}}\left[\left(\frac{p_{2}}{p_{1}}\right)^{1/\gamma}-1\right]
+                \]
+                <div id="delta_rho-eqn">
+                    \[
+                    \Delta\rho=\frac{101000}{287\times303}\left[\left(\frac{101030}{101000}\right)^{1/1.4}-1\right]
+                    \]
+                </div>
+                <div id="delta_rho-out">
+                    \[
+                    \boxed{\Delta\rho=2.464\times10^{-4}\,\text{kg/m}^{3}}\ .
+                    \]
+                </div>
+
+                <p>Using the conservation of energy equation for isentropic flow,</p>
+                \[
+                c_{p}T_{1}+\frac{V_{1}^{2}}{2}=c_{p}T_{2}+\frac{V_{2}^{2}}{2}
+                \]
+
+                \[
+                V_{2}=\sqrt{V_{1}^{2}+2\,c_{p}\,\left(T_{1}-T_{2}\right)}
+                \]
+
+                \[
+                V_{2}=\sqrt{V_{1}^{2}-\frac{2\,\gamma\,R}{\gamma-1}\,\Delta T}
+                \]
+
+                \[
+                V_{2}-V_{1}=\sqrt{V_{1}^{2}-\frac{2\,\gamma\,R}{\gamma-1}\,\Delta T}-V_{1}
+                \]
+
+                \[
+                \Delta V=\sqrt{V_{1}^{2}-\frac{2\,\gamma\,R}{\gamma-1}\,\Delta T}-V_{1}
+                \]
+
+                <div id="deltaV-eqn">
+                    \[
+                    \Delta V=\sqrt{348.92^{2}-\frac{2\times1.4\times287}{1.4-1}\times0.025712}-348.92
+                    \]
+                </div>
+
+                <div id="deltaV-out">
+                    \[
+                    \boxed{\Delta V=-0.0740297\,\text{m/s}}\ .
+                    \]
+                </div>
+            </div>
+
+            <hr>
+
+            <p>
+                Both the methods give same results, with minor differences
+                because the differential equations assume infinitesimal changes.
+            </p>
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Content continues after Google Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="mathjax_setup.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="script-min.js"></script>
+</body>
+
+</html>

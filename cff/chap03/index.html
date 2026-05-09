@@ -50,7 +50,7 @@
                 Request PDF (7 chapters)
             </button>
         </a>
-        <table class="table table-hover">
+        <table id="table-questions" class="table table-hover">
             <thead class="thead-light">
                 <tr>
                     <th>#</th>
@@ -231,6 +231,18 @@
                 </tr>
             </tbody>
         </table>
+        <script>
+            async function updateLinks() {
+                const links = document.getElementById("table-questions").getElementsByTagName("a");
+                for (const l of links) {
+                    if (l.innerText == "link") {
+                        l.innerText = (await window.fetch(l.href)).ok ? "link" : "Coming soon!";
+                    }
+                }
+            }
+            updateLinks();
+        </script>
+
         <hr>
         <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
             <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">

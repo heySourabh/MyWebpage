@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Additional meta tags -->
+    <meta name="description" content="Solutions of problem 3.12, Compressible Fluid Flow by Patrick H. Oosthuizen">
+    <meta name="author" content="Sourabh Bhat">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Q7QC15Z7Y-1"></script>
+    <script src="../../../../js/gtag.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../../../../vendor/bootstrap/css/bootstrap.min.css">
+
+    <!--Font definitions-->
+    <link href="https://fonts.googleapis.com/css2?family=Exo&family=Montserrat&family=Libre+Baskerville"
+        rel="stylesheet">
+
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--My styles-->
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Problem 3.12</title>
+</head>
+
+<body>
+    <div class="mt-2 ml-3">
+        <span class="m-2"><a href="../../../../index.html"><i class="fa fa-home"></i> Home</a></span>
+        <span class="m-2"><a href="../../index.html"><i class="fa fa-arrow-left"></i> Back</a></span>
+    </div>
+    <div class="container-fluid">
+        <div class="h2 mt-3 mb-3 font1">
+            Chapter 3: Some Fundamental Aspects of Compressible Flow
+        </div>
+    </div>
+
+    <div class="container font2">
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-3 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+        <br><br>
+        <hr>
+        <h4>Problem 3.12:</h4>
+        <div class="font1 text-justify">
+            A gas with a molar mass of
+            <input type="number" id="molar" size="2" value="44">
+            and a specific heat ratio
+            <input type="number" id="gamma" size="3" value="1.67">
+            flows through a channel at supersonic speed. The temperature of the gas in the channel is
+            <input type="number" id="T" size="2" value="10"><sup>o</sup>C.
+            A photograph of the flow reveals weak waves originating at imperfections
+            in the wall running across the flow at an angle to
+            <input type="number" id="mu" size="2" value="45"><sup>o</sup>
+            to the flow direction. Find the Mach number and the velocity in the flow.
+        </div>
+        <br>
+        <h4>Solution:</h4>
+        <div class="font3">
+            <p>
+                Given: <br>
+                \( \hat{m} =\) <span class="given-molar">44 kg/kmol</span>, <br>
+                \( \gamma = \) <span id="given-gamma">1.67</span>,<br>
+                \( T = \) <span id="given-T">10<sup>o</sup>C = 283 K</span>,<br>
+                Mach angle = \( \mu = \) <span id="given-mu">45<sup>o</sup></span>.
+            </p>
+            <p>
+                To calculate: \( M=?, V=? \)
+            </p>
+
+            <p>The problem description is schematically shown in Fig. 1.</p>
+            <div style="text-align: center; margin: 1em;">
+                <object class="img-fluid" data="images/fig_1.svg" type="image/svg+xml" id="figure"></object>
+                <div style="margin-top: 1em;">Fig. 1: Schematic of the problem description</div>
+            </div>
+
+            <p>The Mach angle is given by the equation,</p>
+            \[
+            \sin\left(\mu\right)=\frac{1}{M}
+            \]
+            <div id="M-eqn">
+                \[
+                M=\frac{1}{\sin\left(\mu\right)}=\frac{1}{\sin\left(45\right)}
+                \]
+            </div>
+            <div id="M-out">
+                \[
+                \boxed{M=1.4142}\ .
+                \]
+            </div>
+            <p>
+                The speed of sound in the channel, for the given temperature, can
+                be calculated as,
+            </p>
+            \[
+            a=\sqrt{\gamma\,R\,T}
+            \]
+            <p>where, the value of gas constant $R$ can be calculated as,</p>
+            \[
+            R=\frac{R_{u}}{\hat{m}}
+            \]
+            <p>therefore,</p>
+            \[
+            a=\sqrt{\gamma\,\frac{R_{u}}{\hat{m}}\,T}
+            \]
+            <p>
+                The velocity can be calculated, using the universal gas constant \( R_{u}= \) 8314 J/kmol-K
+                and the given molar mass of the gas \( \hat{m} =\) <span class="given-molar">44 kg/kmol</span>,
+            </p>
+            as,
+            <div id="V-eqn">
+                \[
+                V=M\,a=\frac{1}{\sin\left(\mu\right)}\times\sqrt{\gamma\,\frac{R_{u}}{\hat{m}}\,T}=\frac{1}{\sin\left(45\right)}\times\sqrt{1.67\times\frac{8314}{44}\times283}
+                \]
+            </div>
+            <div id="V-out">
+                \[
+                \boxed{V=422.6152\,\text{m/s}}\ .
+                \]
+            </div>
+
+        </div>
+
+        <hr>
+        <br>
+        <a href="https://forms.gle/pH2epYTbJtUbB5ds7">
+            <button type="button" class="mt-1 mb-1 btn btn-outline-info btn-lg font-weight-bold">
+                <i class="fa fa-file-text-o"></i>&nbsp;
+                Request PDF (7 chapters)
+            </button>
+        </a>
+    </div>
+
+    <div class="container-fluid">
+        <!-- Ad Begin -->
+        <br>
+        <div style="background:lightblue; margin:0;">
+            <p>--- Content continues after Google Ad ---</p>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5232558571567163"
+                crossorigin="anonymous"></script>
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163"
+                data-ad-slot="2481369001" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <p>---</p>
+        </div>
+        <br>
+        <!-- Ad End -->
+        <div class="lead">
+            For further details, please contact me at: <br>
+            <a href="mailto:mail.spbhat@gmail.com">mail.spbhat@gmail.com</a>
+        </div>
+        <div class="mt-1 mb-5">
+            If you observe any error or want to provide me with feedback, please don't hesitate to contact me. <br>
+            <br>
+            Thanks, <br>
+            Sourabh Bhat
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Bootstrap JS -->
+    <script src="../../../../vendor/jquery/jquery.slim.min.js"></script>
+    <script src="../../../../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="mathjax_setup.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script src="script-min.js"></script>
+</body>
+
+</html>

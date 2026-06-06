@@ -28,7 +28,7 @@ modalNumCyclesSelect.addEventListener("change", () => updateNumCyclesSelection()
 function getNumCycles() {
     const totalSN = getTotalSN();
     const num_cycles = (numCyclesSelected == "auto")
-        ? Math.max(1, Math.floor((totalSN / 50) + 1))
+        ? Math.max(1, Math.floor((totalSN / 40) + 1))
         : parseInt(numCyclesSelected);
     return num_cycles;
 }

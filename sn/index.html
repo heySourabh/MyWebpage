@@ -161,10 +161,10 @@
         </div>
         <div class="row justify-content-center">
             <div class="col col-md-6 col-lg-5 text-center mt-2 mb-2">
-                <input type="button" class="btn btn-success btn-lg px-5" value="Start"
-                    onclick="start_pause_continue()" id="play_pause_btn" disabled>
-                <input type="button" class="btn btn-danger btn-lg px-5" value="Stop"
-                    onclick="stopCounting()" id="stop_btn" disabled>
+                <input type="button" class="btn btn-success btn-lg px-5" value="Start" onclick="start_pause_continue()"
+                    id="play_pause_btn" disabled>
+                <input type="button" class="btn btn-danger btn-lg px-5" value="Stop" onclick="stopCounting()"
+                    id="stop_btn" disabled>
             </div>
         </div>
         <div id="count-display">
@@ -204,7 +204,7 @@
         </div>
 
         <!-- Row for Ad -->
-        <div class="row" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
+        <div class="row ad-elem" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
             <p>--- Ad ---</p>
             <div class="col-12">
                 <!-- Ad -->
@@ -275,7 +275,7 @@
 
 
         <!-- Row for Ad -->
-        <div class="row" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
+        <div class="row ad-elem" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
             <p>--- Ad ---</p>
             <div class="col-12">
                 <!-- Ad -->
@@ -353,7 +353,7 @@
 
 
         <!-- Row for Ad -->
-        <div class="row" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
+        <div class="row ad-elem" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
             <p>--- Ad ---</p>
             <div class="col-12">
                 <!-- Ad -->
@@ -427,7 +427,7 @@
 
 
         <!-- Row for Ad -->
-        <div class="row" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
+        <div class="row ad-elem" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
             <p>--- Ad ---</p>
             <div class="col-12">
                 <!-- Ad -->
@@ -499,7 +499,7 @@
 
 
         <!-- Row for Ad -->
-        <div class="row" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
+        <div class="row ad-elem" style="margin:10px; background-color: rgba(0.5, 0.5, 0.5, 0.5);">
             <p>--- Ad ---</p>
             <div class="col-12">
                 <!-- Ad -->
@@ -646,12 +646,14 @@
                     <!--Blog Name-->
                     <input type="hidden" id="page" name="sn-page" value="Suryanamaskar page">
                     <!--label for="fname">Name</label>-->
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Your Name (Email - optional)">
-                    <div class="form-text mb-2">Your email will not be published in comments. Submit email if you expect a reply by email.</div>
+                    <input type="text" id="name" name="name" class="form-control"
+                        placeholder="Your Name (Email - optional)">
+                    <div class="form-text mb-2">Your email will not be published in comments. Submit email if you expect
+                        a reply by email.</div>
 
                     <!--label for="message">Message</label>-->
-                    <textarea id="message" name="message" class="form-control mb-3" placeholder="What's on your mind ..."
-                        style="height:100px"></textarea>
+                    <textarea id="message" name="message" class="form-control mb-3"
+                        placeholder="What's on your mind ..." style="height:100px"></textarea>
 
                     <button type="submit" class="btn btn-outline-success">
                         <i class="bi bi-send"></i> Submit
@@ -700,7 +702,7 @@
                     <strong>Sourabh Bhat:</strong>
                     <span class="chat-time-right">07 Feb 2026</span>
                     <p>
-                        Dear Shankar. Here is the link shared by you in the comment: 
+                        Dear Shankar. Here is the link shared by you in the comment:
                         <a href="https://youtu.be/RX-zvphjjY0">YouTube link</a><br>
                     </p>
                 </div>
@@ -728,47 +730,6 @@
                         There was an error in estimated duration when the number of SN was too large.
                         I have corrected the error. Now it will show correct time. <br>
                         👍
-                        Good luck! and best wishes, <br>
-                        Sourabh
-                    </p>
-                </div>
-            </div>
-
-            <!-- comment & reply -->
-            <div class="col-12">
-                <div class="chat-container">
-                    <img src="images/avatar.svg" alt="Avatar">
-                    <strong>Shankar maddi: </strong>
-                    <span class="chat-time-right">19 Jan 2026</span>
-                    <p>
-                        Hi sir. Hello. My name is Maddi Shankar. Age: 54. <br>
-                        I have been practicing Surya Namaskar since
-                        last year. It is also very easy to do through your app. I have also performed 108 Surya Namaskar
-                        in a day for 108 days through this app. Similarly, by performing 180 Surya Namaskars in one
-                        hour, I have also made a place in the International Yoga Book of Records. With the same spirit,
-                        I have resolved to do as many Surya Namaskars as possible for 24 hours. Is there any count that
-                        is continuously at the same level other than this count? Or could it be something else? Please
-                        give your advice on what would be better.
-                    </p>
-                </div>
-
-                <div class="chat-container chat-darker chat-reply">
-                    <img src="images/avatar.svg" alt="Avatar">
-                    <strong>Sourabh Bhat: </strong>
-                    <span class="chat-time-right">19 Jan 2026</span>
-                    <p>
-                        Hello Shankar, <br>
-
-                        You have really commendable achievements. Congratulations! 👏
-                        Thank you sir for using the app. I hope it is helpful. <br>
-
-                        In this version of the app the count speed starts slow and gradually increases, finally it slows
-                        down towards the end. I can add an option to disable the feature for people like you who want
-                        the counts at a steady pace. I will try to add this feature during the coming weekend.😊 <br>
-
-                        There is no limit on the number of Surya namaskars, you can choose as many as you need. You can
-                        also use the pause button if you want to take a break during your 24 hour marathon. <br>
-
                         Good luck! and best wishes, <br>
                         Sourabh
                     </p>
@@ -1132,13 +1093,6 @@
         </ul>
     </div>
 
-    <!-- Ad -->
-    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163" data-ad-slot="5414144171"
-        data-ad-format="auto" data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
     <div class="ml-4" id="copyright">
         All rights reserved.
         &copy; 2019-2026.
@@ -1148,6 +1102,15 @@
         This application is provided for personal use only.
     </div>
     <br><br>
+
+    <!-- Ad -->
+    <div class="ad-elem">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5232558571567163" data-ad-slot="5414144171"
+            data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
 
     <!-- Charting library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

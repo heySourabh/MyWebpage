@@ -394,8 +394,10 @@ function savePrefs() {
 
 function loadPrefs() {
     const totalSN = getCookie("total");
+    const cookies_available = false;
     if (totalSN != "") {
         document.getElementById("totalSN").value = totalSN;
+        cookies_available = true;
     }
 
     const delayBeforeStart = getCookie("delay");
@@ -426,6 +428,13 @@ function loadPrefs() {
         const speed_var_cookie = getCookie("speed_variance");
         if (!isConstantSpeed && speed_var_cookie != "") {
             speed_variation = parseFloat(speed_var_cookie);
+        }
+    }
+    // Don't show Google ads for second time visitors
+    if (cookies_available) {
+        const ad_elem = document.getElementsByClassName("ad-elem");
+        for (const elem of ad_elem) {
+            elem.hidden = true;
         }
     }
 }

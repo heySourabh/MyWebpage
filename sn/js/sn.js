@@ -394,7 +394,7 @@ function savePrefs() {
 
 function loadPrefs() {
     const totalSN = getCookie("total");
-    const cookies_available = false;
+    let cookies_available = false;
     if (totalSN != "") {
         document.getElementById("totalSN").value = totalSN;
         cookies_available = true;

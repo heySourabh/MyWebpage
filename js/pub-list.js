@@ -12,7 +12,7 @@ for (let i = 0; i < pubs.length; i++) {
     pubs[i].index = i + 1;
     let tooltip = pubs[i].getElementsByTagName("pub-tooltip");
     if (tooltip[0]) {
-        pubs[i].tooltip = tooltip[0].innerHTML;
+        pubs[i].tooltip = tooltip[0].innerHTML.trim();
     }
 
     // map id -> pub-li

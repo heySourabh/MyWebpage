@@ -1,10 +1,19 @@
+// Enable tooltips
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
+
 // Get all the items in the publication list
 let ol = document.getElementById("publication-list");
 let pubs = ol.getElementsByTagName("li");
 let pubs_map = new Map();
 
 for (let i = 0; i < pubs.length; i++) {
-    pubs[i].index = i + 1
+    pubs[i].index = i + 1;
+    let tooltip = pubs[i].getElementsByTagName("pub-tooltip");
+    if (tooltip[0]) {
+        pubs[i].tooltip = tooltip[0].innerHTML;
+    }
 
     // map id -> pub-li
     if (pubs[i].id) {
@@ -21,8 +30,8 @@ scrollToElem = (elem) => {
     history.pushState({}, "", new URL(window.location));
 
     window.scrollTo({
-      top: offsetPos,
-      behavior: "smooth"
+        top: offsetPos,
+        behavior: "smooth"
     });
 }
 
@@ -40,7 +49,17 @@ let citations = document.getElementsByTagName("cite");
 for (let citation of citations) {
     let cite_id = citation.innerText.trim();
     let pub = pubs_map.get(cite_id);
-    citation.innerHTML = `<a href="#${cite_id}">${pub.index}</a>`;
+    const citeAnchor = document.createElement("a");
+    citeAnchor.href = "#${cite_id}";
+    citeAnchor.innerText = `${pub.index}`;
+    if (pub.tooltip) {
+        citeAnchor.setAttribute("data-toggle", "tooltip");
+        citeAnchor.setAttribute("data-html", "true");
+        citeAnchor.setAttribute("title", `${pub.tooltip}`);
+    }
+
+    citation.replaceChildren(citeAnchor);
+
     citation.onclick = (e) => {
         e.preventDefault();
         scrollToElem(pub);

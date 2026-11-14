@@ -40,6 +40,14 @@
     <link href="css/resume.min.css" rel="stylesheet">
     <link href="css/form.css" rel="stylesheet">
 
+    <style>
+        pub-tooltip {
+            display: none;
+        }
+        .tooltip-inner {
+            max-width: 400px;
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -174,7 +182,7 @@
                             mechanics of
                             <strong>cement placement</strong> to <strong>well integrity</strong> study over the
                             lifetime of the production wells. Some of my work in the field is published
-                            [<cite>egc-2025-01</cite>-<cite>egc-2025-03</cite>] along with our collaborators and
+                            [<cite>egc-2025-01</cite>&ndash;<cite>egc-2025-03</cite>] along with our collaborators and
                             presented at the <a href="https://europeangeothermalcongress.eu" target="_blank">
                                 European Geothermal Congress 2025</a>.
                         </p>
@@ -197,7 +205,7 @@
                             Horizon 2020 <a href="https://eflows4hpc.eu/" target="_blank">eFlows4HPC project</a>.
                             The work is published in
                             <a href="https://doi.org/10.1016/j.cma.2024.117649" target="_blank">
-                                Computer Methods in Applied Mechanics and Engineering</a>.[<cite>cmame-2025</cite>]
+                                Computer Methods in Applied Mechanics and Engineering</a> [<cite>cmame-2025</cite>].
                             (<a href="https://inria.hal.science/hal-04851883/file/manuscript_mesh_clustering_ROM.pdf"
                                 target="_blank">preprint</a>)
                         </p>
@@ -285,7 +293,7 @@
                             Worked in organizing of AeSI national conference.
                         </p>
                         <p>
-                            Publications: [<cite>iac-2012a</cite> - <cite>gtc-2012</cite>]
+                            Publications: [<cite>iac-2012a</cite>&ndash;<cite>gtc-2012</cite>]
                         </p>
                     </div>
                     <div class="resume-date text-md-right">
@@ -582,8 +590,13 @@
             <div class="my-auto">
                 <h2 class="mb-3">Publications</h2>
                 <ol class="mb-3" id="publication-list">
+
                     <li id="jasr-2026">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Role of Resolution on Atmospheric Dynamics during Fani Cyclone in the Indian Subcontinent",
+                            <em>J. Atm. Sci. Res.</em> <strong>9</strong> (2026)
+                        </pub-tooltip>
                         B. V. Rathish Kumar, Vinay Kumar, Chitranjan Pandey
                         <strong>Bhat S. P.</strong>, Shainath Kalamkar and Bipin Kumar,
                         "Role of Resolution on Atmospheric Dynamics during Fani Cyclone in the Indian Subcontinent",
@@ -592,8 +605,13 @@
                         <a href="https://doi.org/10.30564/jasr.v9i3.13484" target="_blank"
                             rel="noopener noreferrer">https://doi.org/10.30564/jasr.v9i3.13484</a>
                     </li>
+
                     <li id="egc-2025-01">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Numerical analysis of foam cement placement and reverse pumping in geothermal wells",
+                            <em>European Geothermal Congress</em> (2025)
+                        </pub-tooltip>
                         <strong>Bhat S. P.</strong>, Bois A-P., Vu M-H.,<a
                             href="share/egc/02_egc_Numerical_analysis_of_foam_cement_placement_and_reverse_pumping_in_geothermal_wells.pdf"
                             target="_blank">
@@ -603,40 +621,67 @@
                             target="_blank">Conference </a>
                         <a href="share/egc/EGC-2025-Proceedings_Final.pdf" target="_blank">proceedings</a>
                     </li>
+
                     <li id="egc-2025-02">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Foam cement for super-hot geothermal wells",
+                            <em>European Geothermal Congress</em> (2025)
+                        </pub-tooltip>
                         Bouchair R., James S., Bouhours A., <strong>Bhat S. P.</strong>, Thonon T., Bois A-P.,
                         <a href="share/egc/01_egc_foam_cement_for_super-hot_geothermal_wells.pdf" target="_blank">
                             "Foam cement for super-hot geothermal wells"</a>,
                         <em>European Geothermal Congress</em>, October 2025, Zurich, Switzerland.
                     </li>
+
                     <li id="egc-2025-03">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Spillover Effects and Circularity within Deep Geothermal Well research",
+                            <em>European Geothermal Congress</em> (2025)
+                        </pub-tooltip>
                         <strong>Bhat S. P.</strong>, et.al,<a
                             href="share/egc/03_egc_Spillover_Effects_and_Circularity_within_Deep_Geothermal_Well_research.pdf"
                             target="_blank">
                             "Spillover Effects and Circularity within Deep Geothermal Well research"</a>,
                         <em>European Geothermal Congress</em>, October 2025, Zurich, Switzerland.
                     </li>
+
                     <li id="cmame-2025">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Error-based efficient parameter space partitioning for mesh adaptation and local reduced
+                            order models",
+                            <em>Comp. Meth. in App. Mech. & Eng.</em> <strong>435</strong> (2025)
+                        </pub-tooltip>
                         <strong>Bhat S. P.</strong>, Barral N. and Ricchiuto M.,
-                        "Error-based efficient parameter space partitioning for mesh
-                        adaptation and local reduced order models",
+                        "Error-based efficient parameter space partitioning for mesh adaptation and local reduced order
+                        models",
                         <em>Computer Methods in Applied Mechanics and Engineering</em>, 435, 117649, (2025).
                         <a href="https://doi.org/10.1016/j.cma.2024.117649" target="_blank"
                             rel="noopener noreferrer">https://doi.org/10.1016/j.cma.2024.117649</a>
                     </li>
+
                     <li id="caf-2022" style="word-wrap: break-word;">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "An improved HLLC-type solver for incompressible two-phase fluid flows",
+                            <em>Comp. & Fluids</em> <strong>244</strong> (2022)
+                        </pub-tooltip>
                         <strong>Bhat S. P.</strong> and Mandal J. C.,
                         "An improved HLLC-type solver for incompressible two-phase fluid flows",
                         <em>Computers & Fluids</em>, 244, 105570, (2022).
                         <a href="https://doi.org/10.1016/j.compfluid.2022.105570" target="_blank"
                             rel="noopener noreferrer">https://doi.org/10.1016/j.compfluid.2022.105570</a>
                     </li>
+
                     <li id="pof-2022">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Modeling and simulation of the potential indoor airborne transmission of SARS-CoV-2 virus
+                            through respiratory droplets",
+                            <em>Physics of Fluids</em> <strong>34</strong> (2022)
+                        </pub-tooltip>
                         <strong>Bhat S. P.</strong>, Kumar B. V. R., et.al.,
                         "Modeling and simulation of the potential indoor airborne transmission of SARS-CoV-2 virus
                         through respiratory droplets",
@@ -644,44 +689,75 @@
                         <a href="https://doi.org/10.1063/5.0085495"
                             target="_blank">https://doi.org/10.1063/5.0085495</a>
                     </li>
+
                     <li id="arxiv-2019">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Modified HLLC-VOF solver for incompressible two-phase fluid flows",
+                            <em>arXiv:1911.11234</em> (2020)
+                        </pub-tooltip>
                         <strong>Bhat, Sourabh</strong> and Mandal, J.C., "Modified HLLC-VOF solver for incompressible
                         two-phase fluid flows",
                         <a href="https://arxiv.org/abs/1911.11234" target="_blank">arXiv:1911.11234
                             [physics.comp-ph]</a>
                     </li>
+
                     <li id="jcp-2019">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Contact preserving Riemann solver for incompressible two-phase flows", <em>J. Comp.
+                                Phy.</em>
+                            <strong>379</strong> (2019)
+                        </pub-tooltip>
                         <strong>Bhat, Sourabh</strong> and Mandal, J.C., "Contact preserving Riemann solver for
                         incompressible two-phase flows", <em>Journal of Computational Physics</em> 379 (2019),
                         pp. 173-191,
                         <a href="https://doi.org/10.1016/j.jcp.2018.10.039"
                             target="_blank">doi.org/10.1016/j.jcp.2018.10.039</a>
                     </li>
+
                     <li id="ictacem-2017">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "On the order of accuracy analysis of SDWLS method",
+                            <em>ICTACEM</em> (2017)
+                        </pub-tooltip>
                         <strong>Bhat S P</strong>, Parameswaran S, Mandal J C,
                         <a href="share/ICTACEM_349_2017.pdf" target="_blank">
                             "On the order of accuracy analysis of SDWLS method"</a>,
                         <em>ICTACEM 2017</em>, December 2017, IIT Kharagpur, India.
                     </li>
+
                     <li id="cfd-symp-2017">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "Artificial Compressibility Based Method for Two-phase Surface Tension Dominated Flows",
+                            <em>Annual CFD Symposium</em> (2017)
+                        </pub-tooltip>
                         <strong>Bhat S P</strong>, Mandal J C, <a href="share/AeSI_2017.pdf" target="_blank">
                             "Artificial Compressibility Based Method for Two-phase Surface Tension Dominated Flows"</a>,
                         <em>Annual CFD Symposium 2017</em>, August 2017, NAL Bangalore,
                         India.
                     </li>
+
                     <li id="fmfp-2016">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "A Novel HLLC-Type Riemann Solver for Two-Phase Incompressible Flows",
+                            <em>Fluid Mech. Fluid Power</em> (2017)
+                        </pub-tooltip>
                         <strong>Bhat S P</strong>, Mandal J C, <a href="share/FMFP2016-Bhat_Mandal.pdf" target="_blank">
                             "A Novel HLLC-Type Riemann Solver for Two-Phase Incompressible Flows"</a>,
                         <em>Proceedings of 6th International & 43rd National Conference on Fluid
                             Mechanics and Fluid Power</em>, December 2016, Allahabad, India.
                     </li>
+
                     <li id="therma-comp-2016">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "A novel reinitialization technique to conserve mass and enhance accuracy in VOF method",
+                            <em>ThermaComp</em> (2016)
+                        </pub-tooltip>
                         <strong>Bhat S P</strong>, Mandal J C, <a href="share/Sourabh_ThermaComp2016.pdf"
                             target="_blank">
                             "A novel reinitialization technique to conserve mass and enhance accuracy in VOF
@@ -692,49 +768,73 @@
                             href="https://www.scopus.com/inward/record.uri?eid=2-s2.0-85053668366&partnerID=40&md5=c0555350568ed7fb80dcee0adb981595">
                             Issue 217349</a>, July 6-8, 2016, Georgia Tech, Atlanta, USA.
                     </li>
+
                     <li id="fmfp-2014">
                         <span class="ml-2"></span>
+                        <pub-tooltip>
+                            "A novel volume of fluid method for interface tracking",
+                            <em>Fluid Mech. Fluid Power</em> (2014)
+                        </pub-tooltip>
                         Mandal J C, Parsai A, Parameswaran S, <strong>Bhat S P</strong>,
                         <a href="share/Interface Tracking (FMFP conference - Dec 2014).pdf" target="_blank">
                             "A novel volume of fluid method for interface tracking"</a>,
                         <em>5th International and 41st National Conference on Fluid Mechanics and Fluid Power</em>,
                         December 12-14, 2014, Kanpur, India.
                     </li>
+
                     <li id="iac-2012a">
                         <span class="ml-2"></span>
-                        <strong>Bhat S.</strong>, Guven U., Yadav R., Sundarraj K., Sebastian L., Velidi G., "Effect of
-                        nose
-                        cavity on heat transfer rates to the surface of an aeroshell descending through the Martian
-                        atmosphere", <em>Proceedings of the International Astronautical Congress</em>, Naples, Italy,
+                        <pub-tooltip>
+                            "Heat transfer aeroshell descending through the Martian atmosphere",
+                            <em>International Astronautical Congress</em> (2012)
+                        </pub-tooltip>
+                        <strong>Bhat S.</strong>, Guven U., Yadav R., Sundarraj K., Sebastian L., Velidi G.,
+                        "Effect of nose cavity on heat transfer rates to the surface of an aeroshell descending through
+                        the Martian atmosphere", <em>Proceedings of the International Astronautical Congress</em>,
+                        Naples, Italy,
                         October 2012, IAC, 2, pp. 1430-1435.
                     </li>
+
                     <li id="iac-2012b">
                         <span class="ml-2"></span>
-                        Sundarraj K., Sebastian L., Yadav R., <strong>Bhat S.</strong>, Guven U., Velidi G., "Effect of
-                        nose
-                        cavity on the heat fluxes to reentry vehicle in titan's atmosphere", <em>Proceedings of the
-                            International Astronautical Congress</em>, Naples, Italy, October 2012, IAC, 3, pp.
+                        <pub-tooltip>
+                            "Effect of nose cavity on the heat fluxes to reentry vehicle in titan's atmosphere",
+                            <em>International Astronautical Congress</em> (2012)
+                        </pub-tooltip>
+                        Sundarraj K., Sebastian L., Yadav R., <strong>Bhat S.</strong>, Guven U., Velidi G.,
+                        "Effect of nose cavity on the heat fluxes to reentry vehicle in titan's atmosphere",
+                        <em>Proceedings of theInternational Astronautical Congress</em>,
+                        Naples, Italy, October 2012, IAC, 3, pp.
                         1782-1789.
                     </li>
+
                     <li id="gtc-2013">
                         <span class="ml-2"></span>
-                        <strong>Bhat S P</strong>, Sullerey R K, "An Assessment of Turbulence Models for S-Duct
-                        Diffusers
-                        With Flow Control", <em>ASME 2013 Gas Turbine India Conference</em>, Bangalore, India
-                        :V001T01A005.
+                        <pub-tooltip>
+                            "An Assessment of Turbulence Models for S-Duct Diffusers With Flow Control",
+                            <em>ASME Gas Turbine India Conference</em> (2013)
+                        </pub-tooltip>
+                        <strong>Bhat S P</strong>, Sullerey R K,
+                        "An Assessment of Turbulence Models for S-Duct Diffusers With Flow Control",
+                        <em>ASME 2013 Gas Turbine India Conference</em>, Bangalore, India :V001T01A005.
                         <a href="https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1838567"
-                            target="_blank">
-                            doi:10.1115/GTINDIA2013-3566</a>.
+                            target="_blank">doi:10.1115/GTINDIA2013-3566</a>.
                     </li>
+
                     <li id="gtc-2012">
                         <span class="ml-2"></span>
-                        Sullerey R K, <strong>Bhat S P</strong>, "Numerical Analysis of Flow in S-Duct Diffusers With
-                        and
-                        Without Flow Control", <em>ASME 2012 Gas Turbine India Conference</em>, Mumbai, India :79-84.
+                        <pub-tooltip>
+                            "Numerical Analysis of Flow in S-Duct Diffusers With and Without Flow Control",
+                            <em>ASME Gas Turbine India Conference</em> (2012)
+                        </pub-tooltip>
+                        Sullerey R K, <strong>Bhat S P</strong>,
+                        "Numerical Analysis of Flow in S-Duct Diffusers With and Without Flow Control",
+                        <em>ASME 2012 Gas Turbine India Conference</em>, Mumbai, India :79-84.
                         <a href="https://proceedings.asmedigitalcollection.asme.org/proceeding.aspx?articleid=1754533"
                             target="_blank">
                             doi:10.1115/GTINDIA2012-9541</a>.
                     </li>
+
                 </ol>
             </div>
         </section>
@@ -924,8 +1024,6 @@
         </section>
     </div>
 
-    <script src="js/pub-list.js"></script>
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -935,6 +1033,7 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/resume.min.js"></script>
+    <script src="js/pub-list.js"></script>
 
 </body>
 

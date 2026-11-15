@@ -3,7 +3,7 @@ name: Generate Sitemap
 on:
   push:
     branches:
-      - main  # Change to 'master' if your default branch is named master
+      - master
 
 permissions:
   contents: write

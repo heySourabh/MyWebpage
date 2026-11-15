@@ -1,0 +1,37 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main  # Change to 'master' if your default branch is named master
+
+permissions:
+  contents: write
+
+jobs:
+  build-sitemap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate sitemap.xml
+        run: |
+          BASE_URL="https://spbhat.in"
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://sitemaps.org">' >> sitemap.xml
+
+          find . -name "*.html" ! -name "404.html" | sort | while read -r file; do
+            clean_path=$(echo "$file" | sed 's|^\./||' | sed 's|index\.html$||')
+            echo "  <url><loc>${BASE_URL}/${clean_path}</loc></url>" >> sitemap.xml
+          done
+
+          echo '</urlset>' >> sitemap.xml
+
+      - name: Commit updated sitemap
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add sitemap.xml
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update sitemap.xml" && git push)
+

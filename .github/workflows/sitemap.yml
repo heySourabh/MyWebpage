@@ -21,7 +21,7 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
-          find . -name "*.html" ! -name "404.html" | sort | while read -r file; do
+          find . -type f -name "*.html" ! -name "404.html" -not -path '*/.*' | sort | while read -r file; do
             clean_path=$(echo "$file" | sed 's|^\./||' | sed 's|index\.html$||')
             echo "  <url><loc>${BASE_URL}/${clean_path}</loc></url>" >> sitemap.xml
           done
@@ -30,8 +30,7 @@ jobs:
 
       - name: Commit updated sitemap
         run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add sitemap.xml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update sitemap.xml" && git push)
-
+          git diff --staged --quiet || (git commit -m "Auto-update sitemap.xml [skip ci]" && git push)

@@ -19,7 +19,7 @@ jobs:
         run: |
           BASE_URL="https://spbhat.in"
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
-          echo '<urlset xmlns="http://sitemaps.org">' >> sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
           find . -name "*.html" ! -name "404.html" | sort | while read -r file; do
             clean_path=$(echo "$file" | sed 's|^\./||' | sed 's|index\.html$||')

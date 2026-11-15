@@ -1,282 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://spbhat.in/</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/sn/</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/about.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/22/centroid/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/15/volume/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/10/accuracy/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/06/28/tangent/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap02/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap03/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap04/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap05/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap06/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap07/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap08/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/22/centroid/assets/centroid.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/15/volume/assets/volume.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/12/10/accuracy/assets/accuracy.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/blogs/blogs/2019/06/28/tangent/assets/analytical.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/01/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q01.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/02/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q02.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/03/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q03.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/04/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q04.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/05/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q05.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/06/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q06.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/07/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q07.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/08/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q08.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/09/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q09.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/10/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q10.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/11/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q11.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/12/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q12.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/13/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q13.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/14/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q14.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/15/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q15.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/online/16/index.html</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://spbhat.in/cff/chap01/files/sol/q16.pdf</loc>
-  <lastmod>2025-08-04T16:14:33+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-
-
+<urlset xmlns="http://sitemaps.org">
+  <url><loc>https://spbhat.in/blogs/about.html</loc></url>
+  <url><loc>https://spbhat.in/blogs/accuracy/</loc></url>
+  <url><loc>https://spbhat.in/blogs/blogs/2019/06/28/tangent/</loc></url>
+  <url><loc>https://spbhat.in/blogs/blogs/2019/12/10/accuracy/</loc></url>
+  <url><loc>https://spbhat.in/blogs/blogs/2019/12/15/volume/</loc></url>
+  <url><loc>https://spbhat.in/blogs/blogs/2019/12/22/centroid/</loc></url>
+  <url><loc>https://spbhat.in/blogs/centroid/</loc></url>
+  <url><loc>https://spbhat.in/blogs/</loc></url>
+  <url><loc>https://spbhat.in/blogs/tangent/</loc></url>
+  <url><loc>https://spbhat.in/blogs/volume/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/01/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/02/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/03/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/04/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/05/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/06/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/07/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/08/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/09/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/10/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/11/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/12/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/13/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/14/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/15/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap01/online/16/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/01/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/02/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/03/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/04/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/05/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/06/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/07/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap02/online/08/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/01/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/02/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/03/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/04/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/05/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/06/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/07/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/08/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/09/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/10/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/11/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/12/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/13/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/14/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/15/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/16/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap03/online/17/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap04/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap05/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap06/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap07/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap08/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap09/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap10/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap11/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap12/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap13/</loc></url>
+  <url><loc>https://spbhat.in/cff/chap14/</loc></url>
+  <url><loc>https://spbhat.in/cff/feedback/</loc></url>
+  <url><loc>https://spbhat.in/cff/</loc></url>
+  <url><loc>https://spbhat.in/google752263f95d95b030.html</loc></url>
+  <url><loc>https://spbhat.in/googlef395dc0a687ec845.html</loc></url>
+  <url><loc>https://spbhat.in/</loc></url>
+  <url><loc>https://spbhat.in/publications.html</loc></url>
+  <url><loc>https://spbhat.in/sn/</loc></url>
+  <url><loc>https://spbhat.in/solver/</loc></url>
+  <url><loc>https://spbhat.in/tools/atm-cal/</loc></url>
+  <url><loc>https://spbhat.in/tools/tangentcalc/</loc></url>
+  <url><loc>https://spbhat.in/tools/tangentcalc/tangent_angle.html</loc></url>
+  <url><loc>https://spbhat.in/tools/units/</loc></url>
 </urlset>
